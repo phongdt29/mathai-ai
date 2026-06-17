@@ -1,0 +1,10 @@
+{
+  "name": "mathai-ui-review",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright-based UI review harness for MathAI (isolated from workspace root)",
+  "dependencies": {
+    "playwright": "^1.49.0",
+    "mongodb-memory-server": "^10.1.2"
+  }
+}

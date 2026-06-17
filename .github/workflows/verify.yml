@@ -1,0 +1,51 @@
+name: verify
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - feat/phase-6-deploy-safety
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify MathAI release gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Backend tests and build
+        run: npm run verify:backend
+
+      - name: Frontend release gate
+        env:
+          NEXT_PUBLIC_API_URL: https://api.example.com
+        run: npm run verify:frontend
+
+      - name: Backup and deployment checklist tests
+        run: npm run test:backup-plan
+
+      - name: Deployment verification dry-run
+        env:
+          EXPECTED_BRANCH: ${{ github.head_ref || github.ref_name }}
+        run: npm run deploy:verify -- --expected-branch=${EXPECTED_BRANCH}

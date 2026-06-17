@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-label="Phương trình bậc hai ax² + bx + c = 0 với a khác 0">
+  <rect width="320" height="220" fill="#faf5ff"/>
+  <rect x="36" y="60" width="248" height="86" rx="14" fill="#ffffff" stroke="#c4b5fd" stroke-width="2"/>
+  <text x="160" y="104" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-style="italic" fill="#6d28d9">ax² + bx + c = 0</text>
+  <text x="160" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#7c3aed">(a ≠ 0)</text>
+  <text x="160" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#5b21b6">Tìm nghiệm x</text>
+</svg>

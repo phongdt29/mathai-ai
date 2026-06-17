@@ -1,0 +1,188 @@
+================================================================================
+EMOJI USAGE ANALYSIS - MATHAI FRONTEND
+================================================================================
+
+PROJECT SCOPE
+=============
+Total Files Scanned: 32 TSX files
+Files with Emojis: 32 (100%)
+Total Emoji Count: 344 occurrences
+Unique Emojis: 56+ different symbols
+Hotspot File: assessment/page.tsx (47 emojis)
+
+================================================================================
+TOP 20 FILES BY EMOJI DENSITY
+================================================================================
+
+RANK  FILE                                           COUNT  UNIQUE  TYPE
+----  ------------------------------------------------ -----  ------  ----
+1     dashboard/assessment/page.tsx                   47     16     Quiz/Feedback
+2     dashboard/progress/page.tsx                     29     20     Progress Tracking
+3     dashboard/page.tsx                              24     19     Main Dashboard
+4     dashboard/solver/page.tsx                       21     14     Math Solver
+5     dashboard/settings/page.tsx                     20     16     Settings
+6     dashboard/lessons/page.tsx                      19     17     Lesson List
+7     dashboard/layout.tsx                            15     10     Navigation
+8     app/page.tsx (landing)                          13     11     Landing Page
+9     admin/layout.tsx                                13     12     Admin Nav
+10    dashboard/curriculum/page.tsx                   11     9      Curriculum
+11    dashboard/lessons/[id]/page.tsx                 10     9      Lesson Detail
+12    auth/login/page.tsx                             10     7      Demo Accounts
+13    parent/layout.tsx                               8      8      Parent Nav
+14    parent/notifications/page.tsx                   7      6      Notifications
+15    admin/activity/page.tsx                         7      7      Activity
+16    admin/page.tsx                                  5      5      Admin Dashboard
+17    dashboard/chat/page.tsx                         3      3      Chat
+18    parent/page.tsx                                 2      2      Parent Home
+19    parent/settings/page.tsx                        2      2      Parent Settings
+20    admin/reports/page.tsx                          2      2      Reports
+
+================================================================================
+EMOJI USAGE PATTERNS
+================================================================================
+
+PATTERN 1: DATA ARRAY CONFIGURATION (Static)
+--------------------------------------------
+Files: login/page.tsx, dashboard/page.tsx, admin/page.tsx, lessons/page.tsx
+Usage: Emojis defined in data structures, rendered conditionally
+Example:
+  const demoAccounts = [
+    { role: 'Admin', emoji: '🔑', ... },
+    { role: 'Giáo viên', emoji: '👩‍🏫', ... },
+  ];
+Impact: CAN BE BULK REPLACED via data-level update
+Priority: MEDIUM (easy to automate)
+
+PATTERN 2: INLINE JSX FEEDBACK TEXT (Dynamic)
+---------------------------------------------
+Files: assessment/page.tsx (PRIMARY), progress/page.tsx
+Usage: Emojis in conditional messages/congratulations
+Example:
+  {theme.showEmojis ? 'Chào mừng 🎉🚀!' : 'Chào mừng!'}
+  {percentage >= 80 ? '🏆🌟🎉' : '👏🌈💪'}
+Impact: Scattered across code, grammar-dependent
+Priority: HIGH (context-sensitive replacement)
+
+PATTERN 3: VISUAL ICON REPLACEMENT (Badges)
+-------------------------------------------
+Files: dashboard/page.tsx, assessment/page.tsx, progress/page.tsx
+Usage: Emoji rendered in styled container as icon
+Example:
+  <span className="text-3xl mb-2">{action.emoji}</span>
+Impact: Direct 1:1 lucide-react replacement possible
+Priority: MEDIUM (visual consistency)
+
+PATTERN 4: AGE-BASED CONDITIONAL DISPLAY
+-----------------------------------------
+Context: AgeThemeContext.tsx lines 37, 70, 97, 124
+Elementary (grades 1-5): showEmojis=true, showAnimations=true → FULL EMOJI
+Middle (grades 6-9):     showEmojis=true, showAnimations=true → REDUCED EMOJI
+High School (10-12):     showEmojis=false, showAnimations=false → NO EMOJI
+Impact: Framework already supports emoji toggle!
+Priority: LOW (extend for lucide icon toggle)
+
+PATTERN 5: ANIMATION + EMOJI (Mascot & Celebration)
+---------------------------------------------------
+Files: dashboard/page.tsx (line 176), assessment/page.tsx (lines 87-94)
+Usage: Emoji with CSS animation classes
+Example:
+  <span className="animate-bounce text-6xl">🚀</span>
+Impact: Replace emoji with SVG or lucide icon + animation
+Priority: MEDIUM (visual polish)
+
+================================================================================
+EMOJI-TO-LUCIDE REPLACEMENT MAP
+================================================================================
+
+EDUCATION & ACHIEVEMENT (18)
+---
+🎯 → Target         📊 → BarChart3       🏆 → Trophy          📚 → BookOpen
+🗺️ → MapPin        💡 → Lightbulb       ✅ → Check           ⭐ → Star
+🔥 → Flame         📐 → Triangle        📏 → Ruler           📈 → TrendingUp
+⭕ → Circle        🏅 → Medal           ✏️ → Pencil          📝 → FileText
+🧮 → Calculator    🤖 → Bot
+
+USER & ROLE (7)
+---
+🔑 → Key           👩 → User2           👨 → User            🎒 → Backpack
+👥 → Users         🟢 → Circle*         👨‍👩‍👧 → Users
+
+FEEDBACK & EMOTION (16)
+---
+💪 → Zap           ⚡ → Zap             🧠 → Brain           🦊 → AlertCircle*
+🌱 → Sprout        🌿 → Leaf            🍀 → Leaf            👍 → ThumbsUp
+😀 → Smile         🙂 → Smile           😍 → Heart           👌 → Check
+❌ → X             🌈 → (NO DIRECT)*    👏 → Award           🍎 → Apple
+
+CELEBRATION & MISC (15)
+---
+🎉 → PartyPopper*  ✨ → Sparkles        🚀 → Rocket          🌟 → Sparkles
+💝 → Heart         🎁 → Gift            🎈 → (NO DIRECT)*    🎂 → (NO DIRECT)*
+🔔 → Bell          💬 → MessageSquare   💎 → Diamond         ⏱ → Clock
+🎵 → Music         (and 3+ others)
+
+*: May require custom SVG or color overlay
+TOTAL: 56+ unique emojis across 4 categories
+
+================================================================================
+CRITICAL FINDINGS
+================================================================================
+
+FINDING #1: ASSESSMENT PAGE IS EMOJI-BOMB (47 EMOJIS)
+------
+Location: app/(dashboard)/dashboard/assessment/page.tsx
+Lines: 18, 24, 88, 92, 93, 97, 120, 125, 132, 135, 149, 152, 171, 175, 182, 210, 223
+
+Hotspots:
+  Lines 29-43: Feedback messages (function returns with emojis)
+    - "🎉🌟 Giỏi lắm!" (elementary)
+    - "❌ Sai rồi!" (middle)
+    - "✓ Chính xác." (high school)
+  
+  Lines 87-94: Result celebrations (complex conditionals)
+    - {percentage >= 80 ? '🎊🎊🎊' : '🌈🌈🌈'}
+    - {isElementary ? ... : !isHigh ? ... : ''}
+  
+  Lines 209-211: Option indicators per question (3x per option)
+    - Elementary: 🍎 🌟 🎈 🦋
+    - High school: A B C D
+  
+Recommendation: Replace with utility function that maps to icons based on theme
+
+FINDING #2: DATA ARRAYS ARE CONFIGURABLE (120+ EMOJIS)
+------
+Files affected: 12 files (login, dashboard, lessons, progress, etc.)
+Pattern: const stats = [{ emoji: '📚', ... }]
+Easy fix: Create EMOJI_TO_ICON mapper function
+
+FINDING #3: LANDING PAGE HAS FEATURE CARDS WITH EMOJIS
+------
+File: app/page.tsx (lines 1-44)
+Count: 13 emojis in features array:
+  🎯 🗺️ 💡 📊 🤖 🏆 + more
+Status: Easy to refactor (all in data array)
+
+FINDING #4: LOGIN PAGE USES EMOJI FOR ROLE IDENTIFICATION
+------
+File: auth/login/page.tsx (lines 6-10)
+Count: 4 emojis for demo accounts
+  🔑 (Admin), 👩‍🏫 (Teacher), 🎒 (Student), 👨‍👩‍👧 (Parent)
+Context: Visual affordance in demo account selector
+Issue: Compound emoji 👩‍🏫 may not work in all browsers
+
+FINDING #5: AGE THEME CONTEXT ALREADY HAS EMOJI TOGGLE
+------
+File: src/contexts/AgeThemeContext.tsx
+Property: showEmojis (boolean, per age group)
+Lines: 37, 70, 97, 124
+Current usage:
+  {theme.showEmojis ? stat.emoji : ''}
+Opportunity: Extend to showIcons property + icon mapping
+
+================================================================================
+ACTIONABLE RECOMMENDATIONS
+================================================================================
+
+TIER 1 - HIGH IMPACT (Assessment page, 47 emojis)
+---
+ACTION: Replace feedback 

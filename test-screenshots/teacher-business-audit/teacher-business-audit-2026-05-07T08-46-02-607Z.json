@@ -1,0 +1,470 @@
+{
+  "runId": "2026-05-07T08-46-02-607Z",
+  "apiBase": "http://localhost:3001/api",
+  "webBase": "http://localhost:3444",
+  "startedAt": "2026-05-07T08:46:02.608Z",
+  "seeded": {
+    "classId": "69fc002c9f998e8ddff6b32a",
+    "curriculumTemplateId": "69fc0a0fea7bd7fefb462d5e",
+    "lessonTemplateId": "69fc0a0fea7bd7fefb462d60",
+    "assignmentId": "69fc0a0fea7bd7fefb462d63"
+  },
+  "summary": {
+    "pass": 0,
+    "fail": 36,
+    "warn": 0,
+    "skip": 19
+  },
+  "workflows": {
+    "Auth/Profile/RBAC/Scope": {
+      "pass": 0,
+      "fail": 24,
+      "warn": 0,
+      "skip": 5
+    },
+    "Dashboard/Classes/Students": {
+      "pass": 0,
+      "fail": 4,
+      "warn": 0,
+      "skip": 2
+    },
+    "Proposals workflow": {
+      "pass": 0,
+      "fail": 2,
+      "warn": 0,
+      "skip": 1
+    },
+    "Runtime health": {
+      "pass": 0,
+      "fail": 0,
+      "warn": 0,
+      "skip": 1
+    },
+    "Content-library workflow": {
+      "pass": 0,
+      "fail": 6,
+      "warn": 0,
+      "skip": 1
+    },
+    "UI/Puppeteer workflow": {
+      "pass": 0,
+      "fail": 0,
+      "warn": 0,
+      "skip": 9
+    }
+  },
+  "checks": [
+    {
+      "name": "Backend API health /auth/me unauthorized",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/auth/me",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:328:3)"
+    },
+    {
+      "name": "Auth login admin",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/auth/login",
+      "method": "POST",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async login (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:139:15)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:331:18)"
+    },
+    {
+      "name": "Auth token present admin",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "note": "Không tìm thấy token trong response login"
+    },
+    {
+      "name": "Auth login teacher",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/auth/login",
+      "method": "POST",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async login (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:139:15)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:331:18)"
+    },
+    {
+      "name": "Auth token present teacher",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "note": "Không tìm thấy token trong response login"
+    },
+    {
+      "name": "Auth login student",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/auth/login",
+      "method": "POST",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async login (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:139:15)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:331:18)"
+    },
+    {
+      "name": "Auth token present student",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "note": "Không tìm thấy token trong response login"
+    },
+    {
+      "name": "Auth login parent",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/auth/login",
+      "method": "POST",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async login (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:139:15)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:331:18)"
+    },
+    {
+      "name": "Auth token present parent",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "note": "Không tìm thấy token trong response login"
+    },
+    {
+      "name": "RBAC teacher forbidden admin stats",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/admin/stats",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:336:3)"
+    },
+    {
+      "name": "RBAC teacher forbidden parent children",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/parent/children",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:337:3)"
+    },
+    {
+      "name": "RBAC teacher forbidden student dashboard",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/dashboard/stats",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:338:3)"
+    },
+    {
+      "name": "RBAC student forbidden teacher dashboard",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/teacher/dashboard",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:339:3)"
+    },
+    {
+      "name": "RBAC parent forbidden teacher classes",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/teacher/classes",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:340:3)"
+    },
+    {
+      "name": "RBAC unauth teacher dashboard rejected",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/teacher/dashboard",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:341:3)"
+    },
+    {
+      "name": "Teacher dashboard",
+      "workflow": "Dashboard/Classes/Students",
+      "status": "fail",
+      "endpoint": "/teacher/dashboard",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:343:23)"
+    },
+    {
+      "name": "Teacher classes list",
+      "workflow": "Dashboard/Classes/Students",
+      "status": "fail",
+      "endpoint": "/teacher/classes",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:344:26)"
+    },
+    {
+      "name": "Teacher students list",
+      "workflow": "Dashboard/Classes/Students",
+      "status": "fail",
+      "endpoint": "/teacher/students",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:345:27)"
+    },
+    {
+      "name": "Teacher assignments list",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/teacher/assignments",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:346:30)"
+    },
+    {
+      "name": "Teacher analytics",
+      "workflow": "Dashboard/Classes/Students",
+      "status": "fail",
+      "endpoint": "/teacher/analytics",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:347:3)"
+    },
+    {
+      "name": "Teacher proposals list",
+      "workflow": "Proposals workflow",
+      "status": "fail",
+      "endpoint": "/teacher/proposals",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:348:3)"
+    },
+    {
+      "name": "Teacher proposals pending filter",
+      "workflow": "Proposals workflow",
+      "status": "fail",
+      "endpoint": "/teacher/proposals?status=pending",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:349:3)"
+    },
+    {
+      "name": "Teacher scope denies unknown class detail",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/teacher/classes/507f1f77bcf86cd799439098",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:350:3)"
+    },
+    {
+      "name": "Teacher scope denies unknown class students",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/teacher/classes/507f1f77bcf86cd799439098/students",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:351:3)"
+    },
+    {
+      "name": "Teacher assignments unknown class filter denied",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/teacher/assignments?class_id=507f1f77bcf86cd799439098",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:352:3)"
+    },
+    {
+      "name": "Teacher class dependent workflows",
+      "workflow": "Runtime health",
+      "status": "skip",
+      "note": "Teacher không có class seed"
+    },
+    {
+      "name": "Teacher gradebook unknown class denied",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/teacher/classes/507f1f77bcf86cd799439098/gradebook",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:414:3)"
+    },
+    {
+      "name": "Teacher gradebook unknown student denied/empty",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/teacher/gradebook?student_id=507f1f77bcf86cd799439099",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:415:3)"
+    },
+    {
+      "name": "Content library teacher curriculum templates list",
+      "workflow": "Content-library workflow",
+      "status": "fail",
+      "endpoint": "/content-library/curriculum-templates?limit=20",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:417:21)"
+    },
+    {
+      "name": "Content library teacher lesson templates list",
+      "workflow": "Content-library workflow",
+      "status": "fail",
+      "endpoint": "/content-library/lesson-templates?limit=20",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:418:19)"
+    },
+    {
+      "name": "Content library teacher own draft curriculum list",
+      "workflow": "Content-library workflow",
+      "status": "fail",
+      "endpoint": "/content-library/curriculum-templates?own=true&status=draft&limit=20",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:419:3)"
+    },
+    {
+      "name": "Content library teacher own draft lesson list",
+      "workflow": "Content-library workflow",
+      "status": "fail",
+      "endpoint": "/content-library/lesson-templates?own=true&status=draft&limit=20",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:420:3)"
+    },
+    {
+      "name": "Content library seeded curriculum detail teacher",
+      "workflow": "Content-library workflow",
+      "status": "fail",
+      "endpoint": "/content-library/curriculum-templates/69fc0a0fea7bd7fefb462d5e",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:421:3)"
+    },
+    {
+      "name": "Content library seeded lesson detail teacher",
+      "workflow": "Content-library workflow",
+      "status": "fail",
+      "endpoint": "/content-library/lesson-templates/69fc0a0fea7bd7fefb462d60",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:422:3)"
+    },
+    {
+      "name": "Content library seeded assignment detail teacher/admin scoped",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/content-library/assignments/69fc0a0fea7bd7fefb462d63",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:423:3)"
+    },
+    {
+      "name": "Content library lesson detail/update/publish",
+      "workflow": "Content-library workflow",
+      "status": "skip",
+      "note": "Không có lesson template"
+    },
+    {
+      "name": "Content assignment marker workflow",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "skip",
+      "note": "Thiếu class hoặc lesson template"
+    },
+    {
+      "name": "Content library student forbidden assignments",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/content-library/assignments",
+      "method": "GET",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:453:3)"
+    },
+    {
+      "name": "Content library teacher unknown target assignment denied",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "fail",
+      "endpoint": "/content-library/assignments",
+      "method": "POST",
+      "error": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:16416:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async request (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:20)\n    at async apiCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:115:20)\n    at async main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:454:3)"
+    },
+    {
+      "name": "UI snapshot teacher /teacher",
+      "workflow": "UI/Puppeteer workflow",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/classes",
+      "workflow": "Dashboard/Classes/Students",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/students",
+      "workflow": "Dashboard/Classes/Students",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/assignments",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/content-library",
+      "workflow": "UI/Puppeteer workflow",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/content-library/curricula/new",
+      "workflow": "UI/Puppeteer workflow",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/content-library/curricula/69fc0a0fea7bd7fefb462d5e",
+      "workflow": "UI/Puppeteer workflow",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/content-library/lessons/new",
+      "workflow": "UI/Puppeteer workflow",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/content-library/lessons/69fc0a0fea7bd7fefb462d60",
+      "workflow": "UI/Puppeteer workflow",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/content-library/lessons/69fc0a0fea7bd7fefb462d60/edit",
+      "workflow": "UI/Puppeteer workflow",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/content-library/lessons/69fc0a0fea7bd7fefb462d60/stats",
+      "workflow": "UI/Puppeteer workflow",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/content-library/assignments/69fc0a0fea7bd7fefb462d63",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/content-library/assignments/69fc0a0fea7bd7fefb462d63/edit",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/content-library/assignments/69fc0a0fea7bd7fefb462d63/stats",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/proposals",
+      "workflow": "Proposals workflow",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    },
+    {
+      "name": "UI snapshot teacher /teacher/settings",
+      "workflow": "UI/Puppeteer workflow",
+      "status": "skip",
+      "note": "Puppeteer không có trong node_modules"
+    }
+  ],
+  "artifacts": [],
+  "createdMarkers": [],
+  "diagnostics": {
+    "consideredSources": [
+      "RBAC middleware hoặc scoped authorization sai vai trò teacher",
+      "Teacher service thiếu kiểm tra own class/student/assignment scope",
+      "Workflow assignment thiếu endpoint detail/submission hoặc dữ liệu seeded không khớp",
+      "Gradebook không được upsert sau gradeSubmission hoặc filter class/student sai",
+      "Content-library teacher permission/proposal/publish rule sai",
+      "Frontend teacher route dùng sai localStorage/auth hoặc API client path",
+      "UI route render lỗi, network 4xx/5xx, console error, loading stuck, mojibake hoặc overflow"
+    ],
+    "mostLikelyIfFailure": [
+      "Frontend teacher route/API integration hoặc route chưa tồn tại gây UI/network fail",
+      "Backend teacher workflow thiếu direct endpoint/detail hoặc scoped permission chưa khớp business workflow"
+    ]
+  },
+  "finishedAt": "2026-05-07T08:46:02.978Z"
+}

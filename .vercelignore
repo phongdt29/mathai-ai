@@ -1,0 +1,29 @@
+# Dependencies
+node_modules
+packages/backend/node_modules
+packages/frontend/node_modules
+
+# Build outputs
+packages/backend/dist
+packages/frontend/.next
+
+# Dev/test files
+.opencode
+.kiro
+.kilo
+.beads
+.git
+test-screenshots
+.playwright-mcp
+scripts/ui-review/node_modules
+
+# Large files
+*.db
+*.db-wal
+*.db-shm
+*.db.corrupt*
+*.xlsx
+
+# Temp files
+tmp-*
+ddg*.html

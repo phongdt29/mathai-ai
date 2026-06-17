@@ -1,0 +1,60 @@
+{
+  "gate": "teacher-staff-ui-source-contracts",
+  "status": "passed",
+  "generated_at": "2026-05-12T16:31:07.282Z",
+  "evidence_kind": "deterministic-source-level-audit",
+  "source_contracts": [
+    {
+      "name": "staff-admin-nav-uses-allowlist",
+      "file": "packages/frontend/src/app/(admin)/layout.tsx",
+      "status": "passed",
+      "missing_patterns": [],
+      "forbidden_patterns_present": []
+    },
+    {
+      "name": "staff-admin-nav-explicitly-denies-admin-only-routes",
+      "file": "packages/frontend/src/app/(admin)/layout.tsx",
+      "status": "passed",
+      "missing_patterns": [],
+      "forbidden_patterns_present": []
+    },
+    {
+      "name": "staff-user-status-actions-remain-read-only",
+      "file": "packages/frontend/src/app/(admin)/admin/users/page.tsx",
+      "status": "passed",
+      "missing_patterns": [],
+      "forbidden_patterns_present": []
+    },
+    {
+      "name": "staff-teacher-lifecycle-actions-are-hidden",
+      "file": "packages/frontend/src/app/(admin)/admin/teachers/page.tsx",
+      "status": "passed",
+      "missing_patterns": [],
+      "forbidden_patterns_present": []
+    },
+    {
+      "name": "teacher-settings-profile-is-read-only-without-fake-save",
+      "file": "packages/frontend/src/app/(teacher)/teacher/settings/page.tsx",
+      "status": "passed",
+      "missing_patterns": [],
+      "forbidden_patterns_present": []
+    },
+    {
+      "name": "backend-staff-restricted-routes-cover-hidden-staff-nav-actions",
+      "file": "packages/backend/src/routes/admin.routes.ts",
+      "status": "passed",
+      "missing_patterns": [],
+      "forbidden_patterns_present": []
+    }
+  ],
+  "browser_snapshot_evidence": {
+    "status": "unavailable",
+    "reason": "No Puppeteer/Playwright dependency is installed or required for this gate; screenshots are not captured or claimed.",
+    "screenshots_captured": false,
+    "artifacts": []
+  },
+  "sanitization": {
+    "contains_secrets": false,
+    "redaction_policy": "Manifest contains only repo-relative source file paths, contract names, and regex summaries; no tokens, cookies, screenshots, user data, or environment values."
+  }
+}

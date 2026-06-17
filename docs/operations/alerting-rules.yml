@@ -1,0 +1,266 @@
+# MathAI Alerting Rules — Prometheus Alerting Format
+# Validates: Requirements 13.6
+#
+# These rules are designed for Prometheus Alertmanager.
+# Metrics are scraped from GET /metrics (prom-client) on the backend.
+# Timezone context: Asia/Ho_Chi_Minh (ICT, UTC+7)
+#
+# Available metrics from packages/backend/src/middleware/metrics.ts:
+#   - http_request_duration_seconds (histogram: method, route, status_code)
+#   - http_requests_total (counter: method, route, status_code)
+#   - notification_delivery_total (counter: channel, status)
+#   - payment_intent_total (counter: gateway, status)
+#   - scheduled_job_duration_seconds (histogram: job_name)
+#   - scheduled_job_last_run_at (gauge: job_name)
+#   - active_engagement_sessions (gauge)
+#   - Default node.js metrics (process_*, nodejs_*)
+
+groups:
+  # ─────────────────────────────────────────────────────────────────────
+  # Group 1: HTTP Error Rate
+  # ─────────────────────────────────────────────────────────────────────
+  - name: mathai.http
+    rules:
+      - alert: HttpServerErrorRateWarning
+        expr: |
+          (
+            sum(rate(http_requests_total{status_code=~"5.."}[5m]))
+            /
+            sum(rate(http_requests_total[5m]))
+          ) > 0.01
+        for: 5m
+        labels:
+          severity: warning
+          team: backend
+          service: mathai-api
+        annotations:
+          summary: "HTTP 5xx error rate above 1%"
+          description: >-
+            HTTP 5xx error rate is {{ $value | humanizePercentage }} over the
+            last 5 minutes (threshold: 1%). Investigate application logs and
+            recent deployments.
+          runbook_url: "https://github.com/mathai/docs/operations/alerting-rules.md#http-5xx-error-rate"
+
+      - alert: HttpServerErrorRateCritical
+        expr: |
+          (
+            sum(rate(http_requests_total{status_code=~"5.."}[5m]))
+            /
+            sum(rate(http_requests_total[5m]))
+          ) > 0.05
+        for: 5m
+        labels:
+          severity: critical
+          team: backend
+          service: mathai-api
+        annotations:
+          summary: "HTTP 5xx error rate above 5% — CRITICAL"
+          description: >-
+            HTTP 5xx error rate is {{ $value | humanizePercentage }} over the
+            last 5 minutes (threshold: 5%). Immediate investigation required.
+            Check MongoDB connectivity, external service dependencies, and
+            recent code changes.
+          runbook_url: "https://github.com/mathai/docs/operations/alerting-rules.md#http-5xx-error-rate"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # Group 2: HTTP Latency
+  # ─────────────────────────────────────────────────────────────────────
+  - name: mathai.latency
+    rules:
+      - alert: HttpP95LatencyWarning
+        expr: |
+          histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[10m])) by (le))
+          > 1.5
+        for: 10m
+        labels:
+          severity: warning
+          team: backend
+          service: mathai-api
+        annotations:
+          summary: "HTTP p95 latency above 1500ms"
+          description: >-
+            The 95th percentile HTTP response time is {{ $value | humanizeDuration }}
+            over the last 10 minutes (threshold: 1500ms). Check for slow queries,
+            external API timeouts, or resource exhaustion.
+          runbook_url: "https://github.com/mathai/docs/operations/alerting-rules.md#http-p95-latency"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # Group 3: Database
+  # ─────────────────────────────────────────────────────────────────────
+  - name: mathai.database
+    rules:
+      - alert: MongoDbConnectionFailuresCritical
+        expr: |
+          sum(rate(http_requests_total{status_code="503", route=~".*"}[1m])) > 5
+          or
+          increase(mongodb_connection_failures_total[1m]) > 5
+        for: 1m
+        labels:
+          severity: critical
+          team: backend
+          service: mathai-database
+        annotations:
+          summary: "MongoDB connection failures exceed 5/min — CRITICAL"
+          description: >-
+            More than 5 MongoDB connection failures detected in the last minute.
+            Check MongoDB Atlas cluster health, network connectivity, and
+            connection pool saturation.
+          runbook_url: "https://github.com/mathai/docs/operations/alerting-rules.md#mongodb-connection-failures"
+
+      - alert: DbFreeDiskSpaceWarning
+        expr: |
+          (node_filesystem_avail_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"}) < 0.20
+        for: 5m
+        labels:
+          severity: warning
+          team: infrastructure
+          service: mathai-database
+        annotations:
+          summary: "Database disk space below 20%"
+          description: >-
+            Free disk space is {{ $value | humanizePercentage }} (threshold: 20%).
+            Consider cleaning up old data, expanding storage, or verifying
+            OCR cleanup cron is running.
+          runbook_url: "https://github.com/mathai/docs/operations/alerting-rules.md#disk-space"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # Group 4: Notifications
+  # ─────────────────────────────────────────────────────────────────────
+  - name: mathai.notifications
+    rules:
+      - alert: NotificationDeliveryFailureRateWarning
+        expr: |
+          (
+            sum(rate(notification_delivery_total{status="failed"}[15m]))
+            /
+            sum(rate(notification_delivery_total[15m]))
+          ) > 0.10
+        for: 15m
+        labels:
+          severity: warning
+          team: backend
+          service: mathai-notifications
+        annotations:
+          summary: "Notification delivery failure rate above 10%"
+          description: >-
+            Notification delivery failure rate is {{ $value | humanizePercentage }}
+            over the last 15 minutes (threshold: 10%). Check email/SMS/push
+            provider status and API keys.
+          runbook_url: "https://github.com/mathai/docs/operations/alerting-rules.md#notification-delivery-failure"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # Group 5: Payment & Webhooks
+  # ─────────────────────────────────────────────────────────────────────
+  - name: mathai.payments
+    rules:
+      - alert: WebhookSignatureInvalidCritical
+        expr: |
+          sum(increase(payment_intent_total{status="signature_invalid"}[10m])) > 5
+        for: 1m
+        labels:
+          severity: critical
+          team: backend
+          service: mathai-payments
+        annotations:
+          summary: "Payment webhook signature invalid >5 in 10min — CRITICAL"
+          description: >-
+            More than 5 payment webhook requests with invalid signatures in the
+            last 10 minutes. This may indicate a replay attack or misconfigured
+            payment gateway secrets. Verify VNPAY/MOMO hash secrets immediately.
+          runbook_url: "https://github.com/mathai/docs/operations/alerting-rules.md#webhook-signature-invalid"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # Group 6: Scheduler / Cron Jobs
+  # ─────────────────────────────────────────────────────────────────────
+  - name: mathai.scheduler
+    rules:
+      - alert: CronJobMissedRunWarning
+        expr: |
+          (time() - scheduled_job_last_run_at) > (scheduled_job_expected_interval_seconds * 1.5)
+        for: 5m
+        labels:
+          severity: warning
+          team: backend
+          service: mathai-scheduler
+        annotations:
+          summary: "Cron job {{ $labels.job_name }} missed expected run"
+          description: >-
+            Job {{ $labels.job_name }} last ran {{ $value | humanizeDuration }} ago,
+            which exceeds 1.5× its expected interval. Check worker process health
+            and scheduler lock status.
+          runbook_url: "https://github.com/mathai/docs/operations/alerting-rules.md#cron-job-missed"
+
+      # Fallback rule using fixed intervals for known jobs
+      - alert: CronAttendanceJobMissed
+        expr: |
+          (time() - scheduled_job_last_run_at{job_name="attendance.mark_pending_absences"}) > 900
+        for: 5m
+        labels:
+          severity: warning
+          team: backend
+          service: mathai-scheduler
+        annotations:
+          summary: "Attendance mark_pending_absences job missed (>15min)"
+          description: >-
+            The attendance.mark_pending_absences job has not run in over 15 minutes
+            (expected every 10 minutes). Check worker process status.
+
+      - alert: CronRiskComputeJobMissed
+        expr: |
+          (time() - scheduled_job_last_run_at{job_name="risk.compute_daily"}) > 129600
+        for: 5m
+        labels:
+          severity: warning
+          team: backend
+          service: mathai-scheduler
+        annotations:
+          summary: "Daily risk compute job missed (>36h since last run)"
+          description: >-
+            The risk.compute_daily job has not run in over 36 hours
+            (expected daily at 03:00 ICT). Check worker process and cron config.
+
+  # ─────────────────────────────────────────────────────────────────────
+  # Group 7: AI Provider
+  # ─────────────────────────────────────────────────────────────────────
+  - name: mathai.ai
+    rules:
+      - alert: AiProviderErrorRateWarning
+        expr: |
+          (
+            sum(rate(http_requests_total{route=~"/api/solver.*|/api/ai.*", status_code=~"5.."}[10m]))
+            /
+            sum(rate(http_requests_total{route=~"/api/solver.*|/api/ai.*"}[10m]))
+          ) > 0.20
+        for: 10m
+        labels:
+          severity: warning
+          team: backend
+          service: mathai-ai
+        annotations:
+          summary: "AI provider error rate above 20%"
+          description: >-
+            AI-related endpoint error rate is {{ $value | humanizePercentage }}
+            over the last 10 minutes (threshold: 20%). Check AI provider status,
+            API keys, and rate limits on external AI services.
+          runbook_url: "https://github.com/mathai/docs/operations/alerting-rules.md#ai-provider-errors"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # Group 8: Backup
+  # ─────────────────────────────────────────────────────────────────────
+  - name: mathai.backup
+    rules:
+      - alert: BackupOverdueCritical
+        expr: |
+          (time() - mathai_backup_last_success_timestamp) > 93600
+        for: 5m
+        labels:
+          severity: critical
+          team: infrastructure
+          service: mathai-backup
+        annotations:
+          summary: "Backup overdue — last success >26 hours ago — CRITICAL"
+          description: >-
+            The last successful backup was {{ $value | humanizeDuration }} ago
+            (threshold: 26 hours). This violates RPO target of 1 hour.
+            Verify MongoDB Atlas backup status and object storage backup jobs.
+          runbook_url: "https://github.com/mathai/docs/operations/alerting-rules.md#backup-overdue"

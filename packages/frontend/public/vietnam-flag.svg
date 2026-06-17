@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+  <title id="title">Cờ đỏ sao vàng Việt Nam</title>
+  <desc id="desc">Lá cờ nền đỏ với ngôi sao vàng năm cánh ở chính giữa.</desc>
+  <rect width="900" height="600" fill="#da251d"/>
+  <polygon fill="#ffff00" points="450,120 492.32,241.75 621.19,244.37 518.45,322.25 555.7,445.63 450,372 344.3,445.63 381.55,322.25 278.81,244.37 407.68,241.75"/>
+</svg>

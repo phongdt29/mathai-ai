@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-label="Tam giác ABC">
+  <rect width="320" height="220" fill="#f0fdf4"/>
+  <polygon points="160,40 70,170 250,170" fill="#bbf7d0" stroke="#16a34a" stroke-width="3"/>
+  <text x="160" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-style="italic" fill="#166534">A</text>
+  <text x="58" y="184" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-style="italic" fill="#166534">B</text>
+  <text x="262" y="184" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-style="italic" fill="#166534">C</text>
+  <text x="160" y="208" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#166534">Tam giác ABC</text>
+</svg>

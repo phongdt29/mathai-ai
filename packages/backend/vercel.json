@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "buildCommand": "",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index.ts"
+    }
+  ],
+  "functions": {
+    "api/index.ts": {
+      "maxDuration": 60
+    }
+  },
+  "installCommand": "cd ../.. && npm install"
+}

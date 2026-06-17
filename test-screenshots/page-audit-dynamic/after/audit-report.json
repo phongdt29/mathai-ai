@@ -1,0 +1,30 @@
+{
+  "createdAt": "2026-05-07T03:12:01.280Z",
+  "frontend": "http://localhost:3444",
+  "backend": "http://localhost:3001",
+  "results": [
+    {
+      "role": "admin",
+      "path": "/admin/classes/69fc002c9f998e8ddff6b32a",
+      "source": "user-provided class id verified by /api/admin/classes/:id",
+      "required": true,
+      "requestedUrl": "http://localhost:3444/admin/classes/69fc002c9f998e8ddff6b32a",
+      "finalUrl": "http://localhost:3444/admin/classes/69fc002c9f998e8ddff6b32a",
+      "mainStatus": 200,
+      "title": "MathAI - Học Toán Online với AI",
+      "pass": true,
+      "screenshot": "test-screenshots/page-audit-dynamic/after/01-admin-admin__classes__69fc002c9f998e8ddff6b32a.png",
+      "navError": null,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "network4xx5xx": [],
+      "requestFailed": [],
+      "mojibakeMatches": [],
+      "networkErrorUiMatches": [],
+      "loadingTextVisible": false,
+      "layoutOverflow": false,
+      "imageErrors": [],
+      "textSample": "Admin ← TỔNG QUAN Dashboard Hoạt động QUẢN LÝ Người dùng Giáo viên Lớp học Đề xuất Nội dung Thư viện AI Kiểm tra AI Tutors PHÂN TÍCH Báo cáo AI Logs HỆ THỐNG Cài đặt Đăng xuất Admin Panel A Quản lý lớp học Lớp Toán 1 Toán · Khối 10 · GV: Giáo viên Demo · Tạo 07/05/2026 Hoạt động 0 Học sinh 0 Bài tập 0 Bài đang mở 0 Bài nộp 0 Đã chấm — ĐTB lớp — Tỷ lệ đi học Học sinh Bài tập Điểm danh Bảng điểm Danh sách học sinh (0) Thêm học sinh Chưa có học sinh nào trong lớp."
+    }
+  ]
+}

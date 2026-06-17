@@ -1,0 +1,662 @@
+{
+  "runId": "2026-05-07T07-17-16-669Z",
+  "apiBase": "http://localhost:3001/api",
+  "webBase": "http://localhost:3444",
+  "startedAt": "2026-05-07T07:17:16.670Z",
+  "summary": {
+    "pass": 61,
+    "fail": 0,
+    "warn": 0,
+    "skip": 0
+  },
+  "checks": [
+    {
+      "workflow": "Runtime",
+      "name": "Backend health unauth /auth/me",
+      "status": "pass",
+      "endpoint": "/auth/me",
+      "method": "GET",
+      "statusCode": 401
+    },
+    {
+      "workflow": "Auth/Profile",
+      "name": "Login student demo",
+      "status": "pass",
+      "endpoint": "/auth/login",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Đăng nhập thành công\",\"data\":{\"user\":{\"_id\":\"69e81b14eadbc114b25bca10\",\"email\":\"student@mathai.vn\",\"full_name\":\"Nguyễn Minh Anh\",\"role\":\"student\",\"is_active\":true,\"createdAt\":\"2026-04-22T00:49:24.112Z\",\"updatedAt\":\"2026-05-07T05:43:14.053Z\",\"id\":\"69e81b14eadbc114b25bca10\"},\"profile\":{\"_id\":\"69e81b14eadbc114b25bca12\",\"user_id\":\"69e81b14eadbc114b25bca10\",\"date_of_birth\":\"2011-09-15T00:00:00.000Z\",\"phone\":\"0900000003\",\"address\":\"Quận Cầu Giấy, Hà Nội\",\"school_name\":\"THCS Demo MathAI\",\"grade_level\":8,\"self_assessed_level\":\"kha\",\"math_average_score\":7.2,\"selected_tutor_id\":\"69e7093f29356dae6ae669a7\",\"favorite_color\":\"#4F46E5\",\"interests\":\"Bóng rổ, vẽ truyện tranh, khám phá khoa học\",\"initial_classification\":\"kha\",\"createdAt\":\"2026-04-22T00:49:24.152Z\",\"updatedAt\":\"2026-05-07T05:43:14.298Z\",\"preferred_teacher_gender\":\"co\",\"id\":\"69e81b14eadbc114b25bca12\"},\"tokens\":{\"access_token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTgxYjE0ZWFkYmMxMTRiMjViY2ExMCIsImVtYWlsIjoic3R1ZGVudEBtYXRoYWkudm4iLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc3ODEzODIzOCwiZXhwIjoxNzc4NzQzMDM4fQ.GZA_I1uQJyG4IaJHDrslxaTdniJkPRUE2ni9NSELreI\",\"refresh_token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTgxYjE0ZWFkYmMxMTRiMjViY2ExMCIsImlhdCI6MTc3ODEzODIzOCwiZXhwIjoxNzgwNzMwMjM4fQ.jwRfFA7dR2k7La6WZfrKDXYyD-Ee4ZEW_tJ5SPVTNgU\"}}}"
+    },
+    {
+      "workflow": "Auth/Profile",
+      "name": "Auth token present",
+      "status": "pass"
+    },
+    {
+      "workflow": "Auth/Profile",
+      "name": "/auth/me",
+      "status": "pass",
+      "endpoint": "/auth/me",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy thông tin người dùng thành công\",\"data\":{\"user\":{\"_id\":\"69e81b14eadbc114b25bca10\",\"email\":\"student@mathai.vn\",\"full_name\":\"Nguyễn Minh Anh\",\"role\":\"student\",\"is_active\":true,\"createdAt\":\"2026-04-22T00:49:24.112Z\",\"updatedAt\":\"2026-05-07T05:43:14.053Z\",\"id\":\"69e81b14eadbc114b25bca10\"},\"profile\":{\"_id\":\"69e81b14eadbc114b25bca12\",\"user_id\":\"69e81b14eadbc114b25bca10\",\"date_of_birth\":\"2011-09-15T00:00:00.000Z\",\"phone\":\"0900000003\",\"address\":\"Quận Cầu Giấy, Hà Nội\",\"school_name\":\"THCS Demo MathAI\",\"grade_level\":8,\"self_assessed_level\":\"kha\",\"math_average_score\":7.2,\"selected_tutor_id\":\"69e7093f29356dae6ae669a7\",\"favorite_color\":\"#4F46E5\",\"interests\":\"Bóng rổ, vẽ truyện tranh, khám phá khoa học\",\"initial_classification\":\"kha\",\"createdAt\":\"2026-04-22T00:49:24.152Z\",\"updatedAt\":\"2026-05-07T05:43:14.298Z\",\"preferred_teacher_gender\":\"co\",\"id\":\"69e81b14eadbc114b25bca12\"}}}"
+    },
+    {
+      "workflow": "Auth/Profile",
+      "name": "Student profile",
+      "status": "pass",
+      "endpoint": "/students/profile",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy hồ sơ học sinh thành công\",\"data\":{\"user\":{\"_id\":\"69e81b14eadbc114b25bca10\",\"email\":\"student@mathai.vn\",\"full_name\":\"Nguyễn Minh Anh\",\"role\":\"student\",\"is_active\":true,\"createdAt\":\"2026-04-22T00:49:24.112Z\",\"updatedAt\":\"2026-05-07T05:43:14.053Z\",\"id\":\"69e81b14eadbc114b25bca10\"},\"profile\":{\"_id\":\"69e81b14eadbc114b25bca12\",\"user_id\":\"69e81b14eadbc114b25bca10\",\"date_of_birth\":\"2011-09-15T00:00:00.000Z\",\"phone\":\"0900000003\",\"address\":\"Quận Cầu Giấy, Hà Nội\",\"school_name\":\"THCS Demo MathAI\",\"grade_level\":8,\"self_assessed_level\":\"kha\",\"math_average_score\":7.2,\"selected_tutor_id\":\"69e7093f29356dae6ae669a7\",\"favorite_color\":\"#4F46E5\",\"interests\":\"Bóng rổ, vẽ truyện tranh, khám phá khoa học\",\"initial_classification\":\"kha\",\"createdAt\":\"2026-04-22T00:49:24.152Z\",\"updatedAt\":\"2026-05-07T05:43:14.298Z\",\"preferred_teacher_gender\":\"co\",\"id\":\"69e81b14eadbc114b25bca12\"},\"theme\":{\"_id\":\"69e81b14eadbc114b25bca14\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"favorite_color\":\"#4F46E5\",\"font_size\":\"medium\",\"theme_mode\":\"light\",\"createdAt\":\"2026-04-22T00:49:24.190Z\",\"updatedAt\":\"2026-05-07T07:13:03.837Z\",\"id\":\"69e81b14eadbc114b25bca14\"}}}"
+    },
+    {
+      "workflow": "Auth/Profile",
+      "name": "Student theme",
+      "status": "pass",
+      "endpoint": "/students/theme",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy giao diện học sinh thành công\",\"data\":{\"_id\":\"69e81b14eadbc114b25bca14\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"favorite_color\":\"#4F46E5\",\"font_size\":\"medium\",\"theme_mode\":\"light\",\"createdAt\":\"2026-04-22T00:49:24.190Z\",\"updatedAt\":\"2026-05-07T07:13:03.837Z\",\"id\":\"69e81b14eadbc114b25bca14\"}}"
+    },
+    {
+      "workflow": "Auth/Profile",
+      "name": "Student tutors",
+      "status": "pass",
+      "endpoint": "/students/tutors",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy danh sách tutor thành công\",\"data\":[{\"_id\":\"69e7093f29356dae6ae669a7\",\"code\":\"co_lan\",\"name\":\"Cô Lan\",\"display_name\":\"Cô Lan\",\"avatar_emoji\":\"👩‍🏫\",\"gender_style\":\"nu\",\"tone_style\":\"Nhẹ nhàng, ấm áp, động viên\",\"teaching_style\":\"Liên hệ thực tế, ví dụ gần gũi\",\"personality\":\"Thân thiện, vui vẻ, luôn khen ngợi nỗ lực\",\"description\":\"Cô Lan dạy toán bằng cách liên hệ thực tế, giúp học sinh thấy toán học thú vị và gần gũi.\",\"system_prompt\":\"Bạn là Cô Lan, một giáo viên toán thân thiện và ấm áp. Bạn thích dùng ví dụ thực tế để giải thích các khái niệm toán học. Luôn khen ngợi nỗ lực của học sinh dù kết quả chưa đúng. Xưng \\\"cô\\\" và gọi học sinh là \\\"em\\\". Giọng điệu nhẹ nhàng, động viên.\",\"is_active\":true,\"updatedAt\":\"2026-05-07T05:43:13.029Z\",\"avatar_url\":null,\"id\":\"69e7093f29356dae6ae669a7\"},{\"_id\":\"69e7093f29356dae6ae669a8\",\"code\":\"thay_duc\",\"name\":\"Thầy Đức\",\"display_name\":\"Thầy Đức\",\"avatar_emoji\":\"🧑‍💻\",\"gender_style\":\"nam\",\"tone_style\":\"Năng động, hiện đại, hài hước\",\"teaching_style\":\"Gamification, thử thách, thi đua\",\"personality\":\"Trẻ trung, hài hước, tạo động lực bằng thử thách\",\"description\":\"Thầy Đức biến toán học thành trò chơi với các thử thách thú vị, phù hợp với học sinh thích cạnh tranh.\",\"system_prompt\":\"Bạn là Thầy Đức, một giáo viên toán trẻ trung và năng động. Bạn thích biến bài toán thành thử thách và trò chơi. Dùng emoji, ngôn ngữ hiện đại nhưng vẫn lịch sự. Khuyến khích học sinh bằng cách tạo cảm giác chinh phục. Xưng \\\"thầy\\\" và gọi học sinh là \\\"em\\\".\",\"is_active\":true,\"updatedAt\":\"2026-05-07T05:43:13.339Z\",\"avatar_url\":null,\"id\":\"69e7093f29356dae6ae669a8\"},{\"_id\":\"69e7093f29356dae6ae669aa\",\"code\":\"thay_hung\",\"name\":\"Thầy Hùng\",\"display_name\":\"Thầy Hùng\",\"avatar_emoji\":\"💪\",\"gender_style\":\"nam\",\"tone_style\":\"Mạnh mẽ, trực tiếp, thách thức\",\"teaching_style\":\"Đặt câu hỏi ngược, kích thích tư duy\",\"personality\":\"Thẳng thắn, đòi hỏi cao, nhưng công bằng\",\"description\":\"Thầy Hùng dạy bằng cách đặt câu hỏi ngược, buộc học sinh phải tự suy nghĩ trước khi cho đáp án.\",\"system_prompt\":\"Bạn là Thầy Hùng, một giáo viên toán thẳng thắn và đòi hỏi cao. Thay vì cho đáp án ngay, bạn đặt câu hỏi ngược để kích thích tư duy. Khen ngợi khi học sinh tự tìm ra lời giải. Xưng \\\"thầy\\\" và gọi học sinh là \\\"em\\\". Giọng mạnh mẽ nhưng công bằng.\",\"is_active\":true,\"updatedAt\":\"2026-05-07T05:43:13.592Z\",\"avatar_url\":null,\"id\":\"69e7093f29356dae6ae669aa\"},{\"_id\":\"69e7093f29356dae6ae669a6\",\"code\":\"thay_minh\",\"name\":\"Thầy Minh\",\"display_name\":\"Thầy Minh\",\"avatar_emoji\":\"👨‍🏫\",\"gender_style\":\"nam\",\"tone_style\":\"Nghiêm túc, logic, có hệ thống\",\"teaching_style\":\"Phân tích từng bước, giải thích chi tiết\",\"personality\":\"Kiên nhẫn, tỉ mỉ, luôn khuyến khích học sinh\",\"description\":\"Thầy Minh chuyên dạy theo phương pháp phân tích logic, giúp học sinh hiểu bản chất vấn đề.\",\"system_prompt\":\"Bạn là Thầy Minh, một giáo viên toán nghiêm túc và có hệ thống. Bạn luôn giải thích từng bước một cách logic, kiên nhẫn với học sinh. Khi học s"
+    },
+    {
+      "workflow": "Auth/Profile",
+      "name": "Student personalization",
+      "status": "pass",
+      "endpoint": "/students/personalization",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy cá nhân hóa thành công\",\"data\":{\"personality\":{\"learning_style\":\"visual\",\"pace\":\"fast\",\"persistence\":\"low\",\"traits\":[\"Tiếp thu rất nhanh và xử lý bài tập hiệu quả\",\"Kết quả ổn định tuyệt đối, cho thấy khả năng nắm kiến thức chắc\",\"Thiên về học qua hình ảnh và nội dung trực quan\",\"Tự tin ở các chủ đề sở trường nhưng có thể ít kiên nhẫn khi gặp thử thách kéo dài\",\"Hứng thú với hoạt động sáng tạo và khám phá thực nghiệm\"],\"summary\":\"Học sinh có phong cách học trực quan nổi bật, tốc độ học rất nhanh và cho kết quả cực kỳ ổn định. Em phù hợp với nội dung minh họa, sơ đồ, thí nghiệm và dự án sáng tạo, nhưng cần rèn thêm tính kiên trì khi gặp nhiệm vụ khó hoặc kéo dài.\"},\"ui\":{\"color_scheme\":{\"primary\":\"#4F46E5\",\"secondary\":\"#9c93ff\",\"accent\":\"#8322d5\",\"background\":\"#ffffff\"},\"font_size\":\"medium\",\"theme_mode\":\"light\",\"microcopy\":{\"greeting\":\"Chào bạn! Chỉ cần 15 phút thôi nhé! ⏰\",\"encouragement\":\"Mỗi bước nhỏ đều đáng giá! Cố lên!\",\"on_correct\":\"Tuyệt! Thấy chưa, bạn làm được mà!\",\"on_wrong\":\"Không sao, thử lại lần nữa nhé!\",\"on_streak\":\"Wow, streak đẹp lắm! Đừng dừng lại!\",\"on_return\":\"Vui khi thấy bạn quay lại! Mình bắt đầu nhé!\"}},\"recommended_tutor\":{\"_id\":\"69e7093f29356dae6ae669a8\",\"code\":\"thay_duc\",\"name\":\"Thầy Đức\",\"display_name\":\"Thầy Đức\",\"avatar_emoji\":\"🧑‍💻\",\"gender_style\":\"nam\",\"tone_style\":\"Năng động, hiện đại, hài hước\",\"teaching_style\":\"Gamification, thử thách, thi đua\",\"personality\":\"Trẻ trung, hài hước, tạo động lực bằng thử thách\",\"description\":\"Thầy Đức biến toán học thành trò chơi với các thử thách thú vị, phù hợp với học sinh thích cạnh tranh.\",\"system_prompt\":\"Bạn là Thầy Đức, một giáo viên toán trẻ trung và năng động. Bạn thích biến bài toán thành thử thách và trò chơi. Dùng emoji, ngôn ngữ hiện đại nhưng vẫn lịch sự. Khuyến khích học sinh bằng cách tạo cảm giác chinh phục. Xưng \\\"thầy\\\" và gọi học sinh là \\\"em\\\".\",\"is_active\":true,\"updatedAt\":\"2026-05-07T05:43:13.339Z\",\"avatar_url\":null,\"id\":\"69e7093f29356dae6ae669a8\"},\"tutor_reason\":\"Thầy Đức phù hợp nhất vì học sinh học rất nhanh, thích trải nghiệm sinh động và cần thêm động lực để duy trì khi gặp nhiệm vụ khó hoặc kéo dài. Phong cách gamification, thử thách và thi đua của thầy sẽ giúp tăng tính kiên trì, giữ hứng thú học tập và hợp với sở thích năng động như bóng rổ, vẽ truyện tranh, khám phá khoa học. So với các tutor khác, thầy Đức vừa đáp ứng tốc độ học nhanh vừa hỗ trợ tốt điểm cần cải thiện là sự bền bỉ.\"}}"
+    },
+    {
+      "workflow": "Auth/Profile",
+      "name": "Student theme safe idempotent update",
+      "status": "pass",
+      "endpoint": "/students/theme",
+      "method": "PUT",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Cập nhật giao diện học sinh thành công\",\"data\":{\"_id\":\"69e81b14eadbc114b25bca14\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"favorite_color\":\"#4F46E5\",\"font_size\":\"medium\",\"theme_mode\":\"light\",\"createdAt\":\"2026-04-22T00:49:24.190Z\",\"updatedAt\":\"2026-05-07T07:17:30.622Z\",\"id\":\"69e81b14eadbc114b25bca14\"}}"
+    },
+    {
+      "workflow": "Dashboard/Progress/Curriculum",
+      "name": "Dashboard summary stats",
+      "status": "pass",
+      "endpoint": "/dashboard/stats",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy thống kê học tập thành công\",\"data\":{\"total_lessons\":1,\"completed_lessons\":1,\"completion_percentage\":100,\"average_quiz_score\":100,\"total_study_time_minutes\":0,\"current_streak_days\":0,\"longest_streak_days\":0,\"points\":{\"total_earned_points\":28,\"total_available_points\":28,\"reward_points\":28,\"academic_percentage\":100,\"competency_score\":100,\"by_source_type\":{\"assessment\":{\"earned_points\":20,\"available_points\":20,\"reward_points\":20,\"competency_score\":100,\"entries\":2},\"lesson\":{\"earned_points\":8,\"available_points\":8,\"reward_points\":8,\"competency_score\":100,\"entries\":4}}}}}"
+    },
+    {
+      "workflow": "Dashboard/Progress/Curriculum",
+      "name": "Dashboard progress metrics",
+      "status": "pass",
+      "endpoint": "/dashboard/progress",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy tiến độ học tập thành công\",\"data\":{\"_id\":\"69fbf566ea7bd7fefb462d34\",\"curriculum_id\":\"69fbf565ea7bd7fefb462d2e\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"ai_progress_summary\":\"Seed demo: học sinh đã có lộ trình mẫu và sẵn sàng làm quiz cuối buổi.\",\"average_quiz_score\":100,\"completed_lessons\":1,\"completion_percentage\":100,\"createdAt\":\"2026-05-07T02:13:56.421Z\",\"current_streak_days\":0,\"last_study_date\":\"2026-05-07T07:13:10.643Z\",\"longest_streak_days\":0,\"predicted_improvement\":0.12,\"total_lessons\":1,\"total_study_time_minutes\":0,\"updatedAt\":\"2026-05-07T07:13:10.798Z\",\"id\":\"69fbf566ea7bd7fefb462d34\"}}"
+    },
+    {
+      "workflow": "Dashboard/Progress/Curriculum",
+      "name": "Topic mastery",
+      "status": "pass",
+      "endpoint": "/dashboard/mastery",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy mức độ thành thạo thành công\",\"data\":[{\"_id\":\"69fc3b3e7fbeaddc1886baf3\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"topic\":\"Hình học - Góc\",\"grade_level\":7,\"mastery_level\":100,\"total_attempts\":2,\"correct_attempts\":2,\"strength_label\":\"mastered\",\"last_practiced_at\":\"2026-05-07T07:13:29.443Z\",\"createdAt\":\"2026-05-07T07:11:58.135Z\",\"updatedAt\":\"2026-05-07T07:13:29.444Z\",\"id\":\"69fc3b3e7fbeaddc1886baf3\"},{\"_id\":\"69fc3b997fbeaddc1886bc3d\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"topic\":\"Hình học - Tam giác\",\"grade_level\":7,\"mastery_level\":100,\"total_attempts\":1,\"correct_attempts\":1,\"strength_label\":\"mastered\",\"last_practiced_at\":\"2026-05-07T07:13:29.850Z\",\"createdAt\":\"2026-05-07T07:13:29.851Z\",\"updatedAt\":\"2026-05-07T07:13:29.851Z\",\"id\":\"69fc3b997fbeaddc1886bc3d\"},{\"_id\":\"69fc3b3f7fbeaddc1886bafc\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"topic\":\"Hình học - Tam giác cân\",\"grade_level\":7,\"mastery_level\":100,\"total_attempts\":1,\"correct_attempts\":1,\"strength_label\":\"mastered\",\"last_practiced_at\":\"2026-05-07T07:11:59.056Z\",\"createdAt\":\"2026-05-07T07:11:59.057Z\",\"updatedAt\":\"2026-05-07T07:11:59.057Z\",\"id\":\"69fc3b3f7fbeaddc1886bafc\"},{\"_id\":\"69fc3b27ea7bd7fefb462ec1\",\"topic\":\"Học sinh biết tìm điều kiện xác định và rút gọn phân thức đại số đơn giản.\",\"grade_level\":8,\"student_id\":\"69e81b14eadbc114b25bca12\",\"correct_attempts\":2,\"createdAt\":\"2026-05-07T07:11:35.508Z\",\"last_practiced_at\":\"2026-05-07T07:13:08.748Z\",\"mastery_level\":100,\"strength_label\":\"excellent\",\"total_attempts\":2,\"updatedAt\":\"2026-05-07T07:13:09.409Z\",\"id\":\"69fc3b27ea7bd7fefb462ec1\"},{\"_id\":\"69fbf566ea7bd7fefb462d35\",\"grade_level\":8,\"student_id\":\"69e81b14eadbc114b25bca12\",\"topic\":\"Phân thức đại số\",\"correct_attempts\":6,\"createdAt\":\"2026-05-07T02:13:56.502Z\",\"last_practiced_at\":\"2026-05-07T07:13:10.643Z\",\"mastery_level\":100,\"strength_label\":\"excellent\",\"total_attempts\":6,\"updatedAt\":\"2026-05-07T07:13:11.328Z\",\"id\":\"69fbf566ea7bd7fefb462d35\"},{\"_id\":\"69fc3b997fbeaddc1886bc40\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"topic\":\"Số học - Bài toán phân số\",\"grade_level\":7,\"mastery_level\":100,\"total_attempts\":1,\"correct_attempts\":1,\"strength_label\":\"mastered\",\"last_practiced_at\":\"2026-05-07T07:13:29.992Z\",\"createdAt\":\"2026-05-07T07:13:29.993Z\",\"updatedAt\":\"2026-05-07T07:13:29.993Z\",\"id\":\"69fc3b997fbeaddc1886bc40\"},{\"_id\":\"69fc3b997fbeaddc1886bc2f\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"topic\":\"Số học - Phân số\",\"grade_level\":7,\"mastery_level\":100,\"total_attempts\":1,\"correct_attempts\":1,\"strength_label\":\"mastered\",\"last_practiced_at\":\"2026-05-07T07:13:29.172Z\",\"createdAt\":\"2026-05-07T07:13:29.172Z\",\"updatedAt\":\"2026-05-07T07:13:29.172Z\",\"id\":\"69fc3b997fbeaddc1886bc2f\"},{\"_id\":\"69fc3b997fbeaddc1886bc2c\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"topic\":\"Số học - Số nguyên\",\"grade_level\":7,\"mastery_level\":100,\"total_attempts\":1,\"correct_attempts\":1,\"strength_label\":\"mastered\",\"last_practiced_at\":\"2026-05-07T07:13:29.032Z\",\"createdAt\":\"2026-05-07T07:13:29.033Z\",\"updatedAt\":\"2026-05"
+    },
+    {
+      "workflow": "Dashboard/Progress/Curriculum",
+      "name": "Points ledger detail",
+      "status": "pass",
+      "endpoint": "/dashboard/points",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy điểm thưởng và năng lực thành công\",\"data\":{\"summary\":{\"total_earned_points\":28,\"total_available_points\":28,\"reward_points\":28,\"academic_percentage\":100,\"competency_score\":100,\"by_source_type\":{\"assessment\":{\"earned_points\":20,\"available_points\":20,\"reward_points\":20,\"competency_score\":100,\"entries\":2},\"lesson\":{\"earned_points\":8,\"available_points\":8,\"reward_points\":8,\"competency_score\":100,\"entries\":4}}},\"history\":[{\"_id\":\"69fc3b9aea7bd7fefb462ec6\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"attempt_id\":\"69fc3b897fbeaddc1886bbd9\",\"source_id\":\"69f1d59959e012504d769887\",\"source_type\":\"assessment\",\"competency_score\":100,\"createdAt\":\"2026-05-07T07:13:30.066Z\",\"created_by\":null,\"earned_points\":11,\"max_points\":11,\"metadata\":{\"assessment_type\":\"diagnostic\",\"total_questions\":8},\"reason\":\"Hoàn thành bài đánh giá: Bài kiểm tra đầu vào lớp 7\",\"reward_points\":11,\"updatedAt\":\"2026-05-07T07:13:30.066Z\",\"id\":\"69fc3b9aea7bd7fefb462ec6\"},{\"_id\":\"69fc3b86ea7bd7fefb462ec5\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"attempt_id\":\"69fc3b867fbeaddc1886bbaa\",\"source_id\":\"69fbf565ea7bd7fefb462d30\",\"source_type\":\"lesson\",\"competency_score\":100,\"createdAt\":\"2026-05-07T07:13:10.489Z\",\"created_by\":null,\"earned_points\":3,\"max_points\":3,\"metadata\":{\"type\":\"practical_exercise\",\"idempotency_key\":\"student-audit-exercise-2026-05-07T07-12-47-690Z\"},\"reason\":\"Lesson practical exercises submitted\",\"reward_points\":3,\"updatedAt\":\"2026-05-07T07:13:10.489Z\",\"id\":\"69fc3b86ea7bd7fefb462ec5\"},{\"_id\":\"69fc3b84ea7bd7fefb462ec4\",\"source_id\":\"69fbf565ea7bd7fefb462d30\",\"source_type\":\"lesson\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"attempt_id\":\"69fc3b847fbeaddc1886bb9b\",\"competency_score\":100,\"createdAt\":\"2026-05-07T07:13:08.587Z\",\"created_by\":null,\"earned_points\":1,\"max_points\":1,\"metadata\":{\"audit\":\"student-business-audit\",\"marker\":\"student-audit-quiz-2026-05-07T07-12-47-690Z\",\"safe_marker\":true,\"idempotency_key\":\"student-audit-quiz-2026-05-07T07-12-47-690Z\"},\"reason\":\"Lesson quiz submitted\",\"reward_points\":1,\"updatedAt\":\"2026-05-07T07:13:08.587Z\",\"id\":\"69fc3b84ea7bd7fefb462ec4\"},{\"_id\":\"69fc3b3fea7bd7fefb462ec3\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"attempt_id\":\"69fc3b2b7fbeaddc1886ba97\",\"source_id\":\"69f1d5a159e012504d769896\",\"source_type\":\"assessment\",\"competency_score\":100,\"createdAt\":\"2026-05-07T07:11:59.619Z\",\"created_by\":null,\"earned_points\":9,\"max_points\":9,\"metadata\":{\"assessment_type\":\"diagnostic\",\"total_questions\":8},\"reason\":\"Hoàn thành bài đánh giá: Bài kiểm tra đầu vào lớp 7\",\"reward_points\":9,\"updatedAt\":\"2026-05-07T07:11:59.619Z\",\"id\":\"69fc3b3fea7bd7fefb462ec3\"},{\"_id\":\"69fc3b28ea7bd7fefb462ec2\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"attempt_id\":\"69fc3b287fbeaddc1886ba6a\",\"source_id\":\"69fbf565ea7bd7fefb462d30\",\"source_type\":\"lesson\",\"competency_score\":100,\"createdAt\":\"2026-05-07T07:11:36.629Z\",\"created_by\":null,\"earned_points\":3,\"max_points\":3,\"metadata\":{\"type\":\"practical_exercise\",\"idempotency_key\":\"student-audit-exercise-2026-05-07T07-11-08-952"
+    },
+    {
+      "workflow": "Dashboard/Progress/Curriculum",
+      "name": "Points summary",
+      "status": "pass",
+      "endpoint": "/dashboard/points/summary",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy tổng điểm thưởng thành công\",\"data\":{\"reward_points\":28,\"academic_percentage\":100,\"competency_score\":100}}"
+    },
+    {
+      "workflow": "Dashboard/Progress/Curriculum",
+      "name": "Active curriculum alias singular",
+      "status": "pass",
+      "endpoint": "/curriculum/active",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy giáo trình đang hoạt động thành công\",\"data\":{\"$__\":{\"activePaths\":{\"paths\":{\"title\":\"init\",\"student_id\":\"init\",\"input_level\":\"init\",\"ai_summary\":\"init\",\"target_goal\":\"init\",\"estimated_total_sessions\":\"init\",\"status\":\"init\",\"created_by_ai\":\"init\",\"_id\":\"init\",\"__v\":\"init\",\"createdAt\":\"init\",\"updatedAt\":\"init\"},\"states\":{\"require\":{},\"default\":{},\"init\":{\"_id\":true,\"student_id\":true,\"title\":true,\"__v\":true,\"ai_summary\":true,\"createdAt\":true,\"created_by_ai\":true,\"estimated_total_sessions\":true,\"input_level\":true,\"status\":true,\"target_goal\":true,\"updatedAt\":true}}},\"skipId\":true},\"$isNew\":false,\"_doc\":{\"_id\":\"69fbf565ea7bd7fefb462d2e\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"title\":\"Demo Dev - Lộ trình Toán lớp 8 nền tảng\",\"__v\":0,\"ai_summary\":\"Seed dev/staging tối thiểu để demo lesson/quiz không phụ thuộc AI provider.\",\"createdAt\":\"2026-05-07T02:13:55.947Z\",\"created_by_ai\":false,\"estimated_total_sessions\":1,\"input_level\":\"kha\",\"status\":\"active\",\"target_goal\":\"Củng cố nền tảng đại số lớp 8 và luyện quiz cuối buổi.\",\"updatedAt\":\"2026-05-07T05:43:14.871Z\"},\"modules\":[{\"_id\":\"69fbf565ea7bd7fefb462d2f\",\"curriculum_id\":\"69fbf565ea7bd7fefb462d2e\",\"order_index\":1,\"createdAt\":\"2026-05-07T02:13:56.027Z\",\"estimated_sessions\":1,\"module_description\":\"Ôn điều kiện xác định và kỹ thuật rút gọn phân thức đại số.\",\"module_title\":\"Phân thức đại số cơ bản\",\"status\":\"in_progress\",\"target_mastery\":0.75,\"topic\":\"Phân thức đại số\",\"updatedAt\":\"2026-05-07T05:43:15.074Z\",\"id\":\"69fbf565ea7bd7fefb462d2f\"}]}}"
+    },
+    {
+      "workflow": "Dashboard/Progress/Curriculum",
+      "name": "Active curriculum alias plural",
+      "status": "pass",
+      "endpoint": "/curricula/active",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy giáo trình đang hoạt động thành công\",\"data\":{\"$__\":{\"activePaths\":{\"paths\":{\"title\":\"init\",\"student_id\":\"init\",\"input_level\":\"init\",\"ai_summary\":\"init\",\"target_goal\":\"init\",\"estimated_total_sessions\":\"init\",\"status\":\"init\",\"created_by_ai\":\"init\",\"_id\":\"init\",\"__v\":\"init\",\"createdAt\":\"init\",\"updatedAt\":\"init\"},\"states\":{\"require\":{},\"default\":{},\"init\":{\"_id\":true,\"student_id\":true,\"title\":true,\"__v\":true,\"ai_summary\":true,\"createdAt\":true,\"created_by_ai\":true,\"estimated_total_sessions\":true,\"input_level\":true,\"status\":true,\"target_goal\":true,\"updatedAt\":true}}},\"skipId\":true},\"$isNew\":false,\"_doc\":{\"_id\":\"69fbf565ea7bd7fefb462d2e\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"title\":\"Demo Dev - Lộ trình Toán lớp 8 nền tảng\",\"__v\":0,\"ai_summary\":\"Seed dev/staging tối thiểu để demo lesson/quiz không phụ thuộc AI provider.\",\"createdAt\":\"2026-05-07T02:13:55.947Z\",\"created_by_ai\":false,\"estimated_total_sessions\":1,\"input_level\":\"kha\",\"status\":\"active\",\"target_goal\":\"Củng cố nền tảng đại số lớp 8 và luyện quiz cuối buổi.\",\"updatedAt\":\"2026-05-07T05:43:14.871Z\"},\"modules\":[{\"_id\":\"69fbf565ea7bd7fefb462d2f\",\"curriculum_id\":\"69fbf565ea7bd7fefb462d2e\",\"order_index\":1,\"createdAt\":\"2026-05-07T02:13:56.027Z\",\"estimated_sessions\":1,\"module_description\":\"Ôn điều kiện xác định và kỹ thuật rút gọn phân thức đại số.\",\"module_title\":\"Phân thức đại số cơ bản\",\"status\":\"in_progress\",\"target_mastery\":0.75,\"topic\":\"Phân thức đại số\",\"updatedAt\":\"2026-05-07T05:43:15.074Z\",\"id\":\"69fbf565ea7bd7fefb462d2f\"}]}}"
+    },
+    {
+      "workflow": "Dashboard/Progress/Curriculum",
+      "name": "Curriculum list",
+      "status": "pass",
+      "endpoint": "/curriculum",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy danh sách giáo trình thành công\",\"data\":[{\"_id\":\"69fbf565ea7bd7fefb462d2e\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"title\":\"Demo Dev - Lộ trình Toán lớp 8 nền tảng\",\"ai_summary\":\"Seed dev/staging tối thiểu để demo lesson/quiz không phụ thuộc AI provider.\",\"createdAt\":\"2026-05-07T02:13:55.947Z\",\"created_by_ai\":false,\"estimated_total_sessions\":1,\"input_level\":\"kha\",\"status\":\"active\",\"target_goal\":\"Củng cố nền tảng đại số lớp 8 và luyện quiz cuối buổi.\",\"updatedAt\":\"2026-05-07T05:43:14.871Z\",\"id\":\"69fbf565ea7bd7fefb462d2e\"}]}"
+    },
+    {
+      "workflow": "Lesson learning flow",
+      "name": "Lessons list",
+      "status": "pass",
+      "endpoint": "/lessons?limit=50",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"data\":[{\"_id\":\"69fbf565ea7bd7fefb462d30\",\"curriculum_id\":\"69fbf565ea7bd7fefb462d2e\",\"module_id\":\"69fbf565ea7bd7fefb462d2f\",\"order_index\":1,\"ai_tutor_id\":\"69e7093f29356dae6ae669a7\",\"createdAt\":\"2026-05-07T02:13:56.104Z\",\"estimated_minutes\":30,\"lesson_date\":null,\"lesson_objective\":\"Học sinh biết tìm điều kiện xác định và rút gọn phân thức đại số đơn giản.\",\"lesson_title\":\"Rút gọn phân thức đại số\",\"status\":\"completed\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"theory_content\":\"Phân thức đại số là biểu thức có dạng A/B, trong đó B khác 0. Khi rút gọn, hãy phân tích tử và mẫu thành nhân tử rồi triệt tiêu nhân tử chung hợp lệ.\",\"updatedAt\":\"2026-05-07T07:11:34.856Z\",\"id\":\"69fbf565ea7bd7fefb462d30\"}],\"meta\":{\"total\":1,\"page\":1,\"limit\":50,\"totalPages\":1}}"
+    },
+    {
+      "workflow": "Lesson learning flow",
+      "name": "Today recommendation",
+      "status": "pass",
+      "endpoint": "/lessons/today-recommendation",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy gợi ý học hôm nay thành công\",\"data\":{\"new_lesson\":null,\"review_items\":[],\"reinforce_items\":[],\"session_structure\":{\"review_ratio\":0,\"new_ratio\":1,\"reinforce_ratio\":0},\"signals\":{\"last_quiz_score\":null,\"hint_usage_rate\":0,\"avg_time_per_question\":null,\"recurring_error_topics\":[],\"stability_last_5\":0.5,\"forgetting_risk_topics\":[]},\"learning_tips\":[\"Đã hoàn thành toàn bộ giáo trình!\"],\"stats\":{\"total_lessons\":0,\"completed_lessons\":0,\"remaining_lessons\":0,\"current_streak\":0}}}"
+    },
+    {
+      "workflow": "Lesson learning flow",
+      "name": "Lesson detail",
+      "status": "pass",
+      "endpoint": "/lessons/69fbf565ea7bd7fefb462d30",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy chi tiết bài học thành công\",\"data\":{\"_id\":\"69fbf565ea7bd7fefb462d30\",\"curriculum_id\":\"69fbf565ea7bd7fefb462d2e\",\"module_id\":\"69fbf565ea7bd7fefb462d2f\",\"order_index\":1,\"ai_tutor_id\":\"69e7093f29356dae6ae669a7\",\"createdAt\":\"2026-05-07T02:13:56.104Z\",\"estimated_minutes\":30,\"lesson_date\":null,\"lesson_objective\":\"Học sinh biết tìm điều kiện xác định và rút gọn phân thức đại số đơn giản.\",\"lesson_title\":\"Rút gọn phân thức đại số\",\"status\":\"completed\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"theory_content\":\"Phân thức đại số là biểu thức có dạng A/B, trong đó B khác 0. Khi rút gọn, hãy phân tích tử và mẫu thành nhân tử rồi triệt tiêu nhân tử chung hợp lệ.\",\"updatedAt\":\"2026-05-07T07:11:34.856Z\",\"id\":\"69fbf565ea7bd7fefb462d30\",\"exercises\":[{\"_id\":\"69fbf565ea7bd7fefb462d31\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"order_index\":1,\"answer_type\":\"multiple_choice\",\"choices\":[\"1/4\",\"1/2\",\"2\",\"4\"],\"correct_answer\":\"1/2\",\"createdAt\":\"2026-05-07T02:13:56.189Z\",\"difficulty_level\":\"easy\",\"explanation\":\"Khi x khác 0, có thể triệt tiêu x ở tử và mẫu.\",\"question_text\":\"Rút gọn phân thức (2x)/(4x) với x khác 0.\",\"solution_steps\":[\"Chia cả tử và mẫu cho 2x.\",\"(2x)/(4x) = 1/2.\"],\"topic\":\"Phân thức đại số\",\"updatedAt\":\"2026-05-07T05:43:15.321Z\",\"id\":\"69fbf565ea7bd7fefb462d31\"},{\"_id\":\"69fbf565ea7bd7fefb462d32\",\"order_index\":2,\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"answer_type\":\"short_answer\",\"choices\":null,\"correct_answer\":\"x + 3\",\"createdAt\":\"2026-05-07T02:13:56.269Z\",\"difficulty_level\":\"medium\",\"explanation\":\"Dùng hằng đẳng thức hiệu hai bình phương.\",\"question_text\":\"Rút gọn phân thức (x^2 - 9)/(x - 3) với x khác 3.\",\"solution_steps\":[\"Phân tích x^2 - 9 = (x - 3)(x + 3).\",\"Triệt tiêu nhân tử x - 3 vì x khác 3.\",\"Kết quả là x + 3.\"],\"topic\":\"Phân thức đại số\",\"updatedAt\":\"2026-05-07T05:43:15.488Z\",\"id\":\"69fbf565ea7bd7fefb462d32\"},{\"_id\":\"69fbf566ea7bd7fefb462d33\",\"order_index\":3,\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"answer_type\":\"multiple_choice\",\"choices\":[\"x = -2\",\"x khác -2\",\"x = 2\",\"mọi x\"],\"correct_answer\":\"x khác -2\",\"createdAt\":\"2026-05-07T02:13:56.345Z\",\"difficulty_level\":\"medium\",\"explanation\":\"Phân thức xác định khi mẫu số khác 0.\",\"question_text\":\"Điều kiện xác định của phân thức 5/(x + 2) là gì?\",\"solution_steps\":[\"Mẫu số không được bằng 0.\",\"x + 2 khác 0 nên x khác -2.\"],\"topic\":\"Phân thức đại số\",\"updatedAt\":\"2026-05-07T05:43:15.681Z\",\"id\":\"69fbf566ea7bd7fefb462d33\"}]}}"
+    },
+    {
+      "workflow": "Lesson learning flow",
+      "name": "Exercise attempt history",
+      "status": "pass",
+      "endpoint": "/lessons/69fbf565ea7bd7fefb462d30/exercise-attempts/history",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy lịch sử bài tập thực tế thành công\",\"data\":[{\"result\":{\"_id\":\"69fc3b867fbeaddc1886bbaa\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"idempotency_key\":\"student-audit-exercise-2026-05-07T07-12-47-690Z\",\"total_questions\":3,\"correct_answers\":3,\"score\":3,\"max_score\":3,\"percentage\":100,\"duration_seconds\":10,\"ai_feedback\":\"Kết quả bài tập thực tế được chấm tự động ở mức cơ bản.\",\"passed\":true,\"started_at\":null,\"submitted_at\":\"2026-05-07T07:13:10.182Z\",\"createdAt\":\"2026-05-07T07:13:10.183Z\",\"updatedAt\":\"2026-05-07T07:13:10.183Z\",\"id\":\"69fc3b867fbeaddc1886bbaa\"},\"answers\":[{\"_id\":\"69fc3b867fbeaddc1886bbac\",\"exercise_id\":\"69fbf565ea7bd7fefb462d31\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"quiz_result_id\":\"69fc3b867fbeaddc1886bbaa\",\"student_answer\":\"1/2\",\"selected_choice\":\"1/2\",\"is_correct\":true,\"score\":1,\"ai_comment\":\"Chính xác.\",\"exercise_snapshot\":{\"_id\":\"69fbf565ea7bd7fefb462d31\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"topic\":\"Phân thức đại số\",\"difficulty_level\":\"easy\",\"question_text\":\"Rút gọn phân thức (2x)/(4x) với x khác 0.\",\"answer_type\":\"multiple_choice\",\"choices\":[\"1/4\",\"1/2\",\"2\",\"4\"],\"correct_answer\":\"1/2\",\"solution_steps\":[\"Chia cả tử và mẫu cho 2x.\",\"(2x)/(4x) = 1/2.\"],\"explanation\":\"Khi x khác 0, có thể triệt tiêu x ở tử và mẫu.\",\"order_index\":1},\"answered_at\":\"2026-05-07T07:13:10.182Z\",\"createdAt\":\"2026-05-07T07:13:10.332Z\",\"updatedAt\":\"2026-05-07T07:13:10.332Z\",\"id\":\"69fc3b867fbeaddc1886bbac\"},{\"_id\":\"69fc3b867fbeaddc1886bbad\",\"exercise_id\":\"69fbf565ea7bd7fefb462d32\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"quiz_result_id\":\"69fc3b867fbeaddc1886bbaa\",\"student_answer\":\"x + 3\",\"selected_choice\":null,\"is_correct\":true,\"score\":1,\"ai_comment\":\"Chính xác.\",\"exercise_snapshot\":{\"_id\":\"69fbf565ea7bd7fefb462d32\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"topic\":\"Phân thức đại số\",\"difficulty_level\":\"medium\",\"question_text\":\"Rút gọn phân thức (x^2 - 9)/(x - 3) với x khác 3.\",\"answer_type\":\"short_answer\",\"choices\":null,\"correct_answer\":\"x + 3\",\"solution_steps\":[\"Phân tích x^2 - 9 = (x - 3)(x + 3).\",\"Triệt tiêu nhân tử x - 3 vì x khác 3.\",\"Kết quả là x + 3.\"],\"explanation\":\"Dùng hằng đẳng thức hiệu hai bình phương.\",\"order_index\":2},\"answered_at\":\"2026-05-07T07:13:10.182Z\",\"createdAt\":\"2026-05-07T07:13:10.332Z\",\"updatedAt\":\"2026-05-07T07:13:10.332Z\",\"id\":\"69fc3b867fbeaddc1886bbad\"},{\"_id\":\"69fc3b867fbeaddc1886bbae\",\"exercise_id\":\"69fbf566ea7bd7fefb462d33\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"quiz_result_id\":\"69fc3b867fbeaddc1886bbaa\",\"student_answer\":\"x khác -2\",\"selected_choice\":\"x khác -2\",\"is_correct\":true,\"score\":1,\"ai_comment\":\"Chính xác.\",\"exercise_snapshot\":{\"_id\":\"69fbf566ea7bd7fefb462d33\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"topic\":\"Phân thức đại số\",\"difficulty_level\":\"medium\",\"question_text\":\"Điều kiện xác định của phân thức 5/(x + 2) là gì?\",\"answer_type\":\"mu"
+    },
+    {
+      "workflow": "Lesson learning flow",
+      "name": "Submit/check lesson quiz result marker idempotent",
+      "status": "pass",
+      "endpoint": "/lessons/69fbf565ea7bd7fefb462d30/quiz-results",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Ghi nhận kết quả bài học thành công\",\"data\":{\"result\":{\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"idempotency_key\":\"student-audit-quiz-2026-05-07T07-17-16-669Z\",\"total_questions\":1,\"correct_answers\":1,\"score\":1,\"max_score\":1,\"percentage\":100,\"duration_seconds\":5,\"ai_feedback\":null,\"passed\":true,\"started_at\":null,\"submitted_at\":\"2026-05-07T07:17:35.929Z\",\"_id\":\"69fc3c8f7fbeaddc1886bd5c\",\"createdAt\":\"2026-05-07T07:17:35.931Z\",\"updatedAt\":\"2026-05-07T07:17:35.931Z\",\"id\":\"69fc3c8f7fbeaddc1886bd5c\"},\"ledger\":{\"_id\":\"69fc3c90ea7bd7fefb462ec8\",\"source_id\":\"69fbf565ea7bd7fefb462d30\",\"source_type\":\"lesson\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"attempt_id\":\"69fc3c8f7fbeaddc1886bd5c\",\"competency_score\":100,\"createdAt\":\"2026-05-07T07:17:36.132Z\",\"created_by\":null,\"earned_points\":1,\"max_points\":1,\"metadata\":{\"audit\":\"student-business-audit\",\"marker\":\"student-audit-quiz-2026-05-07T07-17-16-669Z\",\"safe_marker\":true,\"idempotency_key\":\"student-audit-quiz-2026-05-07T07-17-16-669Z\"},\"reason\":\"Lesson quiz submitted\",\"reward_points\":1,\"updatedAt\":\"2026-05-07T07:17:36.132Z\",\"id\":\"69fc3c90ea7bd7fefb462ec8\"},\"idempotent\":false,\"lesson_completed\":false,\"progress_updated\":true,\"mastery_updated\":true,\"recommendation_completed\":false}}"
+    },
+    {
+      "workflow": "Lesson learning flow",
+      "name": "Submit exercise attempt marker answers",
+      "status": "pass",
+      "endpoint": "/lessons/69fbf565ea7bd7fefb462d30/exercise-attempts/submit",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Nộp bài tập thực tế thành công\",\"data\":{\"result\":{\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"idempotency_key\":\"student-audit-exercise-2026-05-07T07-17-16-669Z\",\"total_questions\":3,\"correct_answers\":3,\"score\":3,\"max_score\":3,\"percentage\":100,\"duration_seconds\":10,\"ai_feedback\":\"Kết quả bài tập thực tế được chấm tự động ở mức cơ bản.\",\"passed\":true,\"started_at\":null,\"submitted_at\":\"2026-05-07T07:17:37.855Z\",\"_id\":\"69fc3c917fbeaddc1886bd6b\",\"createdAt\":\"2026-05-07T07:17:37.856Z\",\"updatedAt\":\"2026-05-07T07:17:37.856Z\",\"id\":\"69fc3c917fbeaddc1886bd6b\"},\"answers\":[{\"exercise_id\":\"69fbf565ea7bd7fefb462d31\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"quiz_result_id\":\"69fc3c917fbeaddc1886bd6b\",\"student_answer\":\"1/2\",\"selected_choice\":\"1/2\",\"is_correct\":true,\"score\":1,\"ai_comment\":\"Chính xác.\",\"exercise_snapshot\":{\"_id\":\"69fbf565ea7bd7fefb462d31\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"topic\":\"Phân thức đại số\",\"difficulty_level\":\"easy\",\"question_text\":\"Rút gọn phân thức (2x)/(4x) với x khác 0.\",\"answer_type\":\"multiple_choice\",\"choices\":[\"1/4\",\"1/2\",\"2\",\"4\"],\"correct_answer\":\"1/2\",\"solution_steps\":[\"Chia cả tử và mẫu cho 2x.\",\"(2x)/(4x) = 1/2.\"],\"explanation\":\"Khi x khác 0, có thể triệt tiêu x ở tử và mẫu.\",\"order_index\":1},\"answered_at\":\"2026-05-07T07:17:37.855Z\",\"_id\":\"69fc3c927fbeaddc1886bd6d\",\"createdAt\":\"2026-05-07T07:17:38.020Z\",\"updatedAt\":\"2026-05-07T07:17:38.020Z\",\"id\":\"69fc3c927fbeaddc1886bd6d\"},{\"exercise_id\":\"69fbf565ea7bd7fefb462d32\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"quiz_result_id\":\"69fc3c917fbeaddc1886bd6b\",\"student_answer\":\"x + 3\",\"selected_choice\":null,\"is_correct\":true,\"score\":1,\"ai_comment\":\"Chính xác.\",\"exercise_snapshot\":{\"_id\":\"69fbf565ea7bd7fefb462d32\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"topic\":\"Phân thức đại số\",\"difficulty_level\":\"medium\",\"question_text\":\"Rút gọn phân thức (x^2 - 9)/(x - 3) với x khác 3.\",\"answer_type\":\"short_answer\",\"choices\":null,\"correct_answer\":\"x + 3\",\"solution_steps\":[\"Phân tích x^2 - 9 = (x - 3)(x + 3).\",\"Triệt tiêu nhân tử x - 3 vì x khác 3.\",\"Kết quả là x + 3.\"],\"explanation\":\"Dùng hằng đẳng thức hiệu hai bình phương.\",\"order_index\":2},\"answered_at\":\"2026-05-07T07:17:37.855Z\",\"_id\":\"69fc3c927fbeaddc1886bd6e\",\"createdAt\":\"2026-05-07T07:17:38.021Z\",\"updatedAt\":\"2026-05-07T07:17:38.021Z\",\"id\":\"69fc3c927fbeaddc1886bd6e\"},{\"exercise_id\":\"69fbf566ea7bd7fefb462d33\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"quiz_result_id\":\"69fc3c917fbeaddc1886bd6b\",\"student_answer\":\"x khác -2\",\"selected_choice\":\"x khác -2\",\"is_correct\":true,\"score\":1,\"ai_comment\":\"Chính xác.\",\"exercise_snapshot\":{\"_id\":\"69fbf566ea7bd7fefb462d33\",\"lesson_id\":\"69fbf565ea7bd7fefb462d30\",\"topic\":\"Phân thức đại số\",\"difficulty_level\":\"medium\",\"question_text\":\"Điều kiện xác định của phân thức 5/(x + 2) là gì?\",\"answer_type\":\"multiple_choice\",\"choices\":[\"x = -2\",\"x khác"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Assessment list/current",
+      "status": "pass",
+      "endpoint": "/assessments",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy danh sách bài đánh giá thành công\",\"data\":[{\"id\":\"69f1d5a159e012504d769896\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"completed\",\"created_at\":\"2026-04-29T09:55:45.455Z\",\"latest_attempt\":{\"id\":\"69fc3b2b7fbeaddc1886ba97\",\"status\":\"graded\",\"percentage\":100,\"total_score\":9,\"max_score\":9}},{\"id\":\"69f1d59959e012504d769887\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"completed\",\"created_at\":\"2026-04-29T09:55:37.351Z\",\"latest_attempt\":{\"id\":\"69fc3b897fbeaddc1886bbd9\",\"status\":\"graded\",\"percentage\":100,\"total_score\":11,\"max_score\":11}},{\"id\":\"69f1d25659e012504d76986e\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"published\",\"created_at\":\"2026-04-29T09:41:42.298Z\",\"latest_attempt\":null},{\"id\":\"69f1d24759e012504d76985f\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"published\",\"created_at\":\"2026-04-29T09:41:27.534Z\",\"latest_attempt\":null},{\"id\":\"69f1c54e59e012504d769813\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"published\",\"created_at\":\"2026-04-29T08:46:06.397Z\",\"latest_attempt\":null},{\"id\":\"69f1c53359e012504d769804\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"published\",\"created_at\":\"2026-04-29T08:45:39.155Z\",\"latest_attempt\":null},{\"id\":\"69e90cbd097bf17c04d7bcf5\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"published\",\"created_at\":\"2026-04-22T18:00:29.524Z\",\"latest_attempt\":null},{\"id\":\"69e90cb5097bf17c04d7bce6\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"published\",\"created_at\":\"2026-04-22T18:00:21.103Z\",\"latest_attempt\":null},{\"id\":\"69e90bef097bf17c04d7bccf\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"published\",\"created_at\":\"2026-04-22T17:57:04.020Z\",\"latest_attempt\":null},{\"id\":\"69e90bd9097bf17c04d7bcc0\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"published\",\"created_at\":\"2026-04-22T17:56:41.773Z\",\"latest_attempt\":null},{\"id\":\"69e90857097bf17c04d7bc9d\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"published\",\"created_at\":\"2026-04-22T17:41:43.744Z\",\"latest_attempt\":null},{\"id\":\"69e90856097bf17c04d7bc8e\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"published\",\"created_at\":\"2026-04-22T17:41:42.065Z\",\"latest_attempt\":null},{\"id\":\"69e907a8fcbe28eb3ef0d677\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"total_questions\":8,\"status\":\"published\",\"created_at\":\"2026-04-22T17:38:48.621Z\",\"latest_attempt\":null},{\"id\":"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Latest assessment result",
+      "status": "pass",
+      "endpoint": "/assessments/latest-result",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy kết quả đánh giá gần nhất thành công\",\"data\":{\"$__\":{\"activePaths\":{\"paths\":{\"student_id\":\"init\",\"assessment_id\":\"init\",\"started_at\":\"init\",\"submitted_at\":\"init\",\"total_score\":\"init\",\"max_score\":\"init\",\"percentage\":\"init\",\"ai_feedback\":\"init\",\"ai_analysis\":\"init\",\"status\":\"init\",\"_id\":\"init\",\"createdAt\":\"init\",\"updatedAt\":\"init\",\"__v\":\"init\"},\"states\":{\"require\":{},\"default\":{},\"init\":{\"_id\":true,\"assessment_id\":true,\"student_id\":true,\"started_at\":true,\"submitted_at\":true,\"total_score\":true,\"max_score\":true,\"percentage\":true,\"ai_feedback\":true,\"ai_analysis\":true,\"status\":true,\"createdAt\":true,\"updatedAt\":true,\"__v\":true}}},\"skipId\":true},\"$isNew\":false,\"_doc\":{\"_id\":\"69fc3b897fbeaddc1886bbd9\",\"assessment_id\":\"69f1d59959e012504d769887\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"started_at\":null,\"submitted_at\":\"2026-05-07T07:13:28.826Z\",\"total_score\":11,\"max_score\":11,\"percentage\":100,\"ai_feedback\":\"Chưa có đủ dữ liệu để phân tích kết quả.\\n\\nKhuyến nghị: Khuyến khích học sinh hoàn thành thêm câu trả lời.\",\"ai_analysis\":{\"strengths\":[],\"weaknesses\":[],\"recommendations\":\"Khuyến khích học sinh hoàn thành thêm câu trả lời.\"},\"status\":\"graded\",\"createdAt\":\"2026-05-07T07:13:13.273Z\",\"updatedAt\":\"2026-05-07T07:13:28.827Z\",\"__v\":0},\"answers\":[{\"_id\":\"69fc3b897fbeaddc1886bbe1\",\"attempt_id\":\"69fc3b897fbeaddc1886bbd9\",\"question_id\":\"69f1d59959e012504d769889\",\"student_answer\":\"5\",\"selected_choice\":\"5\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:13:13.753Z\",\"createdAt\":\"2026-05-07T07:13:13.754Z\",\"updatedAt\":\"2026-05-07T07:13:17.443Z\",\"id\":\"69fc3b897fbeaddc1886bbe1\"},{\"_id\":\"69fc3b8a7fbeaddc1886bbe9\",\"attempt_id\":\"69fc3b897fbeaddc1886bbd9\",\"question_id\":\"69f1d59959e012504d76988a\",\"student_answer\":\"6/8\",\"selected_choice\":\"6/8\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:13:14.232Z\",\"createdAt\":\"2026-05-07T07:13:14.232Z\",\"updatedAt\":\"2026-05-07T07:13:17.522Z\",\"id\":\"69fc3b8a7fbeaddc1886bbe9\"},{\"_id\":\"69fc3b8a7fbeaddc1886bbf1\",\"attempt_id\":\"69fc3b897fbeaddc1886bbd9\",\"question_id\":\"69f1d59959e012504d76988b\",\"student_answer\":\"23\",\"selected_choice\":null,\"is_correct\":true,\"score\":1,\"ai_comment\":\"Đúng. Ta có x = 23.\",\"answered_at\":\"2026-05-07T07:13:14.693Z\",\"createdAt\":\"2026-05-07T07:13:14.693Z\",\"updatedAt\":\"2026-05-07T07:13:21.863Z\",\"id\":\"69fc3b8a7fbeaddc1886bbf1\"},{\"_id\":\"69fc3b8b7fbeaddc1886bbf9\",\"attempt_id\":\"69fc3b897fbeaddc1886bbd9\",\"question_id\":\"69f1d59959e012504d76988c\",\"student_answer\":\"115°\",\"selected_choice\":\"115°\",\"is_correct\":true,\"score\":1.5,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:13:15.176Z\",\"createdAt\":\"2026-05-07T07:13:15.177Z\",\"updatedAt\":\"2026-05-07T07:13:21.937Z\",\"id\":\"69fc3b8b7fbeaddc1886bbf9\"},{\"_id\":\"69fc3b8b7fbeaddc1886bc01\",\"attempt_id\":\"69fc3b897fbeaddc1886bbd9\",\"question_id\":\"69f1d59959e012504d76988d\",\"student_answer\":\"24\",\"selected_choice\":\"24\",\"is_correct\":true,\"score\":1.5,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:13:15.652Z\",\"createdAt\":\""
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Assessment detail",
+      "status": "pass",
+      "endpoint": "/assessments/69f1d25659e012504d76986e",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy chi tiết bài đánh giá thành công\",\"data\":{\"$__\":{\"activePaths\":{\"paths\":{\"title\":\"init\",\"type\":\"init\",\"student_id\":\"init\",\"grade_level\":\"init\",\"target_difficulty\":\"init\",\"generated_by_ai\":\"init\",\"total_questions\":\"init\",\"total_score\":\"init\",\"duration_minutes\":\"init\",\"status\":\"init\",\"_id\":\"init\",\"createdAt\":\"init\",\"updatedAt\":\"init\",\"__v\":\"init\"},\"states\":{\"require\":{},\"default\":{},\"init\":{\"_id\":true,\"student_id\":true,\"type\":true,\"title\":true,\"grade_level\":true,\"target_difficulty\":true,\"generated_by_ai\":true,\"total_questions\":true,\"total_score\":true,\"duration_minutes\":true,\"status\":true,\"createdAt\":true,\"updatedAt\":true,\"__v\":true}}},\"skipId\":true},\"$isNew\":false,\"_doc\":{\"_id\":\"69f1d25659e012504d76986e\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"type\":\"diagnostic\",\"title\":\"Bài kiểm tra đầu vào lớp 7\",\"grade_level\":7,\"target_difficulty\":\"mixed\",\"generated_by_ai\":true,\"total_questions\":8,\"total_score\":0,\"duration_minutes\":30,\"status\":\"published\",\"createdAt\":\"2026-04-29T09:41:42.298Z\",\"updatedAt\":\"2026-04-29T09:41:42.413Z\",\"__v\":0},\"questions\":[{\"_id\":\"69f1d25659e012504d769870\",\"assessment_id\":\"69f1d25659e012504d76986e\",\"question_type\":\"multiple_choice\",\"topic\":\"Số học - số hữu tỉ\",\"difficulty_level\":\"easy\",\"question_text\":\"Tính: -3/4 + 1/2\",\"choices\":[\"-1/4\",\"1/4\",\"-5/4\",\"5/4\"],\"correct_answer\":\"-1/4\",\"solution_steps\":null,\"explanation\":\"Quy đồng mẫu số: 1/2 = 2/4. Khi đó -3/4 + 2/4 = -1/4. Vậy kết quả đúng là -1/4.\",\"score\":1,\"order_index\":1,\"createdAt\":\"2026-04-29T09:41:42.336Z\",\"updatedAt\":\"2026-04-29T09:41:42.336Z\",\"id\":\"69f1d25659e012504d769870\"},{\"_id\":\"69f1d25659e012504d769871\",\"assessment_id\":\"69f1d25659e012504d76986e\",\"question_type\":\"multiple_choice\",\"topic\":\"Đại số - giá trị biểu thức\",\"difficulty_level\":\"easy\",\"question_text\":\"Cho a = -2, b = 5. Giá trị của biểu thức 3a - 2b là:\",\"choices\":[\"-16\",\"16\",\"-4\",\"4\"],\"correct_answer\":\"-16\",\"solution_steps\":null,\"explanation\":\"Thay a = -2 và b = 5 vào biểu thức: 3a - 2b = 3.(-2) - 2.5 = -6 - 10 = -16.\",\"score\":1,\"order_index\":2,\"createdAt\":\"2026-04-29T09:41:42.336Z\",\"updatedAt\":\"2026-04-29T09:41:42.336Z\",\"id\":\"69f1d25659e012504d769871\"},{\"_id\":\"69f1d25659e012504d769872\",\"assessment_id\":\"69f1d25659e012504d76986e\",\"question_type\":\"short_answer\",\"topic\":\"Hình học - tổng ba góc trong tam giác\",\"difficulty_level\":\"medium\",\"question_text\":\"Trong tam giác ABC, biết góc A = 50° và góc B = 60°. Tính số đo góc C.\",\"choices\":null,\"correct_answer\":\"70°\",\"solution_steps\":null,\"explanation\":\"Tổng ba góc trong một tam giác bằng 180°. Do đó góc C = 180° - 50° - 60° = 70°.\",\"score\":1,\"order_index\":3,\"createdAt\":\"2026-04-29T09:41:42.336Z\",\"updatedAt\":\"2026-04-29T09:41:42.336Z\",\"id\":\"69f1d25659e012504d769872\"},{\"_id\":\"69f1d25659e012504d769873\",\"assessment_id\":\"69f1d25659e012504d76986e\",\"question_type\":\"multiple_choice\",\"topic\":\"Số học - tỉ lệ thuận\",\"difficulty_level\":\"medium\",\"question_text\":\"3 kg táo giá 75 000 đồng. Hỏi 5 kg táo cùng loại giá bao nhiêu tiền?\",\"choices\":[\"115 000 đồ"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Start assessment attempt when safe",
+      "status": "pass",
+      "endpoint": "/assessments/69f1d25659e012504d76986e/start",
+      "method": "POST",
+      "statusCode": 201,
+      "body": "{\"success\":true,\"message\":\"Bắt đầu làm bài đánh giá thành công\",\"data\":{\"assessment_id\":\"69f1d25659e012504d76986e\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"started_at\":null,\"submitted_at\":null,\"total_score\":0,\"max_score\":0,\"percentage\":0,\"ai_feedback\":null,\"ai_analysis\":null,\"status\":\"in_progress\",\"_id\":\"69fc3c947fbeaddc1886bd9a\",\"createdAt\":\"2026-05-07T07:17:40.920Z\",\"updatedAt\":\"2026-05-07T07:17:40.920Z\",\"id\":\"69fc3c947fbeaddc1886bd9a\"}}"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Save answer question 1",
+      "status": "pass",
+      "endpoint": "/assessments/69f1d25659e012504d76986e/attempts/69fc3c947fbeaddc1886bd9a/answers",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lưu câu trả lời thành công\",\"data\":{\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769870\",\"student_answer\":\"-1/4\",\"selected_choice\":\"-1/4\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:41.431Z\",\"_id\":\"69fc3c957fbeaddc1886bda2\",\"createdAt\":\"2026-05-07T07:17:41.431Z\",\"updatedAt\":\"2026-05-07T07:17:41.431Z\",\"id\":\"69fc3c957fbeaddc1886bda2\"}}"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Save answer question 2",
+      "status": "pass",
+      "endpoint": "/assessments/69f1d25659e012504d76986e/attempts/69fc3c947fbeaddc1886bd9a/answers",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lưu câu trả lời thành công\",\"data\":{\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769871\",\"student_answer\":\"-16\",\"selected_choice\":\"-16\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:41.929Z\",\"_id\":\"69fc3c957fbeaddc1886bdaa\",\"createdAt\":\"2026-05-07T07:17:41.930Z\",\"updatedAt\":\"2026-05-07T07:17:41.930Z\",\"id\":\"69fc3c957fbeaddc1886bdaa\"}}"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Save answer question 3",
+      "status": "pass",
+      "endpoint": "/assessments/69f1d25659e012504d76986e/attempts/69fc3c947fbeaddc1886bd9a/answers",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lưu câu trả lời thành công\",\"data\":{\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769872\",\"student_answer\":\"70°\",\"selected_choice\":null,\"is_correct\":false,\"score\":0,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:42.419Z\",\"_id\":\"69fc3c967fbeaddc1886bdb2\",\"createdAt\":\"2026-05-07T07:17:42.419Z\",\"updatedAt\":\"2026-05-07T07:17:42.419Z\",\"id\":\"69fc3c967fbeaddc1886bdb2\"}}"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Save answer question 4",
+      "status": "pass",
+      "endpoint": "/assessments/69f1d25659e012504d76986e/attempts/69fc3c947fbeaddc1886bd9a/answers",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lưu câu trả lời thành công\",\"data\":{\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769873\",\"student_answer\":\"125 000 đồng\",\"selected_choice\":\"125 000 đồng\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:43.015Z\",\"_id\":\"69fc3c977fbeaddc1886bdba\",\"createdAt\":\"2026-05-07T07:17:43.015Z\",\"updatedAt\":\"2026-05-07T07:17:43.015Z\",\"id\":\"69fc3c977fbeaddc1886bdba\"}}"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Save answer question 5",
+      "status": "pass",
+      "endpoint": "/assessments/69f1d25659e012504d76986e/attempts/69fc3c947fbeaddc1886bd9a/answers",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lưu câu trả lời thành công\",\"data\":{\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769874\",\"student_answer\":\"8,4\",\"selected_choice\":\"8,4\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:43.961Z\",\"_id\":\"69fc3c977fbeaddc1886bdc2\",\"createdAt\":\"2026-05-07T07:17:43.961Z\",\"updatedAt\":\"2026-05-07T07:17:43.961Z\",\"id\":\"69fc3c977fbeaddc1886bdc2\"}}"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Save answer question 6",
+      "status": "pass",
+      "endpoint": "/assessments/69f1d25659e012504d76986e/attempts/69fc3c947fbeaddc1886bd9a/answers",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lưu câu trả lời thành công\",\"data\":{\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769875\",\"student_answer\":\"x = 17/5\",\"selected_choice\":\"x = 17/5\",\"is_correct\":true,\"score\":1.5,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:44.928Z\",\"_id\":\"69fc3c987fbeaddc1886bdca\",\"createdAt\":\"2026-05-07T07:17:44.928Z\",\"updatedAt\":\"2026-05-07T07:17:44.928Z\",\"id\":\"69fc3c987fbeaddc1886bdca\"}}"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Save answer question 7",
+      "status": "pass",
+      "endpoint": "/assessments/69f1d25659e012504d76986e/attempts/69fc3c947fbeaddc1886bd9a/answers",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lưu câu trả lời thành công\",\"data\":{\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769876\",\"student_answer\":\"9 cm, 12 cm, 15 cm\",\"selected_choice\":null,\"is_correct\":false,\"score\":0,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:45.970Z\",\"_id\":\"69fc3c997fbeaddc1886bdd2\",\"createdAt\":\"2026-05-07T07:17:45.970Z\",\"updatedAt\":\"2026-05-07T07:17:45.970Z\",\"id\":\"69fc3c997fbeaddc1886bdd2\"}}"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Save answer question 8",
+      "status": "pass",
+      "endpoint": "/assessments/69f1d25659e012504d76986e/attempts/69fc3c947fbeaddc1886bd9a/answers",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lưu câu trả lời thành công\",\"data\":{\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769877\",\"student_answer\":\"Chứng minh được tam giác ABM bằng tam giác ACM, suy ra góc AMB = góc AMC. Hai góc này kề bù và bằng nhau nên mỗi góc bằng 90°, do đó AM vuông góc BC.\",\"selected_choice\":null,\"is_correct\":false,\"score\":0,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:47.137Z\",\"_id\":\"69fc3c9b7fbeaddc1886bdda\",\"createdAt\":\"2026-05-07T07:17:47.138Z\",\"updatedAt\":\"2026-05-07T07:17:47.138Z\",\"id\":\"69fc3c9b7fbeaddc1886bdda\"}}"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Submit assessment attempt marker",
+      "status": "pass",
+      "endpoint": "/assessments/69f1d25659e012504d76986e/attempts/69fc3c947fbeaddc1886bd9a/submit",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Nộp bài đánh giá thành công\",\"data\":{\"$__\":{\"activePaths\":{\"paths\":{\"student_id\":\"init\",\"assessment_id\":\"init\",\"started_at\":\"init\",\"submitted_at\":\"init\",\"total_score\":\"init\",\"max_score\":\"init\",\"percentage\":\"init\",\"ai_feedback\":\"init\",\"ai_analysis\":\"init\",\"status\":\"init\",\"_id\":\"init\",\"createdAt\":\"init\",\"updatedAt\":\"init\",\"__v\":\"init\"},\"states\":{\"require\":{},\"default\":{},\"init\":{\"_id\":true,\"assessment_id\":true,\"student_id\":true,\"started_at\":true,\"submitted_at\":true,\"total_score\":true,\"max_score\":true,\"percentage\":true,\"ai_feedback\":true,\"ai_analysis\":true,\"status\":true,\"createdAt\":true,\"updatedAt\":true,\"__v\":true}}},\"skipId\":true},\"$isNew\":false,\"_doc\":{\"_id\":\"69fc3c947fbeaddc1886bd9a\",\"assessment_id\":\"69f1d25659e012504d76986e\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"started_at\":null,\"submitted_at\":\"2026-05-07T07:17:57.765Z\",\"total_score\":10,\"max_score\":10,\"percentage\":100,\"ai_feedback\":\"Chưa có đủ dữ liệu để phân tích kết quả.\\n\\nKhuyến nghị: Khuyến khích học sinh hoàn thành thêm câu trả lời.\",\"ai_analysis\":{\"strengths\":[],\"weaknesses\":[],\"recommendations\":\"Khuyến khích học sinh hoàn thành thêm câu trả lời.\"},\"status\":\"graded\",\"createdAt\":\"2026-05-07T07:17:40.920Z\",\"updatedAt\":\"2026-05-07T07:17:57.766Z\",\"__v\":0},\"answers\":[{\"_id\":\"69fc3c957fbeaddc1886bda2\",\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769870\",\"student_answer\":\"-1/4\",\"selected_choice\":\"-1/4\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:41.431Z\",\"createdAt\":\"2026-05-07T07:17:41.431Z\",\"updatedAt\":\"2026-05-07T07:17:48.134Z\",\"id\":\"69fc3c957fbeaddc1886bda2\"},{\"_id\":\"69fc3c957fbeaddc1886bdaa\",\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769871\",\"student_answer\":\"-16\",\"selected_choice\":\"-16\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:41.929Z\",\"createdAt\":\"2026-05-07T07:17:41.930Z\",\"updatedAt\":\"2026-05-07T07:17:48.291Z\",\"id\":\"69fc3c957fbeaddc1886bdaa\"},{\"_id\":\"69fc3c967fbeaddc1886bdb2\",\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769872\",\"student_answer\":\"70°\",\"selected_choice\":null,\"is_correct\":true,\"score\":1,\"ai_comment\":\"Đúng. Góc C = 70°.\",\"answered_at\":\"2026-05-07T07:17:42.419Z\",\"createdAt\":\"2026-05-07T07:17:42.419Z\",\"updatedAt\":\"2026-05-07T07:17:51.088Z\",\"id\":\"69fc3c967fbeaddc1886bdb2\"},{\"_id\":\"69fc3c977fbeaddc1886bdba\",\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769873\",\"student_answer\":\"125 000 đồng\",\"selected_choice\":\"125 000 đồng\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:43.015Z\",\"createdAt\":\"2026-05-07T07:17:43.015Z\",\"updatedAt\":\"2026-05-07T07:17:51.155Z\",\"id\":\"69fc3c977fbeaddc1886bdba\"},{\"_id\":\"69fc3c977fbeaddc1886bdc2\",\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769874\",\"student_answer\":\"8,4\",\"selected_choice\":\"8,4\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:43.961Z\",\"creat"
+    },
+    {
+      "workflow": "Assessment/quiz flow",
+      "name": "Assessment result after submit/check",
+      "status": "pass",
+      "endpoint": "/assessments/69f1d25659e012504d76986e/result",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Lấy kết quả bài đánh giá thành công\",\"data\":{\"$__\":{\"activePaths\":{\"paths\":{\"student_id\":\"init\",\"assessment_id\":\"init\",\"started_at\":\"init\",\"submitted_at\":\"init\",\"total_score\":\"init\",\"max_score\":\"init\",\"percentage\":\"init\",\"ai_feedback\":\"init\",\"ai_analysis\":\"init\",\"status\":\"init\",\"_id\":\"init\",\"createdAt\":\"init\",\"updatedAt\":\"init\",\"__v\":\"init\"},\"states\":{\"require\":{},\"default\":{},\"init\":{\"_id\":true,\"assessment_id\":true,\"student_id\":true,\"started_at\":true,\"submitted_at\":true,\"total_score\":true,\"max_score\":true,\"percentage\":true,\"ai_feedback\":true,\"ai_analysis\":true,\"status\":true,\"createdAt\":true,\"updatedAt\":true,\"__v\":true}}},\"skipId\":true},\"$isNew\":false,\"_doc\":{\"_id\":\"69fc3c947fbeaddc1886bd9a\",\"assessment_id\":\"69f1d25659e012504d76986e\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"started_at\":null,\"submitted_at\":\"2026-05-07T07:17:57.765Z\",\"total_score\":10,\"max_score\":10,\"percentage\":100,\"ai_feedback\":\"Chưa có đủ dữ liệu để phân tích kết quả.\\n\\nKhuyến nghị: Khuyến khích học sinh hoàn thành thêm câu trả lời.\",\"ai_analysis\":{\"strengths\":[],\"weaknesses\":[],\"recommendations\":\"Khuyến khích học sinh hoàn thành thêm câu trả lời.\"},\"status\":\"graded\",\"createdAt\":\"2026-05-07T07:17:40.920Z\",\"updatedAt\":\"2026-05-07T07:17:57.766Z\",\"__v\":0},\"answers\":[{\"_id\":\"69fc3c957fbeaddc1886bda2\",\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769870\",\"student_answer\":\"-1/4\",\"selected_choice\":\"-1/4\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:41.431Z\",\"createdAt\":\"2026-05-07T07:17:41.431Z\",\"updatedAt\":\"2026-05-07T07:17:48.134Z\",\"id\":\"69fc3c957fbeaddc1886bda2\"},{\"_id\":\"69fc3c957fbeaddc1886bdaa\",\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769871\",\"student_answer\":\"-16\",\"selected_choice\":\"-16\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:41.929Z\",\"createdAt\":\"2026-05-07T07:17:41.930Z\",\"updatedAt\":\"2026-05-07T07:17:48.291Z\",\"id\":\"69fc3c957fbeaddc1886bdaa\"},{\"_id\":\"69fc3c967fbeaddc1886bdb2\",\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769872\",\"student_answer\":\"70°\",\"selected_choice\":null,\"is_correct\":true,\"score\":1,\"ai_comment\":\"Đúng. Góc C = 70°.\",\"answered_at\":\"2026-05-07T07:17:42.419Z\",\"createdAt\":\"2026-05-07T07:17:42.419Z\",\"updatedAt\":\"2026-05-07T07:17:51.088Z\",\"id\":\"69fc3c967fbeaddc1886bdb2\"},{\"_id\":\"69fc3c977fbeaddc1886bdba\",\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769873\",\"student_answer\":\"125 000 đồng\",\"selected_choice\":\"125 000 đồng\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:43.015Z\",\"createdAt\":\"2026-05-07T07:17:43.015Z\",\"updatedAt\":\"2026-05-07T07:17:51.155Z\",\"id\":\"69fc3c977fbeaddc1886bdba\"},{\"_id\":\"69fc3c977fbeaddc1886bdc2\",\"attempt_id\":\"69fc3c947fbeaddc1886bd9a\",\"question_id\":\"69f1d25659e012504d769874\",\"student_answer\":\"8,4\",\"selected_choice\":\"8,4\",\"is_correct\":true,\"score\":1,\"ai_comment\":null,\"answered_at\":\"2026-05-07T07:17:43.961Z"
+    },
+    {
+      "workflow": "Solver/Chat AI",
+      "name": "Solver on-scope math hint",
+      "status": "pass",
+      "endpoint": "/solver/solve",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Giải bài toán thành công\",\"data\":{\"stage\":\"hint\",\"content\":\"Gợi ý local dev: Em hãy đưa hạng tử không chứa x sang vế phải trước. Sau đó chia cả hai vế cho hệ số của x.\",\"can_request_more\":true,\"hint_count\":1,\"dependency_warning\":false,\"similar_problems\":[],\"similar_problems_meta\":{\"message\":\"Bài luyện thêm sẽ xuất hiện sau khi em xem lời giải đầy đủ.\"}}}",
+      "note": "Dev solver fallback đang hoạt động"
+    },
+    {
+      "workflow": "Solver/Chat AI",
+      "name": "Solver on-scope full solution",
+      "status": "pass",
+      "endpoint": "/solver/solve",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Giải bài toán thành công\",\"data\":{\"stage\":\"full_solution\",\"content\":\"Lời giải local dev:\\n1. Bắt đầu từ Giải phương trình 2x + 3 = 7.\\n2. Chuyển hạng tử tự do sang vế phải: 2x = 7 - (3) = 4.\\n3. Chia hai vế cho 2: x = 2.\\nLỗi hay gặp: quên đổi dấu khi chuyển vế hoặc quên chia cho hệ số của x.\",\"can_request_more\":false,\"hint_count\":2,\"dependency_warning\":false,\"similar_problems\":[{\"problem\":\"Giải phương trình 4x - 5 = 11\",\"hint\":\"Chuyển số hạng tự do sang vế phải rồi chia cả hai vế cho hệ số của x.\",\"difficulty\":\"easy\",\"topic\":\"Giải phương trình bậc nhất một ẩn\",\"answer\":\"x = 4\"},{\"problem\":\"Giải phương trình 7x + 2 = 30\",\"hint\":\"Trừ 2 ở cả hai vế để đưa về dạng ax = b, sau đó tìm x.\",\"difficulty\":\"easy\",\"topic\":\"Giải phương trình bậc nhất một ẩn\",\"answer\":\"x = 4\"},{\"problem\":\"Giải phương trình 5x - 8 = 17\",\"hint\":\"Cộng 8 vào cả hai vế trước, rồi chia cho 5.\",\"difficulty\":\"easy\",\"topic\":\"Giải phương trình bậc nhất một ẩn\",\"answer\":\"x = 5\"}],\"similar_problems_meta\":{\"message\":\"Đã tạo bài tương tự để em luyện thêm.\"}}}",
+      "note": "Dev solver fallback đang hoạt động"
+    },
+    {
+      "workflow": "Solver/Chat AI",
+      "name": "Solver off-scope guard blocked",
+      "status": "pass",
+      "endpoint": "/solver/solve",
+      "method": "POST",
+      "statusCode": 400,
+      "body": "{\"success\":false,\"message\":\"Nội dung cần hỗ trợ phải thuộc phạm vi học Toán và không chứa thông tin/yêu cầu không phù hợp.\",\"data\":null,\"meta\":{\"errors\":{\"safety\":{\"safetyDecision\":\"block\",\"safetyReasons\":[\"off_scope_non_math_writing\",\"pii_phone_detected\",\"pii_identifier_like_number_detected\"],\"safetyConfidence\":0.94,\"safetyRiskLevel\":\"high\"}}}}"
+    },
+    {
+      "workflow": "Solver/Chat AI",
+      "name": "Solver history",
+      "status": "pass",
+      "endpoint": "/solver/history?limit=10",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"data\":[{\"_id\":\"69fc3cb27fbeaddc1886be19\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"lesson_id\":null,\"input_type\":\"text\",\"input_text\":\"Giải phương trình 2x + 3 = 7\",\"image_url\":null,\"parsed_text\":null,\"ai_response\":\"Lời giải local dev:\\n1. Bắt đầu từ Giải phương trình 2x + 3 = 7.\\n2. Chuyển hạng tử tự do sang vế phải: 2x = 7 - (3) = 4.\\n3. Chia hai vế cho 2: x = 2.\\nLỗi hay gặp: quên đổi dấu khi chuyển vế hoặc quên chia cho hệ số của x.\",\"solution_steps\":null,\"explanation\":null,\"common_mistakes\":null,\"ai_model\":\"dev-local-solver-fallback\",\"tokens_used\":124,\"related_topic\":null,\"similar_problems\":[{\"problem\":\"Giải phương trình 4x - 5 = 11\",\"hint\":\"Chuyển số hạng tự do sang vế phải rồi chia cả hai vế cho hệ số của x.\",\"difficulty\":\"easy\",\"topic\":\"Giải phương trình bậc nhất một ẩn\",\"answer\":\"x = 4\"},{\"problem\":\"Giải phương trình 7x + 2 = 30\",\"hint\":\"Trừ 2 ở cả hai vế để đưa về dạng ax = b, sau đó tìm x.\",\"difficulty\":\"easy\",\"topic\":\"Giải phương trình bậc nhất một ẩn\",\"answer\":\"x = 4\"},{\"problem\":\"Giải phương trình 5x - 8 = 17\",\"hint\":\"Cộng 8 vào cả hai vế trước, rồi chia cho 5.\",\"difficulty\":\"easy\",\"topic\":\"Giải phương trình bậc nhất một ẩn\",\"answer\":\"x = 5\"}],\"similar_problems_message\":\"Đã tạo bài tương tự để em luyện thêm.\",\"createdAt\":\"2026-05-07T07:18:10.048Z\",\"updatedAt\":\"2026-05-07T07:18:10.048Z\",\"id\":\"69fc3cb27fbeaddc1886be19\"},{\"_id\":\"69fc3caa7fbeaddc1886be0b\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"lesson_id\":null,\"input_type\":\"text\",\"input_text\":\"Giải phương trình 2x + 3 = 7\",\"image_url\":null,\"parsed_text\":null,\"ai_response\":\"Gợi ý local dev: Em hãy đưa hạng tử không chứa x sang vế phải trước. Sau đó chia cả hai vế cho hệ số của x.\",\"solution_steps\":null,\"explanation\":null,\"common_mistakes\":null,\"ai_model\":\"dev-local-solver-fallback\",\"tokens_used\":112,\"related_topic\":null,\"similar_problems\":[],\"similar_problems_message\":\"Bài luyện thêm sẽ xuất hiện sau khi em xem lời giải đầy đủ.\",\"createdAt\":\"2026-05-07T07:18:02.183Z\",\"updatedAt\":\"2026-05-07T07:18:02.183Z\",\"id\":\"69fc3caa7fbeaddc1886be0b\"},{\"_id\":\"69fc3ba47fbeaddc1886bc55\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"lesson_id\":null,\"input_type\":\"text\",\"input_text\":\"Giải phương trình 2x + 3 = 7\",\"image_url\":null,\"parsed_text\":null,\"ai_response\":\"Lời giải local dev:\\n1. Bắt đầu từ Giải phương trình 2x + 3 = 7.\\n2. Chuyển hạng tử tự do sang vế phải: 2x = 7 - (3) = 4.\\n3. Chia hai vế cho 2: x = 2.\\nLỗi hay gặp: quên đổi dấu khi chuyển vế hoặc quên chia cho hệ số của x.\",\"solution_steps\":null,\"explanation\":null,\"common_mistakes\":null,\"ai_model\":\"dev-local-solver-fallback\",\"tokens_used\":124,\"related_topic\":null,\"similar_problems\":[{\"problem\":\"Giải phương trình 5x - 4 = 16.\",\"hint\":\"Chuyển số hạng tự do sang vế phải rồi chia hai vế cho hệ số của x.\",\"difficulty\":\"easy\",\"topic\":\"Giải phương trình bậc nhất một ẩn\",\"answer\":\"x = 4\"},{\"problem\":\"Giải phương trình 3x + 8 = 20.\",\"hint\":\"Trừ 8 ở cả hai vế để đưa về dạng ax = b.\",\"difficulty\":\"easy\",\"topic\":\"Giải phương trình bậc nhất một ẩn\""
+    },
+    {
+      "workflow": "Solver/Chat AI",
+      "name": "Solver examples fail-safe",
+      "status": "pass",
+      "endpoint": "/solver/examples?grade_level=8&count=2",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Tạo ví dụ thành công\",\"data\":[\"Giải phương trình 3x - 7 = 11\",\"Một tam giác có đáy 12cm và chiều cao 7cm, tính diện tích tam giác đó\"]}"
+    },
+    {
+      "workflow": "Solver/Chat AI",
+      "name": "Chat teachers",
+      "status": "pass",
+      "endpoint": "/chat/teachers",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"data\":[{\"_id\":\"69e7093f29356dae6ae669a7\",\"code\":\"co_lan\",\"name\":\"Cô Lan\",\"display_name\":\"Cô Lan\",\"avatar_emoji\":\"👩‍🏫\",\"gender_style\":\"nu\",\"tone_style\":\"Nhẹ nhàng, ấm áp, động viên\",\"teaching_style\":\"Liên hệ thực tế, ví dụ gần gũi\",\"personality\":\"Thân thiện, vui vẻ, luôn khen ngợi nỗ lực\",\"description\":\"Cô Lan dạy toán bằng cách liên hệ thực tế, giúp học sinh thấy toán học thú vị và gần gũi.\",\"system_prompt\":\"Bạn là Cô Lan, một giáo viên toán thân thiện và ấm áp. Bạn thích dùng ví dụ thực tế để giải thích các khái niệm toán học. Luôn khen ngợi nỗ lực của học sinh dù kết quả chưa đúng. Xưng \\\"cô\\\" và gọi học sinh là \\\"em\\\". Giọng điệu nhẹ nhàng, động viên.\",\"is_active\":true,\"updatedAt\":\"2026-05-07T05:43:13.029Z\",\"avatar_url\":null,\"id\":\"69e7093f29356dae6ae669a7\"},{\"_id\":\"69e7093f29356dae6ae669a8\",\"code\":\"thay_duc\",\"name\":\"Thầy Đức\",\"display_name\":\"Thầy Đức\",\"avatar_emoji\":\"🧑‍💻\",\"gender_style\":\"nam\",\"tone_style\":\"Năng động, hiện đại, hài hước\",\"teaching_style\":\"Gamification, thử thách, thi đua\",\"personality\":\"Trẻ trung, hài hước, tạo động lực bằng thử thách\",\"description\":\"Thầy Đức biến toán học thành trò chơi với các thử thách thú vị, phù hợp với học sinh thích cạnh tranh.\",\"system_prompt\":\"Bạn là Thầy Đức, một giáo viên toán trẻ trung và năng động. Bạn thích biến bài toán thành thử thách và trò chơi. Dùng emoji, ngôn ngữ hiện đại nhưng vẫn lịch sự. Khuyến khích học sinh bằng cách tạo cảm giác chinh phục. Xưng \\\"thầy\\\" và gọi học sinh là \\\"em\\\".\",\"is_active\":true,\"updatedAt\":\"2026-05-07T05:43:13.339Z\",\"avatar_url\":null,\"id\":\"69e7093f29356dae6ae669a8\"},{\"_id\":\"69e7093f29356dae6ae669aa\",\"code\":\"thay_hung\",\"name\":\"Thầy Hùng\",\"display_name\":\"Thầy Hùng\",\"avatar_emoji\":\"💪\",\"gender_style\":\"nam\",\"tone_style\":\"Mạnh mẽ, trực tiếp, thách thức\",\"teaching_style\":\"Đặt câu hỏi ngược, kích thích tư duy\",\"personality\":\"Thẳng thắn, đòi hỏi cao, nhưng công bằng\",\"description\":\"Thầy Hùng dạy bằng cách đặt câu hỏi ngược, buộc học sinh phải tự suy nghĩ trước khi cho đáp án.\",\"system_prompt\":\"Bạn là Thầy Hùng, một giáo viên toán thẳng thắn và đòi hỏi cao. Thay vì cho đáp án ngay, bạn đặt câu hỏi ngược để kích thích tư duy. Khen ngợi khi học sinh tự tìm ra lời giải. Xưng \\\"thầy\\\" và gọi học sinh là \\\"em\\\". Giọng mạnh mẽ nhưng công bằng.\",\"is_active\":true,\"updatedAt\":\"2026-05-07T05:43:13.592Z\",\"avatar_url\":null,\"id\":\"69e7093f29356dae6ae669aa\"},{\"_id\":\"69e7093f29356dae6ae669a6\",\"code\":\"thay_minh\",\"name\":\"Thầy Minh\",\"display_name\":\"Thầy Minh\",\"avatar_emoji\":\"👨‍🏫\",\"gender_style\":\"nam\",\"tone_style\":\"Nghiêm túc, logic, có hệ thống\",\"teaching_style\":\"Phân tích từng bước, giải thích chi tiết\",\"personality\":\"Kiên nhẫn, tỉ mỉ, luôn khuyến khích học sinh\",\"description\":\"Thầy Minh chuyên dạy theo phương pháp phân tích logic, giúp học sinh hiểu bản chất vấn đề.\",\"system_prompt\":\"Bạn là Thầy Minh, một giáo viên toán nghiêm túc và có hệ thống. Bạn luôn giải thích từng bước một cách logic, kiên nhẫn với học sinh. Khi học sinh sai, bạn không chê trách mà hướng dẫn l"
+    },
+    {
+      "workflow": "Solver/Chat AI",
+      "name": "Chat conversations list",
+      "status": "pass",
+      "endpoint": "/chat/conversations",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"data\":[{\"_id\":\"69fc3baf7fbeaddc1886bc6b\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"ai_tutor_id\":\"69e7093f29356dae6ae669a7\",\"lesson_id\":null,\"title\":\"Student audit 2026-05-07T07-12-47-690Z\",\"context_summary\":null,\"status\":\"closed\",\"createdAt\":\"2026-05-07T07:13:51.174Z\",\"updatedAt\":\"2026-05-07T07:14:00.383Z\",\"id\":\"69fc3baf7fbeaddc1886bc6b\"},{\"_id\":\"69fc3b507fbeaddc1886bb2a\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"ai_tutor_id\":\"69e7093f29356dae6ae669a7\",\"lesson_id\":null,\"title\":\"Student audit 2026-05-07T07-11-08-952Z\",\"context_summary\":null,\"status\":\"closed\",\"createdAt\":\"2026-05-07T07:12:16.060Z\",\"updatedAt\":\"2026-05-07T07:12:21.763Z\",\"id\":\"69fc3b507fbeaddc1886bb2a\"},{\"_id\":\"69f872a2dc05485329ec3a6e\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"ai_tutor_id\":\"69e7093f29356dae6ae669a6\",\"lesson_id\":null,\"title\":\"Cuộc trò chuyện với Thầy Minh\",\"context_summary\":null,\"status\":\"active\",\"createdAt\":\"2026-05-04T10:19:14.214Z\",\"updatedAt\":\"2026-05-04T10:19:14.214Z\",\"id\":\"69f872a2dc05485329ec3a6e\"},{\"_id\":\"69f1c58559e012504d76982e\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"ai_tutor_id\":\"69e7093f29356dae6ae669a7\",\"lesson_id\":null,\"title\":\"Cuộc trò chuyện với Cô Lan\",\"context_summary\":null,\"status\":\"active\",\"createdAt\":\"2026-04-29T08:47:01.148Z\",\"updatedAt\":\"2026-04-29T08:47:35.507Z\",\"id\":\"69f1c58559e012504d76982e\"}]}"
+    },
+    {
+      "workflow": "Solver/Chat AI",
+      "name": "Chat create conversation marker",
+      "status": "pass",
+      "endpoint": "/chat/conversations",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"data\":{\"student_id\":\"69e81b14eadbc114b25bca12\",\"ai_tutor_id\":\"69e7093f29356dae6ae669a7\",\"lesson_id\":null,\"title\":\"Student audit 2026-05-07T07-17-16-669Z\",\"context_summary\":null,\"status\":\"active\",\"_id\":\"69fc3cb77fbeaddc1886be31\",\"createdAt\":\"2026-05-07T07:18:15.150Z\",\"updatedAt\":\"2026-05-07T07:18:15.150Z\",\"id\":\"69fc3cb77fbeaddc1886be31\"}}"
+    },
+    {
+      "workflow": "Solver/Chat AI",
+      "name": "Chat send math message streaming/fail-safe",
+      "status": "pass",
+      "endpoint": "/chat/conversations/69fc3cb77fbeaddc1886be31/messages",
+      "method": "POST",
+      "statusCode": 200,
+      "body": "data: {\"content\":\"T\"}\n\ndata: {\"content\":\"ốt\"}\n\ndata: {\"content\":\" l\"}\n\ndata: {\"content\":\"ắm\"}\n\ndata: {\"content\":\" em\"}\n\ndata: {\"content\":\",\"}\n\ndata: {\"content\":\" mình\"}\n\ndata: {\"content\":\" bắt\"}\n\ndata: {\"content\":\" đầu\"}\n\ndata: {\"content\":\" bằng\"}\n\ndata: {\"content\":\" cách\"}\n\ndata: {\"content\":\" **\"}\n\ndata: {\"content\":\"t\"}\n\ndata: {\"content\":\"ách\"}\n\ndata: {\"content\":\" x\"}\n\ndata: {\"content\":\" ra\"}\n\ndata: {\"content\":\" một\"}\n\ndata: {\"content\":\" mình\"}\n\ndata: {\"content\":\"**\"}\n\ndata: {\"content\":\" nhé\"}\n\ndata: {\"content\":\".\\n\\n\"}\n\ndata: {\"content\":\"Ph\"}\n\ndata: {\"content\":\"ương\"}\n\ndata: {\"content\":\" trình\"}\n\ndata: {\"content\":\" là\"}\n\ndata: {\"content\":\":\\n\\n\"}\n\ndata: {\"content\":\"\\\\\"}\n\ndata: {\"content\":\"[\\n\"}\n\ndata: {\"content\":\"2\"}\n\ndata: {\"content\":\"x\"}\n\ndata: {\"content\":\" +\"}\n\ndata: {\"content\":\" \"}\n\ndata: {\"content\":\"3\"}\n\ndata: {\"content\":\" =\"}\n\ndata: {\"content\":\" \"}\n\ndata: {\"content\":\"7\"}\n\ndata: {\"content\":\"\\n\"}\n\ndata: {\"content\":\"\\\\\"}\n\ndata: {\"content\":\"]\\n\\n\"}\n\ndata: {\"content\":\"V\"}\n\ndata: {\"content\":\"ì\"}\n\ndata: {\"content\":\" \\\\(\"}\n\ndata: {\"content\":\"+\"}\n\ndata: {\"content\":\"3\"}\n\ndata: {\"content\":\"\\\\\"}\n\ndata: {\"content\":\")\"}\n\ndata: {\"content\":\" đang\"}\n\ndata: {\"content\":\" đi\"}\n\ndata: {\"content\":\" cùng\"}\n\ndata: {\"content\":\" v\"}\n\ndata: {\"content\":\"ế\"}\n\ndata: {\"content\":\" với\"}\n\ndata: {\"content\":\" \\\\(\"}\n\ndata: {\"content\":\"2\"}\n\ndata: {\"content\":\"x\"}\n\ndata: {\"content\":\"\\\\\"}\n\ndata: {\"content\":\"),\"}\n\ndata: {\"content\":\" nên\"}\n\ndata: {\"content\":\" em\"}\n\ndata: {\"content\":\" hãy\"}\n\ndata: {\"content\":\" **\"}\n\ndata: {\"content\":\"tr\"}\n\ndata: {\"content\":\"ừ\"}\n\ndata: {\"content\":\" \"}\n\ndata: {\"content\":\"3\"}\n\ndata: {\"content\":\" ở\"}\n\ndata: {\"content\":\" cả\"}\n\ndata: {\"content\":\" hai\"}\n\ndata: {\"content\":\" v\"}\n\ndata: {\"content\":\"ế\"}\n\ndata: {\"content\":\"**\"}\n\ndata: {\"content\":\":\\n\\n\"}\n\ndata: {\"content\":\"\\\\\"}\n\ndata: {\"content\":\"[\\n\"}\n\ndata: {\"content\":\"2\"}\n\ndata: {\"content\":\"x\"}\n\ndata: {\"content\":\" +\"}\n\ndata: {\"content\":\" \"}\n\ndata: {\"content\":\"3\"}\n\ndata: {\"content\":\" -\"}\n\ndata: {\"content\":\" \"}\n\ndata: {\"content\":\"3\"}\n\ndata: {\"content\":\" =\"}\n\ndata: {\"content\":\" \"}\n\ndata: {\"content\":\"7\"}\n\ndata: {\"content\":\" -\"}\n\ndata: {\"content\":\" \"}\n\ndata: {\"content\":\"3\"}\n\ndata: {\"content\":\"\\n\"}\n\ndata: {\"content\":\"\\\\\"}\n\ndata: {\"content\":\"]\\n\\n\"}\n\ndata: {\"content\":\"K\"}\n\ndata: {\"content\":\"hi\"}\n\ndata: {\"content\":\" đó\"}\n\ndata: {\"content\":\" còn\"}\n\ndata: {\"content\":\":\\n\\n\"}\n\ndata: {\"content\":\"\\\\\"}\n\ndata: {\"content\":\"[\\n\"}\n\ndata: {\"content\":\"2\"}\n\ndata: {\"content\":\"x\"}\n\ndata: {\"content\":\" =\"}\n\ndata: {\"content\":\" \"}\n\ndata: {\"content\":\"4\"}\n\ndata: {\"content\":\"\\n\"}\n\ndata: {\"content\":\"\\\\\"}\n\ndata: {\"content\":\"]\\n\\n\"}\n\ndata: {\"content\":\"Ti\"}\n\ndata: {\"content\":\"ếp\"}\n\ndata: {\"content\":\" theo\"}\n\ndata: {\"content\":\",\"}\n\ndata: {\"content\":\" vì\"}\n\ndata: {\"content\":\" \\\\(\"}\n\ndata: {\"content\":\"2\"}\n\ndata: {\"content\":\"x\"}\n\ndata: {\"content\":\"\\\\\"}\n\ndata: {\"content\":\")\"}\n\ndata: {\"content\":\" nghĩa\"}\n\ndata: {\"content\":\" là\"}\n\ndata: {\"content\":\" \\\\(\"}\n\ndata: {\"content\":\"2\"}\n\ndata: {\"content\":\" \\\\\"}\n\ndata: {\"content\":\"times\"}\n\ndata: {\"content\""
+    },
+    {
+      "workflow": "Solver/Chat AI",
+      "name": "Chat conversation messages",
+      "status": "pass",
+      "endpoint": "/chat/conversations/69fc3cb77fbeaddc1886be31/messages",
+      "method": "GET",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"data\":[{\"_id\":\"69fc3cb77fbeaddc1886be35\",\"conversation_id\":\"69fc3cb77fbeaddc1886be31\",\"role\":\"student\",\"content\":\"Em cần gợi ý toán: 2x + 3 = 7 nên bắt đầu thế nào?\",\"message_type\":\"text\",\"ai_model\":null,\"tokens_used\":null,\"createdAt\":\"2026-05-07T07:18:15.360Z\",\"updatedAt\":\"2026-05-07T07:18:15.360Z\",\"id\":\"69fc3cb77fbeaddc1886be35\"},{\"_id\":\"69fc3cbd7fbeaddc1886be3c\",\"conversation_id\":\"69fc3cb77fbeaddc1886be31\",\"role\":\"tutor\",\"content\":\"Tốt lắm em, mình bắt đầu bằng cách **tách x ra một mình** nhé.\\n\\nPhương trình là:\\n\\n\\\\[\\n2x + 3 = 7\\n\\\\]\\n\\nVì \\\\(+3\\\\) đang đi cùng vế với \\\\(2x\\\\), nên em hãy **trừ 3 ở cả hai vế**:\\n\\n\\\\[\\n2x + 3 - 3 = 7 - 3\\n\\\\]\\n\\nKhi đó còn:\\n\\n\\\\[\\n2x = 4\\n\\\\]\\n\\nTiếp theo, vì \\\\(2x\\\\) nghĩa là \\\\(2 \\\\times x\\\\), em sẽ **chia cả hai vế cho 2**:\\n\\n\\\\[\\nx = 2\\n\\\\]\\n\\nVậy kết quả là:\\n\\n\\\\[\\n\\\\boxed{x = 2}\\n\\\\]\\n\\nEm làm rất đúng khi hỏi “bắt đầu thế nào” — bước đầu quan trọng nhất là đưa các số không có \\\\(x\\\\) sang bên kia để còn lại \\\\(x\\\\) nhé.\",\"message_type\":\"text\",\"ai_model\":\"gpt-5.5\",\"tokens_used\":null,\"createdAt\":\"2026-05-07T07:18:21.911Z\",\"updatedAt\":\"2026-05-07T07:18:21.911Z\",\"id\":\"69fc3cbd7fbeaddc1886be3c\"}]}"
+    },
+    {
+      "workflow": "Solver/Chat AI",
+      "name": "Chat delete marker cleanup",
+      "status": "pass",
+      "endpoint": "/chat/conversations/69fc3cb77fbeaddc1886be31",
+      "method": "DELETE",
+      "statusCode": 200,
+      "body": "{\"success\":true,\"message\":\"Đã xóa hội thoại\"}"
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Puppeteer available",
+      "status": "pass"
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Route /dashboard",
+      "status": "pass",
+      "statusCode": 200,
+      "artifact": "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard.png",
+      "title": "MathAI - Học Toán Online với AI",
+      "consoleErrors": [],
+      "requestFailures": [],
+      "badResponses": []
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Route /dashboard/lessons",
+      "status": "pass",
+      "statusCode": 200,
+      "artifact": "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-lessons.png",
+      "title": "MathAI - Học Toán Online với AI",
+      "consoleErrors": [],
+      "requestFailures": [],
+      "badResponses": []
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Route /dashboard/lessons/69fbf565ea7bd7fefb462d30",
+      "status": "pass",
+      "statusCode": 200,
+      "artifact": "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-lessons-69fbf565ea7bd7fefb462d30.png",
+      "title": "MathAI - Học Toán Online với AI",
+      "consoleErrors": [],
+      "requestFailures": [],
+      "badResponses": []
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Route /dashboard/lessons/69fbf565ea7bd7fefb462d30/content/1",
+      "status": "pass",
+      "statusCode": 200,
+      "artifact": "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-lessons-69fbf565ea7bd7fefb462d30-content-1.png",
+      "title": "MathAI - Học Toán Online với AI",
+      "consoleErrors": [],
+      "requestFailures": [],
+      "badResponses": []
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Route /dashboard/lessons/69fbf565ea7bd7fefb462d30/content/check",
+      "status": "pass",
+      "statusCode": 200,
+      "artifact": "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-lessons-69fbf565ea7bd7fefb462d30-content-check.png",
+      "title": "MathAI - Học Toán Online với AI",
+      "consoleErrors": [],
+      "requestFailures": [],
+      "badResponses": []
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Route /dashboard/progress",
+      "status": "pass",
+      "statusCode": 200,
+      "artifact": "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-progress.png",
+      "title": "MathAI - Học Toán Online với AI",
+      "consoleErrors": [],
+      "requestFailures": [],
+      "badResponses": []
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Route /dashboard/points",
+      "status": "pass",
+      "statusCode": 200,
+      "artifact": "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-points.png",
+      "title": "MathAI - Học Toán Online với AI",
+      "consoleErrors": [],
+      "requestFailures": [],
+      "badResponses": []
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Route /dashboard/solver",
+      "status": "pass",
+      "statusCode": 200,
+      "artifact": "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-solver.png",
+      "title": "MathAI - Học Toán Online với AI",
+      "consoleErrors": [],
+      "requestFailures": [],
+      "badResponses": []
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Route /dashboard/chat",
+      "status": "pass",
+      "statusCode": 200,
+      "artifact": "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-chat.png",
+      "title": "MathAI - Học Toán Online với AI",
+      "consoleErrors": [],
+      "requestFailures": [],
+      "badResponses": []
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Route /dashboard/curriculum",
+      "status": "pass",
+      "statusCode": 200,
+      "artifact": "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-curriculum.png",
+      "title": "MathAI - Học Toán Online với AI",
+      "consoleErrors": [],
+      "requestFailures": [],
+      "badResponses": []
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Route /dashboard/settings",
+      "status": "pass",
+      "statusCode": 200,
+      "artifact": "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-settings.png",
+      "title": "MathAI - Học Toán Online với AI",
+      "consoleErrors": [],
+      "requestFailures": [],
+      "badResponses": []
+    },
+    {
+      "workflow": "UI/Puppeteer học viên",
+      "name": "Route /dashboard/assessment",
+      "status": "pass",
+      "statusCode": 200,
+      "artifact": "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-assessment.png",
+      "title": "MathAI - Học Toán Online với AI",
+      "consoleErrors": [],
+      "requestFailures": [],
+      "badResponses": []
+    }
+  ],
+  "context": {
+    "studentUser": {
+      "id": "69e81b14eadbc114b25bca10",
+      "email": "student@mathai.vn",
+      "role": "student"
+    },
+    "lessonId": "69fbf565ea7bd7fefb462d30",
+    "exerciseCount": 3,
+    "assessmentId": "69f1d25659e012504d76986e",
+    "profile": {
+      "id": "69e81b14eadbc114b25bca12"
+    },
+    "dashboardStatsKeys": [
+      "total_lessons",
+      "completed_lessons",
+      "completion_percentage",
+      "average_quiz_score",
+      "total_study_time_minutes",
+      "current_streak_days",
+      "longest_streak_days",
+      "points"
+    ]
+  },
+  "artifacts": [
+    "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard.png",
+    "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-lessons.png",
+    "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-lessons-69fbf565ea7bd7fefb462d30.png",
+    "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-lessons-69fbf565ea7bd7fefb462d30-content-1.png",
+    "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-lessons-69fbf565ea7bd7fefb462d30-content-check.png",
+    "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-progress.png",
+    "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-points.png",
+    "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-solver.png",
+    "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-chat.png",
+    "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-curriculum.png",
+    "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-settings.png",
+    "test-screenshots/student-business-audit/2026-05-07T07-17-16-669Z-student-dashboard-assessment.png"
+  ],
+  "workflows": {
+    "Runtime": {
+      "pass": 1,
+      "fail": 0,
+      "warn": 0,
+      "skip": 0
+    },
+    "Auth/Profile": {
+      "pass": 8,
+      "fail": 0,
+      "warn": 0,
+      "skip": 0
+    },
+    "Dashboard/Progress/Curriculum": {
+      "pass": 8,
+      "fail": 0,
+      "warn": 0,
+      "skip": 0
+    },
+    "Lesson learning flow": {
+      "pass": 6,
+      "fail": 0,
+      "warn": 0,
+      "skip": 0
+    },
+    "Assessment/quiz flow": {
+      "pass": 14,
+      "fail": 0,
+      "warn": 0,
+      "skip": 0
+    },
+    "Solver/Chat AI": {
+      "pass": 11,
+      "fail": 0,
+      "warn": 0,
+      "skip": 0
+    },
+    "UI/Puppeteer học viên": {
+      "pass": 13,
+      "fail": 0,
+      "warn": 0,
+      "skip": 0
+    }
+  },
+  "finishedAt": "2026-05-07T07:19:20.120Z"
+}

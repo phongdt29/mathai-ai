@@ -1,0 +1,425 @@
+{
+  "createdAt": "2026-05-07T05:45:59.673Z",
+  "frontend": "http://localhost:3444",
+  "backend": "http://localhost:3001",
+  "health": {
+    "backend": {
+      "url": "http://localhost:3001/health",
+      "status": 200,
+      "ok": true,
+      "body": {
+        "status": "ok",
+        "timestamp": "2026-05-07T05:45:48.547Z"
+      }
+    },
+    "frontend": {
+      "ok": true,
+      "status": 200,
+      "length": 40832
+    }
+  },
+  "discoveredIds": {
+    "studentLessonId": "69fbf565ea7bd7fefb462d30",
+    "classId": "69fc002c9f998e8ddff6b32a",
+    "adminCurriculumId": "69fc0a0fea7bd7fefb462d5e",
+    "adminLessonId": "69fc0a0fea7bd7fefb462d60",
+    "adminAssignmentId": "69fc0a0fea7bd7fefb462d63",
+    "teacherCurriculumId": "69fc0a0fea7bd7fefb462d5e",
+    "teacherLessonId": "69fc0a0fea7bd7fefb462d60",
+    "teacherAssignmentId": "69fc0a0fea7bd7fefb462d63"
+  },
+  "sources": {
+    "studentLessons": {
+      "endpoint": "/lessons",
+      "status": 200,
+      "ok": true,
+      "count": 1
+    },
+    "studentCurricula": {
+      "endpoint": "/curricula",
+      "status": 200,
+      "ok": true,
+      "count": 1
+    },
+    "adminClasses": {
+      "endpoint": "/admin/classes",
+      "status": 200,
+      "ok": true,
+      "count": 2
+    },
+    "adminCurricula": {
+      "endpoint": "/content-library/curriculum-templates?limit=20",
+      "status": 200,
+      "ok": true,
+      "count": 1
+    },
+    "adminLessons": {
+      "endpoint": "/content-library/lesson-templates?limit=20",
+      "status": 200,
+      "ok": true,
+      "count": 1
+    },
+    "adminAssignments": {
+      "endpoint": "/content-library/assignments?limit=20",
+      "status": 200,
+      "ok": true,
+      "count": 1
+    },
+    "teacherClasses": {
+      "endpoint": "/teacher/classes",
+      "status": 200,
+      "ok": true,
+      "count": 1
+    },
+    "teacherCurricula": {
+      "endpoint": "/content-library/curriculum-templates?limit=20",
+      "status": 200,
+      "ok": true,
+      "count": 1
+    },
+    "teacherLessons": {
+      "endpoint": "/content-library/lesson-templates?limit=20",
+      "status": 200,
+      "ok": true,
+      "count": 1
+    },
+    "teacherAssignments": {
+      "endpoint": "/content-library/assignments?limit=20",
+      "status": 200,
+      "ok": true,
+      "count": 1
+    },
+    "legacyTeacherAssignments": {
+      "endpoint": "/teacher/assignments",
+      "status": 200,
+      "ok": true,
+      "count": 0
+    },
+    "parentChildren": {
+      "endpoint": "/parent/children",
+      "status": 200,
+      "ok": true,
+      "count": 1
+    }
+  },
+  "routes": [
+    {
+      "role": "public",
+      "path": "/",
+      "source": "static public/auth route",
+      "optional": false
+    },
+    {
+      "role": "public",
+      "path": "/login",
+      "source": "static public/auth route",
+      "optional": false
+    },
+    {
+      "role": "public",
+      "path": "/register",
+      "source": "static public/auth route",
+      "optional": false
+    },
+    {
+      "role": "public",
+      "path": "/forgot-password",
+      "source": "static public/auth route",
+      "optional": false
+    },
+    {
+      "role": "student",
+      "path": "/dashboard",
+      "source": "static student route",
+      "optional": false
+    },
+    {
+      "role": "student",
+      "path": "/dashboard/lessons",
+      "source": "static student route",
+      "optional": false
+    },
+    {
+      "role": "student",
+      "path": "/dashboard/progress",
+      "source": "static student route",
+      "optional": false
+    },
+    {
+      "role": "student",
+      "path": "/dashboard/points",
+      "source": "static student route",
+      "optional": false
+    },
+    {
+      "role": "student",
+      "path": "/dashboard/solver",
+      "source": "static student route",
+      "optional": false
+    },
+    {
+      "role": "student",
+      "path": "/dashboard/chat",
+      "source": "static student route",
+      "optional": false
+    },
+    {
+      "role": "student",
+      "path": "/dashboard/curriculum",
+      "source": "static student route",
+      "optional": false
+    },
+    {
+      "role": "student",
+      "path": "/dashboard/settings",
+      "source": "static student route",
+      "optional": false
+    },
+    {
+      "role": "student",
+      "path": "/dashboard/lessons/69fbf565ea7bd7fefb462d30",
+      "source": "first id from /api/lessons",
+      "optional": false
+    },
+    {
+      "role": "student",
+      "path": "/dashboard/lessons/69fbf565ea7bd7fefb462d30/content/1",
+      "source": "first id from /api/lessons plus content item 1",
+      "optional": false
+    },
+    {
+      "role": "student",
+      "path": "/dashboard/lessons/69fbf565ea7bd7fefb462d30/content/check",
+      "source": "first id from /api/lessons plus content/check",
+      "optional": false
+    },
+    {
+      "role": "parent",
+      "path": "/parent",
+      "source": "static parent route",
+      "optional": false
+    },
+    {
+      "role": "parent",
+      "path": "/parent/children",
+      "source": "static parent route",
+      "optional": false
+    },
+    {
+      "role": "parent",
+      "path": "/parent/reports",
+      "source": "static parent route",
+      "optional": false
+    },
+    {
+      "role": "parent",
+      "path": "/parent/notifications",
+      "source": "static parent route",
+      "optional": false
+    },
+    {
+      "role": "parent",
+      "path": "/parent/settings",
+      "source": "static parent route",
+      "optional": true
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher",
+      "source": "static teacher route",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/classes",
+      "source": "static teacher route",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/students",
+      "source": "static teacher route",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/content-library",
+      "source": "static teacher route",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/content-library/curricula/new",
+      "source": "static teacher route",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/content-library/lessons/new",
+      "source": "static teacher route",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/assignments",
+      "source": "static teacher route",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/proposals",
+      "source": "static teacher route",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/settings",
+      "source": "static teacher route",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/content-library/curricula/69fc0a0fea7bd7fefb462d5e",
+      "source": "first id from teacher /api/content-library/curriculum-templates",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/content-library/lessons/69fc0a0fea7bd7fefb462d60",
+      "source": "first id from teacher /api/content-library/lesson-templates",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/content-library/lessons/69fc0a0fea7bd7fefb462d60/edit",
+      "source": "same lesson template id",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/content-library/lessons/69fc0a0fea7bd7fefb462d60/stats",
+      "source": "same lesson template id",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/content-library/assignments/69fc0a0fea7bd7fefb462d63",
+      "source": "first id from teacher assignment APIs",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/content-library/assignments/69fc0a0fea7bd7fefb462d63/edit",
+      "source": "same assignment id",
+      "optional": false
+    },
+    {
+      "role": "teacher",
+      "path": "/teacher/content-library/assignments/69fc0a0fea7bd7fefb462d63/stats",
+      "source": "same assignment id",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin",
+      "source": "static admin route",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/users",
+      "source": "static admin route",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/settings",
+      "source": "static admin route",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/tutors",
+      "source": "static admin route",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/classes",
+      "source": "static admin route",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/content-library",
+      "source": "static admin route",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/content-library/curricula/new",
+      "source": "static admin route",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/content-library/lessons/new",
+      "source": "static admin route",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/proposals",
+      "source": "static admin route",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/classes/69fc002c9f998e8ddff6b32a",
+      "source": "first class id from /api/admin/classes or /api/teacher/classes",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/content-library/curricula/69fc0a0fea7bd7fefb462d5e",
+      "source": "first id from admin /api/content-library/curriculum-templates",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/content-library/lessons/69fc0a0fea7bd7fefb462d60",
+      "source": "first id from admin /api/content-library/lesson-templates",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/content-library/lessons/69fc0a0fea7bd7fefb462d60/edit",
+      "source": "same lesson template id",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/content-library/lessons/69fc0a0fea7bd7fefb462d60/stats",
+      "source": "same lesson template id",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/assignments/69fc0a0fea7bd7fefb462d63",
+      "source": "first id from admin /api/content-library/assignments",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/assignments/69fc0a0fea7bd7fefb462d63/edit",
+      "source": "same assignment id",
+      "optional": false
+    },
+    {
+      "role": "admin",
+      "path": "/admin/assignments/69fc0a0fea7bd7fefb462d63/stats",
+      "source": "same assignment id",
+      "optional": false
+    }
+  ]
+}

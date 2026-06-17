@@ -1,0 +1,42 @@
+{
+	"name": "mathai",
+	"version": "0.1.0",
+	"private": true,
+	"description": "MathAI - Nền tảng học toán online sử dụng AI",
+	"workspaces": [
+		"packages/backend",
+		"packages/frontend"
+	],
+	"scripts": {
+		"dev:backend": "npm run dev --workspace=packages/backend",
+		"dev:frontend": "npm run dev --workspace=packages/frontend",
+		"kill:ports": "npx kill-port 3444 3001",
+		"predev": "npx kill-port 3444 3001",
+		"dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+		"build:backend": "npm run build --workspace=packages/backend",
+		"build:frontend": "npm run build --workspace=packages/frontend",
+		"build": "npm run build:backend && npm run build:frontend",
+		"test:backend": "npm run test --workspace=packages/backend",
+		"test:frontend": "npm run test --workspace=packages/frontend",
+		"verify:backend": "npm run test:backend && npm run build:backend",
+		"verify:frontend": "npm run lint:reward-points --workspace=packages/frontend && npm run test:frontend && NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-https://api.example.com} npm run build --workspace=packages/frontend",
+		"verify": "npm run verify:backend && npm run verify:frontend",
+		"audit:business": "node scripts/runtime-business-audit.cjs",
+		"audit:teacher-staff-ui": "node scripts/teacher-staff-ui-audit-gate.js",
+		"backup:plan": "node scripts/mongo-backup-restore-plan.js",
+		"test:backup-plan": "node --test scripts/mongo-backup-restore-plan.test.js scripts/deploy-verification-checklist.test.js scripts/build-deploy.test.js",
+		"deploy:verify": "node scripts/deploy-verification-checklist.js",
+		"build:deploy": "node scripts/build-deploy.js"
+	},
+	"dependencies": {
+		"@types/katex": "^0.16.8",
+		"katex": "^0.16.45",
+		"react-markdown": "^10.1.0",
+		"rehype-katex": "^7.0.1",
+		"remark-math": "^6.0.0"
+	},
+	"devDependencies": {
+		"concurrently": "^8.2.2",
+		"kill-port": "^2.0.1"
+	}
+}

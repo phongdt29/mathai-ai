@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-label="Đồ thị hàm số y = x²">
+  <rect width="320" height="220" fill="#fff7ed"/>
+  <!-- Trục tọa độ -->
+  <line x1="40" y1="170" x2="290" y2="170" stroke="#9a3412" stroke-width="2"/>
+  <line x1="160" y1="192" x2="160" y2="30" stroke="#9a3412" stroke-width="2"/>
+  <polygon points="290,170 282,166 282,174" fill="#9a3412"/>
+  <polygon points="160,30 156,38 164,38" fill="#9a3412"/>
+  <text x="296" y="175" font-family="Arial, sans-serif" font-size="14" font-style="italic" fill="#9a3412">x</text>
+  <text x="168" y="38" font-family="Arial, sans-serif" font-size="14" font-style="italic" fill="#9a3412">y</text>
+  <text x="148" y="185" font-family="Arial, sans-serif" font-size="13" fill="#9a3412">O</text>
+  <!-- Parabol đỉnh O, mở lên: đường Bézier bậc hai là parabol chính xác -->
+  <path d="M 70 89 Q 160 251 250 89" fill="none" stroke="#ea580c" stroke-width="4" stroke-linecap="round"/>
+  <text x="246" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-style="italic" fill="#c2410c">y = x²</text>
+  <text x="86" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#9a3412">Đồ thị hàm số</text>
+</svg>

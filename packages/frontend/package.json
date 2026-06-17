@@ -1,0 +1,40 @@
+{
+	"name": "@mathai/frontend",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --port 3444",
+		"build": "next build",
+		"typecheck": "next build",
+		"start": "next start",
+		"lint": "eslint .",
+		"lint:reward-points": "node test/lint-reward-points.mjs",
+		"test": "node --import tsx --import ./test/alias-loader.mjs --test \"test/**/*.test.mjs\" \"tests/**/*.test.cjs\" \"src/**/*.test.ts\" \"*.test.cjs\"",
+		"test:ci": "node --import tsx --import ./test/alias-loader.mjs --test \"test/**/*.test.mjs\" \"tests/**/*.test.cjs\" \"src/**/*.test.ts\" \"*.test.cjs\""
+	},
+	"dependencies": {
+		"@sentry/nextjs": "^10.53.1",
+		"katex": "^0.16.45",
+		"lucide-react": "^1.8.0",
+		"next": "^16.2.4",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-markdown": "^10.1.0",
+		"rehype-katex": "^7.0.1",
+		"remark-math": "^6.0.0"
+	},
+	"optionalDependencies": {
+		"@next/swc-darwin-arm64": "^16.2.4"
+	},
+	"devDependencies": {
+		"@types/node": "^20.12.12",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
+		"autoprefixer": "^10.4.19",
+		"eslint": "^9.0.0",
+		"eslint-config-next": "^16.2.4",
+		"postcss": "^8.4.38",
+		"tailwindcss": "^3.4.4",
+		"typescript": "^5.4.5"
+	}
+}

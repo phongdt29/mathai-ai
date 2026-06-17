@@ -1,0 +1,46 @@
+﻿import { Router } from 'express';
+import authRoutes from './auth.routes';
+import studentRoutes from './student.routes';
+import assessmentRoutes from './assessment.routes';
+import curriculumRoutes from './curriculum.routes';
+import lessonRoutes from './lesson.routes';
+import solverRoutes from './solver.routes';
+import chatRoutes from './chat.routes';
+import dashboardRoutes from './dashboard.routes';
+import engagementRoutes from './engagement.routes';
+import parentRoutes from './parent.routes';
+import teacherRoutes from './teacher.routes';
+import adminRoutes from './admin.routes';
+import contentLibraryRoutes from './content-library.routes';
+import riskReviewRoutes from './risk-review.routes';
+import notificationRoutes from './notification.routes';
+import adminAnalyticsRoutes from './admin-analytics.routes';
+import gamificationRoutes from './gamification.routes';
+import billingRoutes from './billing.routes';
+import adminBillingRoutes from './admin-billing.routes';
+import externalRoutes from './external.routes';
+
+export const routes = Router();
+
+routes.use('/auth', authRoutes);
+routes.use('/students', studentRoutes);
+routes.use('/assessments', assessmentRoutes);
+routes.use('/curricula', curriculumRoutes);
+routes.use('/curriculum', curriculumRoutes);
+routes.use('/lessons', lessonRoutes);
+routes.use('/solver', solverRoutes);
+routes.use('/chat', chatRoutes);
+routes.use('/dashboard', dashboardRoutes);
+routes.use('/engagement', engagementRoutes);
+routes.use('/parent', parentRoutes);
+routes.use('/teacher', teacherRoutes);
+routes.use('/admin', adminRoutes);
+routes.use('/content-library', contentLibraryRoutes);
+routes.use('/risk-review', riskReviewRoutes);
+routes.use('/notifications', notificationRoutes);
+routes.use('/admin/analytics', adminAnalyticsRoutes);
+routes.use('/admin/billing', adminBillingRoutes);
+routes.use('/billing', billingRoutes);
+// Cổng tích hợp ngoài (server-to-server, X-API-Key)
+routes.use('/external', externalRoutes);
+routes.use(gamificationRoutes);

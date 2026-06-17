@@ -1,0 +1,9 @@
+{
+  "name": "mathai-deploy",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start:backend": "node backend/dist/index.js",
+    "start:frontend": "node frontend/start-frontend.js"
+  }
+}

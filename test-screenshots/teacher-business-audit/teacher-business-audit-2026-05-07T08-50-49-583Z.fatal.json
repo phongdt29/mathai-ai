@@ -1,0 +1,460 @@
+{
+  "runId": "2026-05-07T08-50-49-583Z",
+  "apiBase": "http://localhost:3001/api",
+  "webBase": "http://localhost:3444",
+  "startedAt": "2026-05-07T08:50:49.584Z",
+  "seeded": {
+    "classId": "69fc002c9f998e8ddff6b32a",
+    "curriculumTemplateId": "69fc0a0fea7bd7fefb462d5e",
+    "lessonTemplateId": "69fc0a0fea7bd7fefb462d60",
+    "assignmentId": "69fc0a0fea7bd7fefb462d63"
+  },
+  "summary": {
+    "pass": 44,
+    "fail": 1,
+    "warn": 1,
+    "skip": 0,
+    "true": 1
+  },
+  "workflows": {
+    "Auth/Profile/RBAC/Scope": {
+      "pass": 30,
+      "fail": 0,
+      "warn": 1,
+      "skip": 0,
+      "true": null
+    },
+    "Dashboard/Classes/Students": {
+      "pass": 6,
+      "fail": 0,
+      "warn": 0,
+      "skip": 0
+    },
+    "Proposals workflow": {
+      "pass": 2,
+      "fail": 0,
+      "warn": 0,
+      "skip": 0
+    },
+    "Runtime health": {
+      "pass": 3,
+      "fail": 1,
+      "warn": 0,
+      "skip": 0
+    },
+    "Gradebook workflow": {
+      "pass": 2,
+      "fail": 0,
+      "warn": 0,
+      "skip": 0
+    },
+    "Assignment workflow": {
+      "pass": 1,
+      "fail": 0,
+      "warn": 0,
+      "skip": 0
+    }
+  },
+  "checks": [
+    {
+      "name": "Backend API health /auth/me unauthorized",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 401,
+      "endpoint": "/auth/me",
+      "method": "GET"
+    },
+    {
+      "name": "Auth login admin",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/auth/login",
+      "method": "POST"
+    },
+    {
+      "name": "Auth token present admin",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass"
+    },
+    {
+      "name": "Auth /auth/me admin",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/auth/me",
+      "method": "GET"
+    },
+    {
+      "name": "Auth login teacher",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/auth/login",
+      "method": "POST"
+    },
+    {
+      "name": "Auth token present teacher",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass"
+    },
+    {
+      "name": "Auth /auth/me teacher",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/auth/me",
+      "method": "GET",
+      "body": "{\"success\":true,\"message\":\"Lấy thông tin người dùng thành công\",\"data\":{\"user\":{\"_id\":\"69e81b12eadbc114b25bca09\",\"email\":\"teacher@mathai.vn\",\"full_name\":\"Giáo viên Demo\",\"role\":\"teacher\",\"is_active\":true,\"createdAt\":\"2026-04-22T00:49:22.674Z\",\"updatedAt\":\"2026-05-07T05:43:13.964Z\",\"id\":\"69e81b12eadbc114b25bca09\"},\"profile\":{\"preferred_teacher_gender\":null,\"_id\":\"69e81b12eadbc114b25bca0b\",\"user_id\":\"69e81b12eadbc114b25bca09\",\"date_of_birth\":null,\"phone\":null,\"address\":null,\"school_name\":null,\"grade_level\":10,\"self_assessed_level\":null,\"math_average_score\":null,\"selected_tutor_id\":null,\"favorite_color\":null,\"interests\":null,\"initial_classification\":\"trung_binh\",\"createdAt\":\"2026-04-22T00:49:22.717Z\",\"updatedAt\":\"2026-04-22T00:49:22.717Z\",\"id\":\"69e81b12eadbc114b25bca0b\"}}}"
+    },
+    {
+      "name": "Auth login student",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/auth/login",
+      "method": "POST"
+    },
+    {
+      "name": "Auth token present student",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass"
+    },
+    {
+      "name": "Auth /auth/me student",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/auth/me",
+      "method": "GET"
+    },
+    {
+      "name": "Auth login parent",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/auth/login",
+      "method": "POST"
+    },
+    {
+      "name": "Auth token present parent",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass"
+    },
+    {
+      "name": "Auth /auth/me parent",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/auth/me",
+      "method": "GET"
+    },
+    {
+      "name": "RBAC teacher forbidden admin stats",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 403,
+      "endpoint": "/admin/stats",
+      "method": "GET"
+    },
+    {
+      "name": "RBAC teacher forbidden parent children",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 403,
+      "endpoint": "/parent/children",
+      "method": "GET"
+    },
+    {
+      "name": "RBAC teacher forbidden student dashboard",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 403,
+      "endpoint": "/dashboard/stats",
+      "method": "GET"
+    },
+    {
+      "name": "RBAC student forbidden teacher dashboard",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 403,
+      "endpoint": "/teacher/dashboard",
+      "method": "GET"
+    },
+    {
+      "name": "RBAC parent forbidden teacher classes",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 403,
+      "endpoint": "/teacher/classes",
+      "method": "GET"
+    },
+    {
+      "name": "RBAC unauth teacher dashboard rejected",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 401,
+      "endpoint": "/teacher/dashboard",
+      "method": "GET"
+    },
+    {
+      "name": "Teacher dashboard",
+      "workflow": "Dashboard/Classes/Students",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/dashboard",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":{\"stats\":{\"total_students\":0,\"total_classes\":1,\"total_assignments\":0,\"ungraded_submissions\":0},\"classes\":[{\"id\":\"69fc002c9f998e8ddff6b32a\",\"name\":\"Lớp Toán 1\",\"subject\":\"Toán\",\"students\":0,\"avgScore\":null,\"schedule\":\"\"}],\"recent_students\":[],\"pending_assignments\":[]}}"
+    },
+    {
+      "name": "Teacher classes list",
+      "workflow": "Dashboard/Classes/Students",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/classes",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":[{\"_id\":\"69fc002c9f998e8ddff6b32a\",\"teacher_id\":\"69e81b12eadbc114b25bca09\",\"name\":\"Lớp Toán 1\",\"subject\":\"Toán\",\"grade_level\":10,\"schedule\":\"\",\"description\":null,\"student_ids\":[],\"is_active\":true,\"createdAt\":\"2026-05-07T02:59:56.152Z\",\"updatedAt\":\"2026-05-07T02:59:56.152Z\",\"id\":\"69fc002c9f998e8ddff6b32a\",\"student_count\":0,\"assignment_count\":0,\"avg_score\":null}]}"
+    },
+    {
+      "name": "Teacher students list",
+      "workflow": "Dashboard/Classes/Students",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/students",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":[]}"
+    },
+    {
+      "name": "Teacher assignments list",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/assignments",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":[]}"
+    },
+    {
+      "name": "Teacher analytics",
+      "workflow": "Dashboard/Classes/Students",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/analytics",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":{\"overview\":{\"total_students\":0,\"total_classes\":1,\"avg_score\":null},\"class_stats\":[{\"id\":\"69fc002c9f998e8ddff6b32a\",\"name\":\"Lớp Toán 1\",\"subject\":\"Toán\",\"students\":0,\"avg_score\":null,\"completion_rate\":0}],\"at_risk_students\":[]}}"
+    },
+    {
+      "name": "Teacher proposals list",
+      "workflow": "Proposals workflow",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/proposals",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":[{\"_id\":\"69fc5197705959de28ab5e62\",\"type\":\"add_student\",\"requester_id\":\"69e81b12eadbc114b25bca09\",\"status\":\"pending\",\"data\":{\"class_id\":\"69fc002c9f998e8ddff6b32a\",\"class_name\":\"Lớp Toán 1\",\"student_email\":\"student@mathai.vn\",\"student_profile_id\":\"69e81b14eadbc114b25bca12\",\"student_name\":\"Nguyễn Minh Anh\"},\"content_kind\":null,\"subject_scope\":\"math\",\"prompt_template\":null,\"prompt_version\":null,\"ai_model\":null,\"ai_provider\":null,\"ai_log_id\":null,\"content_status\":\"pending\",\"reviewed_by\":null,\"reviewed_at\":null,\"rejection_reason\":null,\"createdAt\":\"2026-05-07T08:47:19.014Z\",\"updatedAt\":\"2026-05-07T08:47:19.014Z\",\"id\":\"69fc5197705959de28ab5e62\"},{\"_id\":\"69fc5196705959de28ab5e59\",\"type\":\"create_class\",\"requester_id\":\"69e81b12eadbc114b25bca09\",\"status\":\"pending\",\"data\":{\"name\":\"Teacher Audit Proposal 2026-05-07T08-47-06-536Z\",\"subject\":\"Toán\",\"grade_level\":8,\"schedule\":\"Audit only\",\"description\":\"teacher-business-audit-2026-05-07T08-47-06-536Z\"},\"content_kind\":null,\"subject_scope\":\"math\",\"prompt_template\":null,\"prompt_version\":null,\"ai_model\":null,\"ai_provider\":null,\"ai_log_id\":null,\"content_status\":\"pending\",\"reviewed_by\":null,\"reviewed_at\":null,\"rejection_reason\":null,\"createdAt\":\"2026-05-07T08:47:18.402Z\",\"updatedAt\":\"2026-05-07T08:47:18.402Z\",\"id\":\"69fc5196705959de28ab5e59\"},{\"_id\":\"69fc50777fbeaddc1886c234\",\"type\":\"add_student\",\"requester_id\":\"69e81b12eadbc114b25bca09\",\"status\":\"pending\",\"data\":{\"class_id\":\"69fc002c9f998e8ddff6b32a\",\"class_name\":\"Lớp Toán 1\",\"student_email\":\"student@mathai.vn\",\"student_profile_id\":\"69e81b14eadbc114b25bca12\",\"student_name\":\"Nguyễn Minh Anh\"},\"content_kind\":null,\"subject_scope\":\"math\",\"prompt_template\":null,\"prompt_version\":null,\"ai_model\":null,\"ai_provider\":null,\"ai_log_id\":null,\"content_status\":\"pending\",\"reviewed_by\""
+    },
+    {
+      "name": "Teacher proposals pending filter",
+      "workflow": "Proposals workflow",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/proposals?status=pending",
+      "method": "GET"
+    },
+    {
+      "name": "Teacher scope denies unknown class detail",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 403,
+      "endpoint": "/teacher/classes/507f1f77bcf86cd799439098",
+      "method": "GET"
+    },
+    {
+      "name": "Teacher scope denies unknown class students",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 403,
+      "endpoint": "/teacher/classes/507f1f77bcf86cd799439098/students",
+      "method": "GET"
+    },
+    {
+      "name": "Teacher assignments unknown class filter denied",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 404,
+      "endpoint": "/teacher/assignments?class_id=507f1f77bcf86cd799439098",
+      "method": "GET"
+    },
+    {
+      "name": "Teacher class detail own class",
+      "workflow": "Runtime health",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/classes/69fc002c9f998e8ddff6b32a",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":{\"_id\":\"69fc002c9f998e8ddff6b32a\",\"teacher_id\":\"69e81b12eadbc114b25bca09\",\"name\":\"Lớp Toán 1\",\"subject\":\"Toán\",\"grade_level\":10,\"schedule\":\"\",\"description\":null,\"student_ids\":[],\"is_active\":true,\"createdAt\":\"2026-05-07T02:59:56.152Z\",\"updatedAt\":\"2026-05-07T02:59:56.152Z\",\"id\":\"69fc002c9f998e8ddff6b32a\",\"assignments\":[]}}"
+    },
+    {
+      "name": "Teacher class students own class",
+      "workflow": "Dashboard/Classes/Students",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/classes/69fc002c9f998e8ddff6b32a/students",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":[]}"
+    },
+    {
+      "name": "Teacher class gradebook own class before grading",
+      "workflow": "Gradebook workflow",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/classes/69fc002c9f998e8ddff6b32a/gradebook",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":{\"filters\":{\"teacher_id\":\"69e81b12eadbc114b25bca09\",\"class_id\":\"69fc002c9f998e8ddff6b32a\"},\"earned_points\":0,\"max_points\":0,\"percentage\":0,\"entries\":0,\"students\":[]}}"
+    },
+    {
+      "name": "Teacher gradebook summary all classes",
+      "workflow": "Dashboard/Classes/Students",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/gradebook",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":{\"filters\":{\"teacher_id\":\"69e81b12eadbc114b25bca09\"},\"earned_points\":0,\"max_points\":0,\"percentage\":0,\"entries\":0,\"students\":[]}}"
+    },
+    {
+      "name": "Teacher create assignment marker",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 201,
+      "endpoint": "/teacher/assignments",
+      "method": "POST",
+      "body": "{\"success\":true,\"data\":{\"teacher_id\":\"69e81b12eadbc114b25bca09\",\"class_id\":\"69fc002c9f998e8ddff6b32a\",\"title\":\"Teacher Business Audit teacher-business-audit-2026-05-07T08-50-49-583Z\",\"description\":\"Safe marker assignment for teacher business audit.\",\"type\":\"homework\",\"status\":\"active\",\"due_date\":\"2026-05-08T08:50:55.116Z\",\"total_points\":10,\"rubric_contract_id\":null,\"_id\":\"69fc526f705959de28ab5ee1\",\"createdAt\":\"2026-05-07T08:50:55.533Z\",\"updatedAt\":\"2026-05-07T08:50:55.533Z\",\"id\":\"69fc526f705959de28ab5ee1\"}}"
+    },
+    {
+      "name": "Detail assignment marker via class_id list",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/assignments?class_id=69fc002c9f998e8ddff6b32a",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":[{\"id\":\"69fc526f705959de28ab5ee1\",\"title\":\"Teacher Business Audit teacher-business-audit-2026-05-07T08-50-49-583Z\",\"description\":\"Safe marker assignment for teacher business audit.\",\"type\":\"homework\",\"status\":\"active\",\"due_date\":\"2026-05-08T08:50:55.116Z\",\"total_points\":10,\"class_id\":\"69fc002c9f998e8ddff6b32a\",\"class_name\":\"Lớp Toán 1\",\"total_students\":0,\"submitted\":0,\"graded\":0,\"avg_score\":null,\"createdAt\":\"2026-05-07T08:50:55.533Z\"}]}"
+    },
+    {
+      "name": "Detail assignment marker present in filtered list",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "note": "69fc526f705959de28ab5ee1"
+    },
+    {
+      "name": "Detail assignment direct endpoint contract check",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "warn",
+      "statusCode": 404,
+      "endpoint": "/teacher/assignments/69fc526f705959de28ab5ee1",
+      "method": "GET",
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/teacher/assignments/69fc526f705959de28ab5ee1</pre>\n</body>\n</html>\n",
+      "note": "Direct detail endpoint chưa được expose; detail xác minh qua filtered list"
+    },
+    {
+      "name": "Teacher update assignment marker",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/assignments/69fc526f705959de28ab5ee1",
+      "method": "PUT",
+      "body": "{\"success\":true,\"data\":{\"_id\":\"69fc526f705959de28ab5ee1\",\"teacher_id\":\"69e81b12eadbc114b25bca09\",\"class_id\":\"69fc002c9f998e8ddff6b32a\",\"title\":\"Teacher Business Audit teacher-business-audit-2026-05-07T08-50-49-583Z\",\"description\":\"Updated teacher-business-audit-2026-05-07T08-50-49-583Z\",\"type\":\"homework\",\"status\":\"grading\",\"due_date\":\"2026-05-08T08:50:55.116Z\",\"total_points\":10,\"rubric_contract_id\":null,\"createdAt\":\"2026-05-07T08:50:55.533Z\",\"updatedAt\":\"2026-05-07T08:50:56.146Z\",\"id\":\"69fc526f705959de28ab5ee1\"}}"
+    },
+    {
+      "name": "Teacher assignment submissions before grading",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/assignments/69fc526f705959de28ab5ee1/submissions",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":[]}"
+    },
+    {
+      "name": "Find demo student profile for grading",
+      "workflow": "Runtime health",
+      "status": "pass",
+      "note": "69e81b14eadbc114b25bca12"
+    },
+    {
+      "name": "Attach demo student to teacher class for grading coverage",
+      "workflow": "Runtime health",
+      "status": "pass",
+      "note": "69e81b14eadbc114b25bca12 -> 69fc002c9f998e8ddff6b32a"
+    },
+    {
+      "name": "Assignment seed submission marker via DB",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "note": "69fc5273ea7bd7fefb462f2b"
+    },
+    {
+      "name": "Teacher assignment submissions after seed",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/assignments/69fc526f705959de28ab5ee1/submissions",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":[{\"_id\":\"69fc5273ea7bd7fefb462f2b\",\"student_id\":{\"_id\":\"69e81b14eadbc114b25bca12\",\"user_id\":{\"_id\":\"69e81b14eadbc114b25bca10\",\"email\":\"student@mathai.vn\",\"full_name\":\"Nguyễn Minh Anh\",\"id\":\"69e81b14eadbc114b25bca10\"},\"date_of_birth\":\"2011-09-15T00:00:00.000Z\",\"phone\":\"0900000003\",\"address\":\"Quận Cầu Giấy, Hà Nội\",\"school_name\":\"THCS Demo MathAI\",\"grade_level\":8,\"self_assessed_level\":\"kha\",\"math_average_score\":7.2,\"selected_tutor_id\":\"69e7093f29356dae6ae669a7\",\"favorite_color\":\"#4F46E5\",\"interests\":\"Bóng rổ, vẽ truyện tranh, khám phá khoa học\",\"initial_classification\":\"kha\",\"createdAt\":\"2026-04-22T00:49:24.152Z\",\"updatedAt\":\"2026-05-07T05:43:14.298Z\",\"preferred_teacher_gender\":\"co\",\"id\":\"69e81b14eadbc114b25bca12\"},\"assignment_id\":\"69fc526f705959de28ab5ee1\",\"content\":\"Teacher business audit submission teacher-business-audit-2026-05-07T08-50-49-583Z: 1 + 1 = 2\",\"createdAt\":\"2026-05-07T08:50:59.005Z\",\"feedback\":null,\"graded_at\":null,\"rubric_score\":null,\"score\":null,\"submitted_at\":\"2026-05-07T08:50:59.005Z\",\"updatedAt\":\"2026-05-07T08:50:59.005Z\",\"id\":\"69fc5273ea7bd7fefb462f2b\"}]}"
+    },
+    {
+      "name": "Teacher grade submission marker",
+      "workflow": "Assignment workflow",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/submissions/69fc5273ea7bd7fefb462f2b/grade",
+      "method": "PUT",
+      "body": "{\"success\":true,\"data\":{\"_id\":\"69fc5273ea7bd7fefb462f2b\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"assignment_id\":\"69fc526f705959de28ab5ee1\",\"content\":\"Teacher business audit submission teacher-business-audit-2026-05-07T08-50-49-583Z: 1 + 1 = 2\",\"createdAt\":\"2026-05-07T08:50:59.005Z\",\"feedback\":\"Graded by teacher-business-audit-2026-05-07T08-50-49-583Z\",\"graded_at\":\"2026-05-07T08:50:59.935Z\",\"rubric_score\":null,\"score\":8,\"submitted_at\":\"2026-05-07T08:50:59.005Z\",\"updatedAt\":\"2026-05-07T08:50:59.935Z\",\"id\":\"69fc5273ea7bd7fefb462f2b\"}}"
+    },
+    {
+      "name": "Teacher class gradebook after grading",
+      "workflow": "Gradebook workflow",
+      "status": "pass",
+      "statusCode": 200,
+      "endpoint": "/teacher/classes/69fc002c9f998e8ddff6b32a/gradebook",
+      "method": "GET",
+      "body": "{\"success\":true,\"data\":{\"filters\":{\"teacher_id\":\"69e81b12eadbc114b25bca09\",\"class_id\":\"69fc002c9f998e8ddff6b32a\"},\"earned_points\":8,\"max_points\":10,\"percentage\":80,\"entries\":1,\"students\":[{\"student_id\":\"69e81b14eadbc114b25bca12\",\"earned_points\":8,\"max_points\":10,\"percentage\":80,\"entries\":1,\"by_source_type\":{\"teacher_assignment\":{\"earned_points\":8,\"max_points\":10,\"percentage\":80,\"entries\":1}},\"gradebook_entries\":[{\"_id\":\"69fc5274ea7bd7fefb462f2d\",\"source_id\":\"69fc526f705959de28ab5ee1\",\"source_type\":\"teacher_assignment\",\"student_id\":\"69e81b14eadbc114b25bca12\",\"attempt_id\":\"69fc5273ea7bd7fefb462f2b\",\"class_id\":\"69fc002c9f998e8ddff6b32a\",\"createdAt\":\"2026-05-07T08:51:00.352Z\",\"earned_points\":8,\"graded_at\":\"2026-05-07T08:50:59.935Z\",\"max_points\":10,\"metadata\":{\"feedback_present\":true,\"percentage\":80,\"scoring_method\":\"legacy\"},\"percentage\":80,\"status\":\"graded\",\"submitted_at\":\"2026-05-07T08:50:59.005Z\",\"teacher_id\":\"69e81b12eadbc114b25bca09\",\"title\":\"Teacher Business Audit teacher-business-audit-2026-05-07T08-50-49-583Z\",\"updatedAt\":\"2026-05-07T08:51:00.352Z\",\"id\":\"69fc5274ea7bd7fefb462f2d\"}]}]}}"
+    },
+    {
+      "0": "p",
+      "1": "a",
+      "2": "s",
+      "3": "s",
+      "name": "Gradebook reflects graded assignment marker",
+      "workflow": "Auth/Profile/RBAC/Scope",
+      "status": true
+    },
+    {
+      "name": "teacher business audit fatal",
+      "workflow": "Runtime health",
+      "status": "fail",
+      "error": "TypeError: status.toUpperCase is not a function\n    at addCheck (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:103:23)\n    at main (d:\\GitHub\\mathai\\scripts\\.tmp-teacher-business-audit.cjs:406:9)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    }
+  ],
+  "artifacts": [],
+  "createdMarkers": [
+    {
+      "type": "teacher_assignment",
+      "id": "69fc526f705959de28ab5ee1"
+    },
+    {
+      "type": "class_student_link",
+      "classId": "69fc002c9f998e8ddff6b32a",
+      "studentId": "69e81b14eadbc114b25bca12"
+    }
+  ],
+  "diagnostics": {
+    "consideredSources": [
+      "RBAC middleware hoặc scoped authorization sai vai trò teacher",
+      "Teacher service thiếu kiểm tra own class/student/assignment scope",
+      "Workflow assignment thiếu endpoint detail/submission hoặc dữ liệu seeded không khớp",
+      "Gradebook không được upsert sau gradeSubmission hoặc filter class/student sai",
+      "Content-library teacher permission/proposal/publish rule sai",
+      "Frontend teacher route dùng sai localStorage/auth hoặc API client path",
+      "UI route render lỗi, network 4xx/5xx, console error, loading stuck, mojibake hoặc overflow"
+    ],
+    "mostLikelyIfFailure": []
+  },
+  "finishedAt": "2026-05-07T08:51:00.787Z"
+}
