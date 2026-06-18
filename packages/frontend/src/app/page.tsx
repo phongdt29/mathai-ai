@@ -1,11 +1,17 @@
-import { Target, Map, Lightbulb, BarChart3, Bot, Trophy, Calculator, Rocket, Sparkles } from 'lucide-react';
+import { Target, Map, Lightbulb, BarChart3, Bot, Trophy, Calculator, Rocket, Sparkles, Check } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
-const features: { icon: LucideIcon; title: string; description: string; color: string; bg: string }[] = [
+const features: { icon: LucideIcon; title: string; description: string; details: string[]; color: string; bg: string }[] = [
   {
     icon: Target,
     title: 'Đánh giá năng lực đầu vào',
     description: 'Xác định năng lực hiện tại để bắt đầu từ đúng điểm phù hợp với từng học sinh.',
+    details: [
+      'AI tự tạo đề kiểm tra 8–10 câu đúng theo khối lớp',
+      'Đa dạng dạng câu: trắc nghiệm, trả lời ngắn, tự luận',
+      'Chấm điểm tự động và phân tích điểm mạnh / điểm yếu theo từng chủ đề',
+      'Gợi ý xuất phát điểm phù hợp để xây lộ trình',
+    ],
     color: 'from-pink-500 to-rose-500',
     bg: 'bg-pink-50',
   },
@@ -13,6 +19,12 @@ const features: { icon: LucideIcon; title: string; description: string; color: s
     icon: Map,
     title: 'Lộ trình học cá nhân hóa',
     description: 'Xây dựng kế hoạch học tập theo trình độ, mục tiêu và tốc độ tiến bộ thực tế.',
+    details: [
+      'Giáo trình chia theo module → buổi học, 4 giai đoạn từ nền tảng đến luyện đề',
+      'Cá nhân hóa theo trình độ, mục tiêu và số giờ học mỗi tuần',
+      'Mở khóa tuần tự, mỗi buổi có sẵn lý thuyết và bài tập',
+      'Tự điều chỉnh theo tiến độ học tập thực tế',
+    ],
     color: 'from-violet-500 to-purple-500',
     bg: 'bg-violet-50',
   },
@@ -20,6 +32,12 @@ const features: { icon: LucideIcon; title: string; description: string; color: s
     icon: Lightbulb,
     title: 'Giải bài tập có hướng dẫn',
     description: 'AI hỗ trợ giải thích từng bước thay vì chỉ cung cấp đáp án cuối cùng.',
+    details: [
+      'Lời giải chi tiết từng bước kèm giải thích lý do',
+      'Nhập đề bằng ảnh chụp — tự nhận diện chữ viết (OCR)',
+      'Công thức toán hiển thị đẹp, chuẩn ký hiệu (LaTeX / KaTeX)',
+      'Gợi ý hướng làm trước khi xem đáp án',
+    ],
     color: 'from-amber-500 to-orange-500',
     bg: 'bg-amber-50',
   },
@@ -27,6 +45,12 @@ const features: { icon: LucideIcon; title: string; description: string; color: s
     icon: BarChart3,
     title: 'Theo dõi tiến độ học tập',
     description: 'Dashboard trực quan giúp theo dõi kết quả, mức độ thành thạo và thói quen học tập.',
+    details: [
+      'Bảng điều khiển trực quan: số buổi hoàn thành, điểm quiz, chuỗi ngày học',
+      'Mức độ thành thạo chi tiết theo từng chủ đề',
+      'Quiz 15 phút cuối mỗi buổi để củng cố kiến thức',
+      'Báo cáo tiến độ hằng tuần gửi tới phụ huynh',
+    ],
     color: 'from-emerald-500 to-green-500',
     bg: 'bg-emerald-50',
   },
@@ -34,13 +58,25 @@ const features: { icon: LucideIcon; title: string; description: string; color: s
     icon: Bot,
     title: 'Trợ lý học tập AI',
     description: 'Hỏi đáp nhanh những vướng mắc trong quá trình học và luyện tập toán.',
+    details: [
+      'Trò chuyện với gia sư ảo 24/7, giải đáp tức thì',
+      'Chọn phong cách gia sư yêu thích cho từng học sinh',
+      'Bám sát ngữ cảnh bài học đang theo dõi',
+      'Giải thích lại bằng nhiều cách đến khi hiểu',
+    ],
     color: 'from-cyan-500 to-blue-500',
     bg: 'bg-cyan-50',
   },
   {
     icon: Trophy,
-    title: 'Bài học theo mục tiêu',
-    description: 'Ưu tiên nội dung học theo mục tiêu ngắn hạn và dài hạn của từng học sinh.',
+    title: 'Học theo mục tiêu & Game hóa',
+    description: 'Duy trì động lực với gợi ý mỗi ngày, huy hiệu và bảng xếp hạng.',
+    details: [
+      'Gợi ý bài học phù hợp mỗi ngày theo mục tiêu',
+      'Huy hiệu, điểm thưởng và bảng xếp hạng tạo động lực',
+      'Duy trì chuỗi ngày học (streak) liên tục',
+      'Nhắc học thông minh để không bỏ lỡ buổi nào',
+    ],
     color: 'from-yellow-500 to-amber-500',
     bg: 'bg-yellow-50',
   },
@@ -160,7 +196,17 @@ export default function HomePage() {
                   <feature.icon className="w-6 h-6" />
                 </div>
                 <h4 className="mb-2 text-lg font-bold text-gray-900">{feature.title}</h4>
-                <p className="text-sm leading-relaxed text-gray-600">{feature.description}</p>
+                <p className="mb-4 text-sm leading-relaxed text-gray-600">{feature.description}</p>
+                <ul className="space-y-2 border-t border-gray-200/60 pt-4">
+                  {feature.details.map((detail) => (
+                    <li key={detail} className="flex items-start gap-2 text-sm leading-relaxed text-gray-700">
+                      <span className={`mt-0.5 inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${feature.color} text-white`}>
+                        <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                      </span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>

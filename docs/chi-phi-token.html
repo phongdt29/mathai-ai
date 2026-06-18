@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chi phí Token AI · MathAI</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --card2: #243044;
+    --line: #334155;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent2: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+    background: linear-gradient(160deg, #0b1220, #0f172a 40%, #131c31);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 32px 16px 80px;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  header.hero {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  header.hero .badge {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(56,189,248,.12);
+    border: 1px solid rgba(56,189,248,.3);
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  header.hero h1 {
+    font-size: 32px;
+    margin: 0 0 8px;
+    background: linear-gradient(90deg, #38bdf8, #34d399);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  header.hero p { color: var(--muted); margin: 0; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 16px; margin-bottom: 32px; }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+  .stat .label { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .05em; }
+  .stat .value { font-size: 26px; font-weight: 700; margin-top: 6px; }
+  .stat .value.accent { color: var(--accent2); }
+  .stat .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  section {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px 24px 28px;
+    margin-bottom: 26px;
+    box-shadow: var(--shadow);
+  }
+  section h2 { margin: 0 0 4px; font-size: 20px; display: flex; align-items: center; gap: 10px; }
+  section h2 .ic { font-size: 22px; }
+  section .desc { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
+
+  .insight {
+    background: linear-gradient(135deg, rgba(52,211,153,.10), rgba(56,189,248,.08));
+    border: 1px solid rgba(52,211,153,.35);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 22px;
+  }
+  .insight strong { color: var(--accent2); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  th, td { padding: 11px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: .04em; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody tr:hover { background: rgba(255,255,255,.02); }
+  tr.total td { font-weight: 700; border-top: 2px solid var(--accent); border-bottom: none; background: rgba(56,189,248,.06); }
+  tr.free td { color: var(--accent2); }
+  .pill { font-size: 12px; padding: 2px 9px; border-radius: 999px; background: rgba(148,163,184,.15); color: var(--muted); }
+  .pill.zero { background: rgba(52,211,153,.15); color: var(--accent2); }
+
+  /* Calculator */
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  @media (max-width: 720px){ .calc-grid { grid-template-columns: 1fr; } .cards{ grid-template-columns: 1fr 1fr; } }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .field input[type=number], .field select {
+    width: 100%;
+    background: var(--card2);
+    border: 1px solid var(--line);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--accent); }
+  .range-row { display: flex; align-items: center; gap: 12px; }
+  .range-row input[type=range] { flex: 1; accent-color: var(--accent); }
+  .range-row output { min-width: 34px; text-align: right; font-variant-numeric: tabular-nums; color: var(--accent); font-weight: 600; }
+
+  .result-box {
+    background: var(--card2);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .result-box .big { font-size: 38px; font-weight: 800; color: var(--accent2); line-height: 1.1; }
+  .result-box .big small { font-size: 16px; color: var(--muted); font-weight: 500; }
+  .result-line { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--line); font-size: 14px; }
+  .result-line:last-child { border-bottom: none; }
+  .result-line span:last-child { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .scale-note { font-size: 12.5px; color: var(--warn); margin-top: 12px; }
+
+  ul.notes { margin: 0; padding-left: 20px; }
+  ul.notes li { margin-bottom: 10px; color: var(--text); }
+  ul.notes li b { color: var(--accent); }
+  code { background: var(--card2); padding: 1px 7px; border-radius: 6px; font-size: 13px; color: var(--warn); }
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
+  .disclaimer { background: rgba(251,191,36,.08); border: 1px solid rgba(251,191,36,.3); border-radius: 12px; padding: 14px 16px; font-size: 13.5px; color: #fde68a; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="badge">MathAI · Phân tích chi phí AI</div>
+    <h1>Chi phí Token cho 1 hành trình học</h1>
+    <p>Làm bài test → Tạo giáo trình → Lộ trình học → Hoàn thành các buổi học</p>
+  </header>
+
+  <div class="cards">
+    <div class="stat">
+      <div class="label">Model mặc định</div>
+      <div class="value">gpt-4o-mini</div>
+      <div class="sub">$0,15 / 1M in · $0,60 / 1M out</div>
+    </div>
+    <div class="stat">
+      <div class="label">Số lần gọi AI</div>
+      <div class="value">~6 calls</div>
+      <div class="sub">test + chấm + phân tích + giáo trình</div>
+    </div>
+    <div class="stat">
+      <div class="label">Tổng token / học sinh</div>
+      <div class="value">~19.500</div>
+      <div class="sub">~3.700 in · ~15.850 out</div>
+    </div>
+    <div class="stat">
+      <div class="label">Chi phí / học sinh</div>
+      <div class="value accent">≈ $0,01</div>
+      <div class="sub">~250–400 VNĐ</div>
+    </div>
+  </div>
+
+  <section>
+    <h2><span class="ic">🔑</span> Phát hiện then chốt</h2>
+    <div class="insight">
+      Bài tập của <strong>toàn bộ các buổi học được sinh sẵn trong 1 lần gọi tạo giáo trình</strong>.
+      Khi học sinh vào học, hệ thống thấy bài tập đã tồn tại → trả về có sẵn, <strong>không gọi AI lại</strong>.
+      Quiz cuối buổi và lộ trình (các giai đoạn) được tính bằng <strong>logic tất định, 0 token</strong>.
+      → Chi phí dồn vào <strong>bài test</strong> và <strong>lần tạo giáo trình</strong>; phần "hoàn thành buổi học" gần như miễn phí token.
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ic">📊</span> Bảng chi tiết</h2>
+    <p class="desc">Cấu hình mặc định: giáo trình 4 module × 4 buổi = 16 buổi, 5 bài tập/buổi · gpt-4o-mini</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Bước</th>
+          <th class="num">Số call</th>
+          <th class="num">Input (tok)</th>
+          <th class="num">Output (tok)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Tạo đề test (8–10 câu)</td><td class="num">1</td><td class="num">800</td><td class="num">2.000</td></tr>
+        <tr><td>Chấm câu tự luận (~3 câu non-MC)</td><td class="num">3</td><td class="num">900</td><td class="num">450</td></tr>
+        <tr><td>Phân tích điểm mạnh / yếu</td><td class="num">1</td><td class="num">500</td><td class="num">400</td></tr>
+        <tr><td>Tạo giáo trình + 80 bài tập <span class="pill">call lớn</span></td><td class="num">1</td><td class="num">1.500</td><td class="num">13.000</td></tr>
+        <tr class="free"><td>Lộ trình học (giai đoạn) <span class="pill zero">tất định</span></td><td class="num">0</td><td class="num">—</td><td class="num">—</td></tr>
+        <tr class="free"><td>Hoàn thành 16 buổi (bài tập có sẵn) <span class="pill zero">0 token</span></td><td class="num">0</td><td class="num">—</td><td class="num">—</td></tr>
+        <tr class="free"><td>Chấm quiz cuối buổi (trắc nghiệm) <span class="pill zero">tất định</span></td><td class="num">0</td><td class="num">—</td><td class="num">—</td></tr>
+        <tr class="total"><td>TỔNG</td><td class="num">~6</td><td class="num">~3.700</td><td class="num">~15.850</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="ic">🧮</span> Máy tính chi phí tương tác</h2>
+    <p class="desc">Điều chỉnh thông số để xem chi phí cập nhật theo thời gian thực.</p>
+    <div class="calc-grid">
+      <div>
+        <div class="field">
+          <label for="model">Model</label>
+          <select id="model">
+            <option value="mini" data-in="0.15" data-out="0.60" selected>gpt-4o-mini · $0,15 / $0,60</option>
+            <option value="4o" data-in="2.50" data-out="10.00">gpt-4o · $2,50 / $10,00</option>
+            <option value="gpt5" data-in="1.25" data-out="10.00">gpt-5 · $1,25 / $10,00</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Số module <output id="oMod">4</output></label>
+          <div class="range-row"><input type="range" id="mod" min="1" max="8" value="4"><output id="vMod">4</output></div>
+        </div>
+        <div class="field">
+          <label>Số buổi học / module <output id="oLes">4</output></label>
+          <div class="range-row"><input type="range" id="les" min="2" max="8" value="4"><output id="vLes">4</output></div>
+        </div>
+        <div class="field">
+          <label>Bài tập / buổi <output id="oEx">5</output></label>
+          <div class="range-row"><input type="range" id="ex" min="3" max="10" value="5"><output id="vEx">5</output></div>
+        </div>
+        <div class="field">
+          <label>Số câu trong bài test <output id="oQ">8</output></label>
+          <div class="range-row"><input type="range" id="q" min="5" max="10" value="8"><output id="vQ">8</output></div>
+        </div>
+        <div class="field">
+          <label for="students">Số học sinh</label>
+          <input type="number" id="students" value="1" min="1" />
+        </div>
+        <div class="field">
+          <label for="fx">Tỉ giá (VNĐ / USD)</label>
+          <input type="number" id="fx" value="25400" min="1" />
+        </div>
+      </div>
+
+      <div class="result-box">
+        <div style="margin-bottom:14px;">
+          <div class="big" id="costUsd">$0,01<small> / học sinh</small></div>
+          <div style="color:var(--muted);font-size:14px;margin-top:2px;" id="costVnd">≈ 250 VNĐ</div>
+        </div>
+        <div class="result-line"><span>Input token</span><span id="rIn">3.700</span></div>
+        <div class="result-line"><span>Output token</span><span id="rOut">15.850</span></div>
+        <div class="result-line"><span>Tổng token</span><span id="rTot">19.550</span></div>
+        <div class="result-line"><span>Số bài tập sinh ra</span><span id="rEx">80</span></div>
+        <div class="result-line" style="margin-top:6px;border-top:2px solid var(--accent);padding-top:12px;"><span><b>Tổng chi phí (× học sinh)</b></span><span id="rTotalUsd" style="color:var(--accent2)">$0,01</span></div>
+        <div class="result-line"><span><b>Tổng chi phí (VNĐ)</b></span><span id="rTotalVnd" style="color:var(--accent2)">250 VNĐ</span></div>
+        <div class="scale-note" id="scaleNote"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ic">📝</span> Ghi chú &amp; cảnh báo</h2>
+    <div class="disclaimer" style="margin-bottom:18px;">
+      ⚠️ Đây là <b>ước tính</b> dựa trên cấu trúc prompt và giới hạn token trong code, <b>chưa đo thực tế</b>.
+      Hiện <code>OPENAI_API_KEY</code> đang trống nên hệ thống chạy fallback tất định (0 token). Để có số chính xác:
+      nạp API key thật rồi đọc bảng <code>ai-log</code> (lưu <code>tokensUsed</code> mỗi lần gọi).
+    </div>
+    <ul class="notes">
+      <li><b>Chi phí lớn nhất</b> nằm ở lần tạo giáo trình (sinh toàn bộ bài tập một lượt — output có thể chạm trần 16K token của gpt-4o-mini).</li>
+      <li><b>Co giãn tuyến tính</b> theo số module / buổi / bài tập — tăng cấu hình thì output và chi phí tăng theo.</li>
+      <li><b>Đổi model</b>: gpt-4o đắt hơn ~17–25×; gpt-5 output cũng ~17× so với mini.</li>
+      <li><b>Phát sinh ngoài luồng</b>: AI Solver (giải bài) và Chat Tutor mỗi lượt là 1 call riêng (~600 token/lượt), không nằm trong luồng "hoàn thành buổi học" cơ bản.</li>
+      <li><b>Chấm điểm</b>: câu trắc nghiệm chấm tất định (0 token); chỉ câu tự luận / trả lời ngắn mới gọi AI.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Tạo tự động cho dự án MathAI · gpt-4o-mini · Cập nhật ước tính dựa trên mã nguồn backend.
+  </footer>
+</div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const nf = new Intl.NumberFormat('vi-VN');
+  const usd = (n) => '$' + n.toLocaleString('en-US', { minimumFractionDigits: n < 1 ? 4 : 2, maximumFractionDigits: n < 1 ? 4 : 2 });
+
+  // Token model (per the backend analysis)
+  // Test: generate 1 call, grade non-MC (~40% câu), analyze 1 call
+  // Curriculum: 1 big call producing all exercises
+  function compute() {
+    const modelOpt = $('model').selectedOptions[0];
+    const pin = parseFloat(modelOpt.dataset.in);   // $/1M input
+    const pout = parseFloat(modelOpt.dataset.out);  // $/1M output
+
+    const mod = +$('mod').value;
+    const les = +$('les').value;
+    const ex  = +$('ex').value;
+    const q   = +$('q').value;
+    const students = Math.max(1, +$('students').value || 1);
+    const fx = Math.max(1, +$('fx').value || 25400);
+
+    const lessons = mod * les;
+    const exercises = lessons * ex;
+    const nonMc = Math.round(q * 0.4); // ~40% câu tự luận/ngắn được chấm bằng AI
+
+    // ---- INPUT tokens ----
+    const inTest = 800 + nonMc * 300 + 500;          // generate + grade + analyze
+    const inCurr = 1500;                              // 1 prompt
+    const totIn = inTest + inCurr;
+
+    // ---- OUTPUT tokens ----
+    const outTest = q * 220 + nonMc * 150 + 400;      // ~220 tok/câu đề + chấm + phân tích
+    // mỗi bài tập ~120 tok + mỗi buổi ~200 tok mô tả/lý thuyết + mỗi module ~80
+    let outCurr = exercises * 120 + lessons * 200 + mod * 80 + 300;
+    const cap = 16000; // trần output thực tế của gpt-4o-mini
+    const capped = outCurr > cap;
+    if (capped) outCurr = cap;
+    const totOut = outTest + outCurr;
+
+    const totTok = totIn + totOut;
+
+    const costOne = (totIn / 1e6) * pin + (totOut / 1e6) * pout;
+    const costAll = costOne * students;
+
+    $('rIn').textContent = nf.format(totIn);
+    $('rOut').textContent = nf.format(totOut);
+    $('rTot').textContent = nf.format(totTok);
+    $('rEx').textContent = nf.format(exercises);
+
+    $('costUsd').innerHTML = usd(costOne) + '<small> / học sinh</small>';
+    $('costVnd').textContent = '≈ ' + nf.format(Math.round(costOne * fx)) + ' VNĐ / học sinh';
+    $('rTotalUsd').textContent = usd(costAll);
+    $('rTotalVnd').textContent = nf.format(Math.round(costAll * fx)) + ' VNĐ';
+
+    $('scaleNote').textContent = capped
+      ? '⚠️ Output giáo trình đã chạm trần ~16K token của gpt-4o-mini — cấu hình lớn hơn sẽ bị cắt bớt nội dung.'
+      : '';
+
+    // sync range outputs
+    $('vMod').textContent = $('oMod').textContent = mod;
+    $('vLes').textContent = $('oLes').textContent = les;
+    $('vEx').textContent  = $('oEx').textContent  = ex;
+    $('vQ').textContent   = $('oQ').textContent   = q;
+  }
+
+  ['model','mod','les','ex','q','students','fx'].forEach(id => {
+    $(id).addEventListener('input', compute);
+  });
+  compute();
+</script>
+</body>
+</html>

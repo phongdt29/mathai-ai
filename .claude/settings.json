@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(exit 1)",
+      "Bash(netstat -ano)",
+      "Bash(echo \"mongo: $\\(netstat -ano)",
+      "Bash(curl -s -o /dev/null -w \"backend /api/health: %{http_code}\\\\n\" http://localhost:3001/api/health)",
+      "Bash(curl -s -o /dev/null -w \"frontend: %{http_code}\\\\n\" http://localhost:3444)",
+      "PowerShell(try { Start-Service MongoDB -ErrorAction Stop; \"Started OK\" } catch { \"Start-Service failed: $\\($_.Exception.Message\\)\"; \"Trying net start...\"; net start MongoDB }; Start-Sleep -Seconds 2; \\(Get-Service MongoDB\\).Status)",
+      "PowerShell($svc = Get-CimInstance Win32_Service -Filter \"Name='MongoDB'\"; $svc.PathName; \"---\"; $bin = \\($svc.PathName -replace '^\"','' -split '\" '\\)[0]; \"BIN: $bin\"; \"EXISTS: $\\(Test-Path $bin\\)\")",
+      "PowerShell(Start-Process powershell -Verb RunAs -ArgumentList '-NoProfile','-Command','Start-Service MongoDB' -Wait; Start-Sleep -Seconds 2; \"MongoDB status: $\\(\\(Get-Service MongoDB\\).Status\\)\")",
+      "Bash(xargs echo \"mongo27017:\")",
+      "Bash(curl -s -o /dev/null -w \"frontend 3444: %{http_code}\\\\n\" http://localhost:3444)",
+      "Bash(curl -s -o /dev/null -w \"GET /api: %{http_code}\\\\n\" http://localhost:3001/api)",
+      "Bash(curl -s -o /dev/null -w \"GET /health: %{http_code}\\\\n\" http://localhost:3001/health)",
+      "Bash(curl -s -o /dev/null -w \"frontend retry: %{http_code}\\\\n\" http://localhost:3444/)",
+      "Bash(npx next *)",
+      "Bash(curl -s -o /dev/null -w \"frontend 3444: %{http_code}\\\\n\" http://localhost:3444/)",
+      "Bash(curl -s -o /dev/null -w \"backend /health: %{http_code}\\\\n\" http://localhost:3001/health)",
+      "PowerShell(Start-Process \"c:\\\\xampp\\\\htdocs\\\\mathai-ai\\\\docs\\\\chi-phi-token.html\")",
+      "PowerShell(\"Opened\")",
+      "Bash(ls app/page.tsx app/page.*)",
+      "Bash(ls app/*.tsx)",
+      "Bash(find components *)",
+      "Bash(curl -s -o /dev/null -w \"homepage 3444: %{http_code}\\\\n\" http://localhost:3444/)",
+      "Bash(curl -s http://localhost:3444/)"
+    ]
+  }
+}
