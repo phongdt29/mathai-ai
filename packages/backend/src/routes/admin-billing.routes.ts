@@ -7,6 +7,7 @@ import { subscriptionRepository } from "../models/subscription.model";
 import { invoiceRepository } from "../models/invoice.model";
 import { billingTransactionRepository } from "../models/billing-transaction.model";
 import { paymentTransactionRepository } from "../models/payment-transaction.model";
+import { UserModel } from "../models/user.model";
 import { ValidationError, NotFoundError, ForbiddenError } from "../utils/errors";
 import { paymentGatewayRegistry } from "../services/payment/payment-gateway.registry";
 import { createDefaultGatewayConfig } from "../models/payment-gateway-config.model";
@@ -573,58 +574,53 @@ router.get(
   "/transactions",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const {
-        type,
-        user_id: filterUserId,
-        from,
-        to,
-        limit: limitStr,
-      } = req.query;
+      const { user_id: filterUserId, limit: limitStr } = req.query;
 
       const limit = Math.min(
         Math.max(parseInt(limitStr as string) || 50, 1),
         200,
       );
 
-      let transactions;
+      // Frontend bảng "Giao dịch" mong shape PaymentTransaction (intent_id,
+      // gateway, status, paid_at...), nên truy vấn trực tiếp payment transactions.
+      const filter = filterUserId ? { user_id: filterUserId as string } : {};
+      const transactions = await paymentTransactionRepository.model
+        .find(filter as any)
+        .sort({ createdAt: -1 })
+        .limit(limit)
+        .lean()
+        .exec();
 
-      if (type && from && to) {
-        // Filter by type and date range
-        transactions = await billingTransactionRepository.findByTypeAndDateRange(
-          type as any,
-          new Date(from as string),
-          new Date(to as string),
-        );
-        transactions = transactions.slice(0, limit);
-      } else if (filterUserId) {
-        // Filter by user
-        transactions = await billingTransactionRepository.findByUserId(
-          filterUserId as string,
-          limit,
-        );
-      } else {
-        // Return recent transactions
-        transactions = await billingTransactionRepository.model
-          .find()
-          .sort({ createdAt: -1 })
-          .limit(limit)
-          .exec();
-      }
+      // Resolve user emails trong một truy vấn.
+      const userIds = [
+        ...new Set(
+          transactions
+            .map((txn: any) => (txn.user_id ? String(txn.user_id) : null))
+            .filter((id): id is string => Boolean(id)),
+        ),
+      ];
+      const users = userIds.length
+        ? await UserModel.find({ _id: { $in: userIds } })
+            .select("email")
+            .lean()
+        : [];
+      const emailById = new Map(
+        users.map((u: any) => [String(u._id), u.email as string]),
+      );
 
       res.status(200).json({
         success: true,
         data: transactions.map((txn: any) => ({
-          _id: txn._id,
-          user_id: txn.user_id,
-          subscription_id: txn.subscription_id,
-          invoice_id: txn.invoice_id,
-          payment_transaction_id: txn.payment_transaction_id,
-          type: txn.type,
-          amount_vnd: txn.amount_vnd,
-          description: txn.description,
-          performed_by: txn.performed_by,
-          metadata: txn.metadata,
-          createdAt: txn.createdAt?.toISOString?.() ?? txn.createdAt,
+          id: String(txn._id),
+          intent_id: txn.intent_id ?? "",
+          user_email: emailById.get(String(txn.user_id)) ?? "",
+          amount_vnd: txn.amount_vnd ?? 0,
+          gateway: txn.gateway ?? "",
+          status: txn.status ?? "pending",
+          created_at: txn.createdAt?.toISOString?.() ?? txn.createdAt ?? null,
+          paid_at: txn.paid_at
+            ? (txn.paid_at.toISOString?.() ?? txn.paid_at)
+            : null,
         })),
       });
     } catch (error) {

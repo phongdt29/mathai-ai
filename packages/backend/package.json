@@ -11,6 +11,7 @@
 		"seed": "tsx scripts/seed.ts",
 		"seed:dev": "tsx scripts/seed.ts",
 		"seed:staging": "tsx scripts/seed.ts",
+		"seed:grade8": "tsx scripts/seed-grade8-math.ts",
 		"test": "node --import tsx --test \"src/**/*.test.ts\" \"scripts/**/*.test.ts\"",
 		"test:ci": "node --import tsx --test --test-reporter=tap \"src/**/*.test.ts\" \"scripts/**/*.test.ts\"",
 		"backfill:assessment-points": "tsx scripts/backfill-assessment-attempt-points.ts",

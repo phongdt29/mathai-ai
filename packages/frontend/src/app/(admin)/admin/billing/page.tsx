@@ -625,7 +625,7 @@ export default function AdminBillingPage() {
             <tbody className="divide-y divide-gray-50">
               {transactions.map((tx) => (
                 <tr key={tx.id} className="hover:bg-gray-50">
-                  <td className="px-4 py-3 font-mono text-xs text-gray-700">{tx.intent_id.slice(0, 12)}...</td>
+                  <td className="px-4 py-3 font-mono text-xs text-gray-700">{String(tx.intent_id ?? '').slice(0, 12)}...</td>
                   <td className="px-4 py-3 text-gray-600">{tx.user_email}</td>
                   <td className="px-4 py-3 font-medium text-gray-900">{formatVND(tx.amount_vnd)}</td>
                   <td className="px-4 py-3 text-xs uppercase text-gray-500">{tx.gateway}</td>
