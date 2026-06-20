@@ -243,7 +243,8 @@ function buildDeployArtifact() {
 		version: "0.1.0",
 		private: true,
 		scripts: {
-			"start:backend": "node backend/dist/index.js",
+			"start:backend": "node backend/dist/src/index.js",
+			"start:worker": "node backend/dist/src/worker.js",
 			"start:frontend": "node frontend/start-frontend.js",
 		},
 	});
@@ -253,7 +254,8 @@ function buildDeployArtifact() {
 		[
 			"# MathAI deploy artifact",
 			"",
-			"- Backend build: `backend/dist/index.js`.",
+			"- Backend API: `backend/dist/src/index.js` (via `npm run start:backend`).",
+			"- Backend worker/cron: `backend/dist/src/worker.js` (via `npm run start:worker`).",
 			"- Frontend build: `frontend/start-frontend.js` starts the Next.js standalone server on every supported platform.",
 			"- `npm run start:frontend` runs the cross-platform Node wrapper instead of shell conditionals.",
 			"- Active runtime is MongoDB/Mongoose; SQL files in `database/` are reference material only.",

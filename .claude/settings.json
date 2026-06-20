@@ -23,7 +23,8 @@
       "Bash(ls app/*.tsx)",
       "Bash(find components *)",
       "Bash(curl -s -o /dev/null -w \"homepage 3444: %{http_code}\\\\n\" http://localhost:3444/)",
-      "Bash(curl -s http://localhost:3444/)"
+      "Bash(curl -s http://localhost:3444/)",
+      "Bash(git check-ignore *)"
     ]
   }
 }
