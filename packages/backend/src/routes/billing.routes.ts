@@ -517,9 +517,18 @@ router.get(
       res.status(200).json({
         success: true,
         data: {
+          id: subscription.subscription_id,
           subscription_id: subscription.subscription_id,
           plan_id: subscription.plan_id,
           plan_name: plan?.name ?? null,
+          plan: plan
+            ? {
+                plan_id: plan.plan_id,
+                name: plan.name,
+                price_vnd: plan.price_vnd,
+                billing_interval: plan.billing_interval,
+              }
+            : null,
           status: subscription.status,
           current_period_start: subscription.current_period_start.toISOString(),
           current_period_end: subscription.current_period_end.toISOString(),

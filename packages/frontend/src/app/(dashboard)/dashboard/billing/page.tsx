@@ -14,7 +14,8 @@ interface PlanInfo {
 
 interface SubscriptionInfo {
   id: string;
-  plan: PlanInfo;
+  plan: PlanInfo | null;
+  plan_name?: string | null;
   status: 'active' | 'trialing' | 'past_due' | 'cancelled' | 'expired';
   current_period_start: string;
   current_period_end: string;
@@ -171,13 +172,15 @@ export default function BillingPage() {
             {subscription ? (
               <div className="mt-3 space-y-2">
                 <div className="flex items-center gap-3">
-                  <span className="text-xl font-bold text-gray-900">{subscription.plan.name}</span>
+                  <span className="text-xl font-bold text-gray-900">{subscription.plan?.name ?? subscription.plan_name ?? 'Gói đăng ký'}</span>
                   <StatusBadge status={subscription.status} />
                 </div>
-                <div className="text-2xl font-bold text-blue-600">
-                  {formatVND(subscription.plan.price_vnd)}
-                  <IntervalLabel interval={subscription.plan.billing_interval} />
-                </div>
+                {subscription.plan && (
+                  <div className="text-2xl font-bold text-blue-600">
+                    {formatVND(subscription.plan.price_vnd)}
+                    <IntervalLabel interval={subscription.plan.billing_interval} />
+                  </div>
+                )}
               </div>
             ) : (
               <div className="mt-3">

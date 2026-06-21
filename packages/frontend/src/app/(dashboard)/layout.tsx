@@ -7,6 +7,7 @@ import {
 	Calculator,
 	ClipboardList,
 	Coins,
+	CreditCard,
 	Flame,
 	Hand,
 	Home,
@@ -35,6 +36,7 @@ const navItems = [
 	{ href: "/dashboard/chat", label: "Trợ lý AI", icon: Bot },
 	{ href: "/dashboard/progress", label: "Tiến độ", icon: TrendingUp },
 	{ href: "/dashboard/points", label: "Điểm thưởng", icon: Coins },
+	{ href: "/dashboard/billing", label: "Gói & Thanh toán", icon: CreditCard },
 ];
 
 function GradeBadge({ collapsed = false }: { collapsed?: boolean }) {

@@ -1,6 +1,15 @@
 import * as crypto from "node:crypto";
 import type { PaymentStatus } from "../../models/payment-transaction.model";
 
+/**
+ * Mã hoá giá trị theo đúng chuẩn VNPAY (application/x-www-form-urlencoded):
+ * khoảng trắng phải là "+" chứ không phải "%20". Dùng nhất quán cho cả
+ * việc tạo chữ ký và verify để khớp với cách VNPAY tính HMAC.
+ */
+function encodeVnp(value: string): string {
+	return encodeURIComponent(value).replace(/%20/g, "+");
+}
+
 // ── Types ───────────────────────────────────────────────────────────────
 
 export interface VNPayConfig {
@@ -74,17 +83,17 @@ export class VNPayAdapter {
 			vnpParams.vnp_BankCode = params.bank_code;
 		}
 
-		// Sort keys alphabetically and build sign data
+		// Sort keys alphabetically and build sign data (spaces encoded as "+")
 		const sortedKeys = Object.keys(vnpParams).sort();
 		const signData = sortedKeys
-			.map((key) => `${key}=${encodeURIComponent(vnpParams[key])}`)
+			.map((key) => `${key}=${encodeVnp(vnpParams[key])}`)
 			.join("&");
 
 		const hmac = crypto.createHmac("sha512", this.config.hashSecret);
 		hmac.update(signData);
 		const secureHash = hmac.digest("hex").toUpperCase();
 
-		const url = `${this.config.paymentUrl}?${signData}&vnp_SecureHash=${secureHash}&vnp_SecureHashType=SHA512`;
+		const url = `${this.config.paymentUrl}?${signData}&vnp_SecureHash=${secureHash}`;
 
 		return { url };
 	}
@@ -118,7 +127,7 @@ export class VNPayAdapter {
 
 		const sortedKeys = Object.keys(inputData).sort();
 		const signData = sortedKeys
-			.map((key) => `${key}=${encodeURIComponent(inputData[key])}`)
+			.map((key) => `${key}=${encodeVnp(inputData[key])}`)
 			.join("&");
 
 		const hmac = crypto.createHmac("sha512", this.config.hashSecret);
